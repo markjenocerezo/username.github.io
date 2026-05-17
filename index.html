@@ -338,7 +338,10 @@
         </div>
     </section>
                 
- <section id="contact" class="hidden py-24 bg-[#F5F1EA] px-6 section-fade pt-32" :class="{ 'hidden': activeSection !== 'contact' }">
+<section id="contact" 
+             class="py-24 bg-[#F5F1EA] px-6 section-fade pt-32" 
+             x-show="activeSection === 'contact'" 
+             x-cloak>
         <div class="max-w-5xl mx-auto">
             
             <div class="text-center mb-16">
