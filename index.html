@@ -280,29 +280,29 @@
                 </div>
             </div>
 
-       <div class="fixed inset-0 z-50 bg-black/85 backdrop-blur-sm flex items-center justify-center p-4" 
+      <div class="fixed inset-0 z-50 bg-black/90 backdrop-blur-sm flex items-center justify-center p-2 md:p-4" 
              x-show="openFashion" 
              x-transition.opacity 
              style="display: none;">
             
-            <div class="bg-[#F5F1EA] max-w-xl w-full p-3 md:p-4 relative shadow-2xl my-auto" @click.away="openFashion = false">
-                <div class="relative p-2 md:p-4 bg-white border border-[#2C2A29]/10 w-full">
-                    <div class="absolute inset-0 border-2 border-amber-700/30 translate-x-1.5 translate-y-1.5 z-0 m-2 md:m-4"></div>
-                    <div class="relative border border-[#2C2A29] p-4 bg-[#FBF9F6] z-10 space-y-4">
-                        
-                        <div class="flex justify-between items-center border-b border-gray-200 pb-2">
+            <div class="bg-[#F5F1EA] max-w-2xl w-full h-[85vh] md:h-[80vh] flex flex-col p-3 md:p-4 relative shadow-2xl" @click.away="openFashion = false">
+                <div class="relative p-2 md:p-4 bg-white border border-[#2C2A29]/10 w-full h-full flex flex-col justify-between">
+                    <div class="absolute inset-0 border-2 border-amber-700/30 translate-x-1.5 translate-y-1.5 z-0 m-2 md:m-4 pointer-events-none"></div>
+                    
+                    <div class="relative border border-[#2C2A29] p-3 md:p-4 bg-[#FBF9F6] z-10 w-full h-full flex flex-col justify-between">
+                        <div class="flex justify-between items-center border-b border-gray-200 pb-2 flex-shrink-0">
                             <div>
-                                <h3 class="text-lg font-serif text-[#2C2A29]">Fashion Showcase</h3>
+                                <h3 class="text-base md:text-lg font-serif text-[#2C2A29]">Fashion Showcase</h3>
                                 <p class="text-[10px] uppercase tracking-widest text-amber-800 font-bold">Image <span x-text="fashionIndex + 1"></span> of <span x-text="fashionImages.length"></span></p>
                             </div>
-                            <button class="text-2xl text-[#2C2A29] hover:text-amber-700 font-light" @click="openFashion = false">&times;</button>
+                            <button class="text-2xl text-[#2C2A29] hover:text-amber-700 font-light px-2" @click="openFashion = false">&times;</button>
                         </div>
                         
-                        <div class="relative w-full overflow-hidden bg-black flex items-center justify-center max-h-[50vh] md:max-h-[55vh] border border-[#2C2A29]/20">
-                            <img :src="fashionImages[fashionIndex]" class="w-full h-full object-contain max-h-[50vh] md:max-h-[55vh]">
+                        <div class="relative w-full flex-grow my-3 overflow-hidden bg-black flex items-center justify-center border border-[#2C2A29]/20">
+                            <img :src="fashionImages[fashionIndex]" class="w-full h-full object-contain max-h-full max-w-full">
                         </div>
                         
-                        <div class="flex justify-between items-center pt-2">
+                        <div class="flex justify-between items-center pt-2 flex-shrink-0">
                             <button class="px-4 py-2 border border-[#2C2A29] text-xs uppercase tracking-widest font-bold text-[#2C2A29] bg-white hover:bg-[#2C2A29] hover:text-white transition-colors duration-300" @click="fashionIndex = (fashionIndex === 0) ? fashionImages.length - 1 : fashionIndex - 1">◄ Prev</button>
                             <button class="px-4 py-2 border border-[#2C2A29] text-xs uppercase tracking-widest font-bold text-[#2C2A29] bg-white hover:bg-[#2C2A29] hover:text-white transition-colors duration-300" @click="fashionIndex = (fashionIndex === fashionImages.length - 1) ? 0 : fashionIndex + 1">Next ►</button>
                         </div>
@@ -311,29 +311,29 @@
             </div>
         </div>
 
-        <div class="fixed inset-0 z-50 bg-black/85 backdrop-blur-sm flex items-center justify-center p-4" 
+        <div class="fixed inset-0 z-50 bg-black/90 backdrop-blur-sm flex items-center justify-center p-2 md:p-4" 
              x-show="openGraphics" 
              x-transition.opacity 
              style="display: none;">
             
-            <div class="bg-[#F5F1EA] max-w-xl w-full p-3 md:p-4 relative shadow-2xl my-auto" @click.away="openGraphics = false">
-                <div class="relative p-2 md:p-4 bg-white border border-[#2C2A29]/10 w-full">
-                    <div class="absolute inset-0 border-2 border-amber-700/30 translate-x-1.5 translate-y-1.5 z-0 m-2 md:m-4"></div>
-                    <div class="relative border border-[#2C2A29] p-4 bg-[#FBF9F6] z-10 space-y-4">
-                        
-                        <div class="flex justify-between items-center border-b border-gray-200 pb-2">
+            <div class="bg-[#F5F1EA] max-w-2xl w-full h-[85vh] md:h-[80vh] flex flex-col p-3 md:p-4 relative shadow-2xl" @click.away="openGraphics = false">
+                <div class="relative p-2 md:p-4 bg-white border border-[#2C2A29]/10 w-full h-full flex flex-col justify-between">
+                    <div class="absolute inset-0 border-2 border-amber-700/30 translate-x-1.5 translate-y-1.5 z-0 m-2 md:m-4 pointer-events-none"></div>
+                    
+                    <div class="relative border border-[#2C2A29] p-3 md:p-4 bg-[#FBF9F6] z-10 w-full h-full flex flex-col justify-between">
+                        <div class="flex justify-between items-center border-b border-gray-200 pb-2 flex-shrink-0">
                             <div>
-                                <h3 class="text-lg font-serif text-[#2C2A29]">Graphics Showcase</h3>
+                                <h3 class="text-base md:text-lg font-serif text-[#2C2A29]">Graphics Showcase</h3>
                                 <p class="text-[10px] uppercase tracking-widest text-amber-800 font-bold">Image <span x-text="graphicsIndex + 1"></span> of <span x-text="graphicsImages.length"></span></p>
                             </div>
-                            <button class="text-2xl text-[#2C2A29] hover:text-amber-700 font-light" @click="openGraphics = false">&times;</button>
+                            <button class="text-2xl text-[#2C2A29] hover:text-amber-700 font-light px-2" @click="openGraphics = false">&times;</button>
                         </div>
                         
-                        <div class="relative w-full overflow-hidden bg-black flex items-center justify-center max-h-[50vh] md:max-h-[55vh] border border-[#2C2A29]/20">
-                            <img :src="graphicsImages[graphicsIndex]" class="w-full h-full object-contain max-h-[50vh] md:max-h-[55vh]">
+                        <div class="relative w-full flex-grow my-3 overflow-hidden bg-black flex items-center justify-center border border-[#2C2A29]/20">
+                            <img :src="graphicsImages[graphicsIndex]" class="w-full h-full object-contain max-h-full max-w-full">
                         </div>
                         
-                        <div class="flex justify-between items-center pt-2">
+                        <div class="flex justify-between items-center pt-2 flex-shrink-0">
                             <button class="px-4 py-2 border border-[#2C2A29] text-xs uppercase tracking-widest font-bold text-[#2C2A29] bg-white hover:bg-[#2C2A29] hover:text-white transition-colors duration-300" @click="graphicsIndex = (graphicsIndex === 0) ? graphicsImages.length - 1 : graphicsIndex - 1">◄ Prev</button>
                             <button class="px-4 py-2 border border-[#2C2A29] text-xs uppercase tracking-widest font-bold text-[#2C2A29] bg-white hover:bg-[#2C2A29] hover:text-white transition-colors duration-300" @click="graphicsIndex = (graphicsIndex === graphicsImages.length - 1) ? 0 : graphicsIndex + 1">Next ►</button>
                         </div>
