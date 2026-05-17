@@ -6,7 +6,6 @@
     <title>Mark Jeino | Personal Portfolio</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
-    
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     
     <style>
@@ -24,6 +23,7 @@
             opacity: 1;
             transform: translateY(0);
         }
+        [x-cloak] { display: none !important; }
     </style>
 </head>
 <body class="bg-[#FBF9F6] text-[#2C2A29] scroll-smooth">
@@ -42,7 +42,7 @@
         </div>
     </nav>
 
-    <section id="home" class="min-h-screen flex items-center pt-24 pb-12 px-6 max-w-6xl mx-auto">
+    <section id="home" class="min-h-screen flex items-center pt-24 pb-12 px-6 max-w-6xl mx-auto section-fade show">
         <div class="grid md:grid-cols-2 gap-16 items-center w-full">
             
             <div class="space-y-5">
@@ -79,37 +79,26 @@
                 <div class="relative border border-[#2C2A29] p-6 md:p-12 bg-[#FBF9F6] z-10">
                     <div class="grid md:grid-cols-3 gap-12">
                         
-                        <div class="md:col-span-1 space-y-5">
-                            <div class="relative inline-block w-48 h-48 md:w-full md:h-auto aspect-square">
-                                <div class="absolute inset-0 border border-amber-700/40 translate-x-2 translate-y-2 z-0"></div>
-                                <div class="relative border border-[#2C2A29] p-1.5 bg-white z-10 shadow-sm h-full">
-                                    <div class="border border-[#2C2A29]/10 overflow-hidden h-full">
-                                        <img src=" 473802872_2010395539468278_1233830341626882435_n.jpg" alt="Mark Jeino" class="w-full h-full object-cover">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="space-y-3 pt-2">
-                                <h2 class="text-3xl font-normal font-serif text-[#2C2A29] leading-tight">
-                                    The Creative Narrative
-                                </h2>
-                                <div class="w-16 h-0.5 bg-amber-700"></div>
-                                
-                                <ul class="space-y-1.5 text-xs uppercase tracking-[0.25em] text-amber-800 font-bold block pt-1">
-                                    <li class="flex items-center gap-2">
-                                        <span class="w-1.5 h-1.5 bg-amber-700 rounded-full"></span>
-                                        Movement
-                                    </li>
-                                    <li class="flex items-center gap-2">
-                                        <span class="w-1.5 h-1.5 bg-amber-700 rounded-full"></span>
-                                        Structure
-                                    </li>
-                                    <li class="flex items-center gap-2">
-                                        <span class="w-1.5 h-1.5 bg-amber-700 rounded-full"></span>
-                                        Style
-                                    </li>
-                                </ul>
-                            </div>
+                        <div class="md:col-span-1 space-y-6">
+                            <h2 class="text-4xl font-normal font-serif text-[#2C2A29] leading-tight">
+                                The Creative Narrative
+                            </h2>
+                            <div class="w-20 h-1 bg-amber-700"></div>
+                            
+                            <ul class="space-y-3 text-xs uppercase tracking-[0.25em] text-amber-800 font-bold block pt-2">
+                                <li class="flex items-center gap-2">
+                                    <span class="w-1.5 h-1.5 bg-amber-700 rounded-full"></span>
+                                    Movement
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <span class="w-1.5 h-1.5 bg-amber-700 rounded-full"></span>
+                                    Structure
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <span class="w-1.5 h-1.5 bg-amber-700 rounded-full"></span>
+                                    Style
+                                </li>
+                            </ul>
                         </div>
 
                         <div class="md:col-span-2 space-y-8">
@@ -147,7 +136,11 @@
                             </div>
                         </div>
 
-                    </div> </div> </div> </div> </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <section id="portfolio" class="hidden py-24 bg-[#FBF9F6] px-6 section-fade pt-32" 
              x-data="{ 
@@ -174,14 +167,11 @@
              }">
         
         <div class="max-w-5xl mx-auto space-y-24">
-            
             <div class="space-y-16">
                 <div class="text-center space-y-4">
                     <h2 class="text-4xl font-normal font-serif text-[#2C2A29]">Selected Works</h2>
                     <div class="w-16 h-1 bg-amber-700 mx-auto"></div>
-                    <p class="text-xs uppercase tracking-[0.3em] text-amber-800 font-bold">
-                        Visual & Fashion Design Collections
-                    </p>
+                    <p class="text-xs uppercase tracking-[0.3em] text-amber-800 font-bold">Visual & Fashion Design Collections</p>
                 </div>
 
                 <div class="grid md:grid-cols-2 gap-16 pt-6">
@@ -231,9 +221,7 @@
                 <div class="text-center space-y-4">
                     <h2 class="text-4xl font-normal font-serif text-[#2C2A29]">Performing Arts</h2>
                     <div class="w-16 h-1 bg-amber-700 mx-auto"></div>
-                    <p class="text-xs uppercase tracking-[0.3em] text-amber-800 font-bold">
-                        Dance & Choreography Showcase
-                    </p>
+                    <p class="text-xs uppercase tracking-[0.3em] text-amber-800 font-bold">Dance & Choreography Showcase</p>
                 </div>
 
                 <div class="grid md:grid-cols-2 gap-16 pt-6">
@@ -242,13 +230,7 @@
                             <div class="absolute inset-0 border border-amber-700/40 translate-x-3 translate-y-3 transition-transform duration-500 group-hover:translate-x-1 group-hover:translate-y-1 z-0"></div>
                             <div class="relative border border-[#2C2A29] p-2 bg-white z-10 shadow-sm">
                                 <div class="border border-[#2C2A29]/10 overflow-hidden aspect-video bg-black relative">
-                                    <iframe class="w-full h-full" 
-                                            src="https://www.youtube.com/embed/OvJeJAeXACU?autoplay=0&mute=0" 
-                                            title="Trashion Show 2025" 
-                                            frameborder="0" 
-                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                                            allowfullscreen>
-                                    </iframe>
+                                    <iframe class="w-full h-full" src="https://www.youtube.com/embed/OvJeJAeXACU?autoplay=0&mute=0" title="Trashion Show 2025" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                                 </div>
                             </div>
                         </div>
@@ -264,13 +246,7 @@
                             <div class="absolute inset-0 border border-amber-700/40 translate-x-3 translate-y-3 transition-transform duration-500 group-hover:translate-x-1 group-hover:translate-y-1 z-0"></div>
                             <div class="relative border border-[#2C2A29] p-2 bg-white z-10 shadow-sm">
                                 <div class="border border-[#2C2A29]/10 overflow-hidden aspect-video bg-black relative">
-                                    <iframe class="w-full h-full" 
-                                            src="https://www.youtube.com/embed/a4Q8UsrWktw?autoplay=0&mute=0" 
-                                            title="Dance Performance" 
-                                            frameborder="0" 
-                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                                            allowfullscreen>
-                                    </iframe>
+                                    <iframe class="w-full h-full" src="https://www.youtube.com/embed/a4Q8UsrWktw?autoplay=0&mute=0" title="Dance Performance" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                                 </div>
                             </div>
                         </div>
@@ -283,10 +259,7 @@
                 </div>
             </div>
 
-            <div class="fixed inset-0 z-50 overflow-y-auto bg-black/85 backdrop-blur-sm flex items-center justify-center p-4" 
-                 x-show="openFashion" 
-                 x-transition.opacity 
-                 style="display: none;">
+            <div class="fixed inset-0 z-50 overflow-y-auto bg-black/85 backdrop-blur-sm flex items-center justify-center p-4" x-show="openFashion" x-transition.opacity style="display: none;">
                 <div class="bg-[#F5F1EA] max-w-2xl w-full p-4 relative shadow-2xl my-auto" @click.away="openFashion = false">
                     <div class="relative p-2 md:p-4 bg-white border border-[#2C2A29]/10 w-full">
                         <div class="absolute inset-0 border-2 border-amber-700/30 translate-x-1.5 translate-y-1.5 z-0 m-2 md:m-4"></div>
@@ -310,10 +283,7 @@
                 </div>
             </div>
 
-            <div class="fixed inset-0 z-50 overflow-y-auto bg-black/85 backdrop-blur-sm flex items-center justify-center p-4" 
-                 x-show="openGraphics" 
-                 x-transition.opacity 
-                 style="display: none;">
+            <div class="fixed inset-0 z-50 overflow-y-auto bg-black/85 backdrop-blur-sm flex items-center justify-center p-4" x-show="openGraphics" x-transition.opacity style="display: none;">
                 <div class="bg-[#F5F1EA] max-w-2xl w-full p-4 relative shadow-2xl my-auto" @click.away="openGraphics = false">
                     <div class="relative p-2 md:p-4 bg-white border border-[#2C2A29]/10 w-full">
                         <div class="absolute inset-0 border-2 border-amber-700/30 translate-x-1.5 translate-y-1.5 z-0 m-2 md:m-4"></div>
@@ -336,116 +306,107 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </section>
                 
-   <section id="contact" class="hidden py-24 bg-[#F5F1EA] px-6 section-fade pt-32">
+    <section id="contact" class="hidden py-24 bg-[#F5F1EA] px-6 section-fade pt-32">
         <div class="max-w-5xl mx-auto">
             
-            <div class="text-center mb-16">
+            <div class="text-center mb-12">
                 <h2 class="text-3xl md:text-4xl font-serif text-[#2C2A29] mb-3">Get In Touch</h2>
                 <div class="w-16 h-[2px] bg-amber-800 mx-auto"></div>
                 <p class="text-xs uppercase tracking-widest text-amber-800 font-bold mt-4">Let's build or create something beautiful together</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
                 
-                <div class="space-y-6">
-                    <h3 class="text-xl font-serif text-[#2C2A29] mb-2">Official Accounts</h3>
+                <div class="flex flex-col justify-between space-y-4">
+                    <div class="mb-1">
+                        <h3 class="text-xl font-serif text-[#2C2A29]">Official Accounts</h3>
+                    </div>
                     
-                    <a href="https://www.facebook.com/share/17jVJLPbtt/" target="_blank" class="block group relative bg-white border-2 border-[#2C2A29] p-4 transition-all duration-300 hover:-translate-y-0.5">
-                        <div class="absolute inset-0 border-2 border-amber-700/40 bg-amber-700/5 translate-x-1.5 translate-y-1.5 -z-10 transition-transform group-hover:translate-x-1 group-hover:translate-y-1"></div>
-                        <div class="flex items-center space-x-5 bg-white">
-                            <div class="flex-shrink-0">
-                                <svg class="w-14 h-14 text-[#1877F2]" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                                </svg>
-                            </div>
-                            <div class="flex flex-col justify-center">
-                                <span class="text-sm font-semibold text-gray-500 uppercase tracking-wider leading-none">Facebook</span>
-                                <h4 class="font-serif text-2xl text-[#2C2A29] my-1 font-normal leading-tight">Mark Cerezo</h4>
-                                <p class="text-xs text-amber-800 font-medium tracking-wide uppercase leading-none mt-0.5">add or follow me</p>
+                    <a href="https://www.facebook.com/share/17jVJLPbtt/" target="_blank" class="block group relative bg-white border border-[#2C2A29] p-3 transition-all duration-300 hover:-translate-y-0.5">
+                        <div class="absolute inset-0 border border-amber-700/40 translate-x-1 translate-y-1 z-0 pointer-events-none bg-amber-700/5 transition-transform group-hover:translate-x-0.5 group-hover:translate-y-0.5"></div>
+                        <div class="relative z-10 flex items-center space-x-4">
+                            <svg class="w-11 h-11 text-[#1877F2] flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                            <div>
+                                <span class="text-[10px] uppercase tracking-wider text-gray-400 block font-semibold leading-none mb-0.5">Facebook</span>
+                                <h4 class="font-serif text-xl text-[#2C2A29] m-0 font-normal leading-tight">Mark Cerezo</h4>
+                                <p class="text-[10px] uppercase tracking-widest text-amber-800 font-bold m-0 leading-none mt-0.5">add or follow me</p>
                             </div>
                         </div>
                     </a>
 
-                    <a href="https://www.instagram.com/markjeino.official?igsh=NHpqYmk2ZnRhdHlz" target="_blank" class="block group relative bg-white border-2 border-[#2C2A29] p-4 transition-all duration-300 hover:-translate-y-0.5">
-                        <div class="absolute inset-0 border-2 border-amber-700/40 bg-amber-700/5 translate-x-1.5 translate-y-1.5 -z-10 transition-transform group-hover:translate-x-1 group-hover:translate-y-1"></div>
-                        <div class="flex items-center space-x-5 bg-white">
-                            <div class="flex-shrink-0">
-                                <div class="w-14 h-14 flex items-center justify-center rounded-xl bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] text-white">
-                                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-                                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
-                                    </svg>
-                                </div>
+                    <a href="https://www.instagram.com/markjeino.official?igsh=NHpqYmk2ZnRhdHlz" target="_blank" class="block group relative bg-white border border-[#2C2A29] p-3 transition-all duration-300 hover:-translate-y-0.5">
+                        <div class="absolute inset-0 border border-amber-700/40 translate-x-1 translate-y-1 z-0 pointer-events-none bg-amber-700/5 transition-transform group-hover:translate-x-0.5 group-hover:translate-y-0.5"></div>
+                        <div class="relative z-10 flex items-center space-x-4">
+                            <div class="w-11 h-11 flex items-center justify-center rounded-xl bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] text-white flex-shrink-0">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+                                </svg>
                             </div>
-                            <div class="flex flex-col justify-center">
-                                <span class="text-sm font-semibold text-gray-500 uppercase tracking-wider leading-none">Instagram</span>
-                                <h4 class="font-serif text-2xl text-[#2C2A29] my-1 font-normal leading-tight">Mrk_Jn.</h4>
-                                <p class="text-xs text-amber-800 font-medium tracking-wide uppercase leading-none mt-0.5">View my feed</p>
+                            <div>
+                                <span class="text-[10px] uppercase tracking-wider text-gray-400 block font-semibold leading-none mb-0.5">Instagram</span>
+                                <h4 class="font-serif text-xl text-[#2C2A29] m-0 font-normal leading-tight">Mrk_Jn.</h4>
+                                <p class="text-[10px] uppercase tracking-widest text-amber-800 font-bold m-0 leading-none mt-0.5">View my feed</p>
                             </div>
                         </div>
                     </a>
 
-                    <a href="mailto:desoniacerezo@gmail.com" class="block group relative bg-white border-2 border-[#2C2A29] p-4 transition-all duration-300 hover:-translate-y-0.5">
-                        <div class="absolute inset-0 border-2 border-amber-700/40 bg-amber-700/5 translate-x-1.5 translate-y-1.5 -z-10 transition-transform group-hover:translate-x-1 group-hover:translate-y-1"></div>
-                        <div class="flex items-center space-x-5 bg-white">
-                            <div class="flex-shrink-0">
-                                <svg class="w-14 h-14 text-[#EA4335]" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h10v-2H4V8l8 5 8-5v5h2V6c0-1.1-.9-2-2-2zm-8 7L4 6h16l-8 5z"/>
-                                </svg>
-                            </div>
-                            <div class="flex flex-col justify-center">
-                                <span class="text-sm font-semibold text-gray-500 uppercase tracking-wider leading-none">Email Address</span>
-                                <h4 class="font-serif text-lg md:text-xl text-[#2C2A29] my-1 font-normal leading-tight break-all">desoniacerezo@gmail.com</h4>
-                                <p class="text-xs text-amber-800 font-medium tracking-wide uppercase leading-none mt-0.5">send a direct mail</p>
+                    <a href="mailto:desoniacerezo@gmail.com" class="block group relative bg-white border border-[#2C2A29] p-3 transition-all duration-300 hover:-translate-y-0.5">
+                        <div class="absolute inset-0 border border-amber-700/40 translate-x-1 translate-y-1 z-0 pointer-events-none bg-amber-700/5 transition-transform group-hover:translate-x-0.5 group-hover:translate-y-0.5"></div>
+                        <div class="relative z-10 flex items-center space-x-4">
+                            <svg class="w-11 h-11 text-[#EA4335] flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h10v-2H4V8l8 5 8-5v5h2V6c0-1.1-.9-2-2-2zm-8 7L4 6h16l-8 5z"/>
+                            </svg>
+                            <div class="min-w-0">
+                                <span class="text-[10px] uppercase tracking-wider text-gray-400 block font-semibold leading-none mb-0.5">Email Address</span>
+                                <h4 class="font-serif text-[15px] md:text-base text-[#2C2A29] m-0 font-normal leading-tight truncate">desoniacerezo@gmail.com</h4>
+                                <p class="text-[10px] uppercase tracking-widest text-amber-800 font-bold m-0 leading-none mt-0.5">send a direct mail</p>
                             </div>
                         </div>
                     </a>
 
-                    <a href="tel:09361587488" class="block group relative bg-white border-2 border-[#2C2A29] p-4 transition-all duration-300 hover:-translate-y-0.5">
-                        <div class="absolute inset-0 border-2 border-amber-700/40 bg-amber-700/5 translate-x-1.5 translate-y-1.5 -z-10 transition-transform group-hover:translate-x-1 group-hover:translate-y-1"></div>
-                        <div class="flex items-center space-x-5 bg-white">
-                            <div class="flex-shrink-0">
-                                <svg class="w-14 h-14 text-emerald-600" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-2.2 2.2c-2.83-1.44-5.15-3.75-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.56 11.56 0 018.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1z"/>
-                                </svg>
-                            </div>
-                            <div class="flex flex-col justify-center">
-                                <span class="text-sm font-semibold text-gray-500 uppercase tracking-wider leading-none">Cellphone Number</span>
-                                <h4 class="font-serif text-2xl text-[#2C2A29] my-1 font-normal leading-tight">0936 158 7488</h4>
-                                <p class="text-xs text-amber-800 font-medium tracking-wide uppercase leading-none mt-0.5">Call or Text Me</p>
+                    <a href="tel:09361587488" class="block group relative bg-white border border-[#2C2A29] p-3 transition-all duration-300 hover:-translate-y-0.5">
+                        <div class="absolute inset-0 border border-amber-700/40 translate-x-1 translate-y-1 z-0 pointer-events-none bg-amber-700/5 transition-transform group-hover:translate-x-0.5 group-hover:translate-y-0.5"></div>
+                        <div class="relative z-10 flex items-center space-x-4">
+                            <svg class="w-11 h-11 text-emerald-600 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-2.2 2.2c-2.83-1.44-5.15-3.75-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.56 11.56 0 018.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1z"/>
+                            </svg>
+                            <div>
+                                <span class="text-[10px] uppercase tracking-wider text-gray-400 block font-semibold leading-none mb-0.5">Cellphone Number</span>
+                                <h4 class="font-serif text-xl text-[#2C2A29] m-0 font-normal leading-tight">0936 158 7488</h4>
+                                <p class="text-[10px] uppercase tracking-widest text-amber-800 font-bold m-0 leading-none mt-0.5">Call or text me</p>
                             </div>
                         </div>
                     </a>
                 </div>
 
-                <div class="relative w-full p-2 bg-white border-2 border-[#2C2A29] shadow-none">
-                    <div class="absolute inset-0 border-2 border-amber-700/30 bg-amber-700/5 translate-x-2 translate-y-2 -z-10"></div>
+                <div class="relative bg-white border border-[#2C2A29] p-5 flex flex-col justify-between">
+                    <div class="absolute inset-0 border border-amber-700/40 translate-x-1.5 translate-y-1.5 z-0 pointer-events-none bg-amber-700/5"></div>
                     
-                    <div class="relative border border-[#2C2A29]/20 p-6 bg-[#FBF9F6] w-full h-full">
-                        <form class="space-y-5">
-                            <div>
-                                <label class="block text-[10px] uppercase tracking-widest font-bold text-[#2C2A29] mb-2">Your Name</label>
-                                <input type="text" class="w-full p-3 border border-[#2C2A29]/30 bg-white text-sm focus:outline-none focus:border-amber-800 transition-colors" placeholder="Enter your full name">
-                            </div>
-                            
-                            <div>
-                                <label class="block text-[10px] uppercase tracking-widest font-bold text-[#2C2A29] mb-2">Email Address</label>
-                                <input type="email" class="w-full p-3 border border-[#2C2A29]/30 bg-white text-sm focus:outline-none focus:border-amber-800 transition-colors" placeholder="johndoe@example.com">
-                            </div>
-                            
-                            <div>
-                                <label class="block text-[10px] uppercase tracking-widest font-bold text-[#2C2A29] mb-2">Message</label>
-                                <textarea rows="4" class="w-full p-3 border border-[#2C2A29]/30 bg-white text-sm focus:outline-none focus:border-amber-800 transition-colors resize-none" placeholder="Write your message here..."></textarea>
-                            </div>
-                            
-                            <button type="submit" class="w-full py-3 border border-[#2C2A29] text-xs uppercase tracking-widest font-bold text-white bg-[#2C2A29] hover:bg-amber-800 transition-colors duration-300 shadow-sm">
-                                Send Message ►
-                            </button>
-                        </form>
-                    </div>
+                    <form class="relative z-10 space-y-4 bg-[#FBF9F6] border border-[#2C2A29]/20 p-5 h-full flex flex-col justify-between">
+                        <div>
+                            <label class="block text-[10px] uppercase tracking-widest font-bold text-[#2C2A29] mb-1">Your Name</label>
+                            <input type="text" class="w-full p-2.5 border border-[#2C2A29]/30 bg-white text-sm focus:outline-none focus:border-amber-800 transition-colors" placeholder="Enter your full name">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-[10px] uppercase tracking-widest font-bold text-[#2C2A29] mb-1">Email Address</label>
+                            <input type="email" class="w-full p-2.5 border border-[#2C2A29]/30 bg-white text-sm focus:outline-none focus:border-amber-800 transition-colors" placeholder="johndoe@example.com">
+                        </div>
+                        
+                        <div class="flex-grow flex flex-col mb-2">
+                            <label class="block text-[10px] uppercase tracking-widest font-bold text-[#2C2A29] mb-1">Message</label>
+                            <textarea class="w-full p-2.5 border border-[#2C2A29]/30 bg-white text-sm focus:outline-none focus:border-amber-800 transition-colors resize-none flex-grow" rows="3" placeholder="Write your message here..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full py-2.5 border border-[#2C2A29] text-xs uppercase tracking-widest font-bold text-white bg-[#2C2A29] hover:bg-amber-800 transition-colors duration-300 shadow-md flex-shrink-0">
+                            Send Message ►
+                        </button>
+                    </form>
                 </div>
 
             </div>
@@ -454,7 +415,6 @@
 
     <script>
         function showSection(sectionId) {
-            // Sinigurong kasama ang lahat ng tamang section ID
             const sections = ['home', 'about', 'portfolio', 'contact'];
             
             sections.forEach(id => {
@@ -462,7 +422,9 @@
                 if (el) {
                     if (id === sectionId) {
                         el.classList.remove('hidden');
-                        el.classList.add('show'); 
+                        setTimeout(() => {
+                            el.classList.add('show');
+                        }, 50);
                     } else {
                         el.classList.add('hidden');
                         el.classList.remove('show');
@@ -476,7 +438,7 @@
         const observerOptions = {
             root: null,
             rootMargin: '0px',
-            threshold: 0.1
+            threshold: 0.05
         };
 
         const observer = new IntersectionObserver((entries) => {
