@@ -280,58 +280,65 @@
                 </div>
             </div>
 
- <div x-show="openFashion" 
+<div class="fixed inset-0 z-50 overflow-y-auto bg-black/85 backdrop-blur-sm flex items-center justify-center p-4" 
+             x-show="openFashion" 
              x-transition.opacity 
-             style="display: none !important; position: fixed !important; inset: 0 !important; width: 100vw !important; height: 100vh !important; z-index: 999999 !important; background-color: rgba(0, 0, 0, 0.95) !important; backdrop-filter: blur(5px) !important;">
+             style="display: none;">
             
-            <div style="position: absolute !important; top: 50% !important; left: 50% !important; transform: translate(-50%, -50%) !important; width: 92% !important; max-width: 480px !important; display: flex !important; flex-direction: column !important; align-items: center !important; gap: 12px !important;">
-                
-                <div style="width: 100% !important; display: flex !important; justify-content: flex-end !important;">
-                    <button style="background: none !important; border: none !important; font-size: 32px !important; color: #ffffff !important; cursor: pointer !important; font-weight: 200 !important; line-height: 1 !important;" @click="openFashion = false">&times;</button>
-                </div>
-
-                <div style="width: 100% !important; height: 50vh !important; display: flex !important; align-items: center !important; justify-content: center !important; overflow: hidden !important;">
-                    <img :src="fashionImages[fashionIndex]" style="max-width: 100% !important; max-height: 100% !important; object-fit: contain !important; display: block !important; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.7) !important;">
-                </div>
-                
-                <div style="width: 100% !important; display: flex !important; justify-content: space-between !important; align-items: center !important; padding-top: 4px !important;">
-                    <button style="padding: 8px 16px !important; border: 1px solid #ffffff !important; font-size: 11px !important; text-transform: uppercase !important; font-weight: bold !important; background-color: transparent !important; color: #ffffff !important; cursor: pointer !important;" @click="fashionIndex = (fashionIndex === 0) ? fashionImages.length - 1 : fashionIndex - 1">◄ Prev</button>
-                    <span style="color: #ffffff !important; font-size: 11px !important; font-family: monospace !important; uppercase !important; tracking: 0.1em !important;">Image <span x-text="fashionIndex + 1"></span>/<span x-text="fashionImages.length"></span></span>
-                    <button style="padding: 8px 16px !important; border: 1px solid #ffffff !important; font-size: 11px !important; text-transform: uppercase !important; font-weight: bold !important; background-color: transparent !important; color: #ffffff !important; cursor: pointer !important;" @click="fashionIndex = (fashionIndex === fashionImages.length - 1) ? 0 : fashionIndex + 1">Next ►</button>
+            <div class="bg-[#F5F1EA] max-w-2xl w-full p-4 relative shadow-2xl my-auto" @click.away="openFashion = false">
+                <div class="relative p-2 md:p-4 bg-white border border-[#2C2A29]/10 w-full">
+                    <div class="absolute inset-0 border-2 border-amber-700/30 translate-x-1.5 translate-y-1.5 z-0 m-2 md:m-4"></div>
+                    <div class="relative border border-[#2C2A29] p-4 bg-[#FBF9F6] z-10 space-y-4">
+                        
+                        <div class="flex justify-between items-center border-b border-gray-200 pb-2">
+                            <div>
+                                <h3 class="text-lg font-serif text-[#2C2A29]">Fashion Showcase</h3>
+                                <p class="text-[10px] uppercase tracking-widest text-amber-800 font-bold">Image <span x-text="fashionIndex + 1"></span> of <span x-text="fashionImages.length"></span></p>
+                            </div>
+                            <button class="text-2xl text-[#2C2A29] hover:text-amber-700 font-light" @click="openFashion = false">&times;</button>
+                        </div>
+                        
+                        <div class="relative w-full overflow-hidden bg-black flex items-center justify-center max-h-[60vh] border border-[#2C2A29]/20">
+                            <img :src="fashionImages[fashionIndex]" class="w-full h-full object-contain max-h-[60vh]">
+                        </div>
+                        
+                        <div class="flex justify-between items-center pt-2">
+                            <button class="px-4 py-2 border border-[#2C2A29] text-xs uppercase tracking-widest font-bold text-[#2C2A29] bg-white hover:bg-[#2C2A29] hover:text-white transition-colors duration-300" @click="fashionIndex = (fashionIndex === 0) ? fashionImages.length - 1 : fashionIndex - 1">◄ Prev</button>
+                            <button class="px-4 py-2 border border-[#2C2A29] text-xs uppercase tracking-widest font-bold text-[#2C2A29] bg-white hover:bg-[#2C2A29] hover:text-white transition-colors duration-300" @click="fashionIndex = (fashionIndex === fashionImages.length - 1) ? 0 : fashionIndex + 1">Next ►</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div x-show="openGraphics" 
+        <div class="fixed inset-0 z-50 overflow-y-auto bg-black/85 backdrop-blur-sm flex items-center justify-center p-4" 
+             x-show="openGraphics" 
              x-transition.opacity 
-             style="display: none !important; position: fixed !important; inset: 0 !important; width: 100vw !important; height: 100vh !important; z-index: 999999 !important; background-color: rgba(0, 0, 0, 0.95) !important; backdrop-filter: blur(5px) !important;">
+             style="display: none;">
             
-            <div style="position: absolute !important; top: 50% !important; left: 50% !important; transform: translate(-50%, -50%) !important; width: 92% !important; max-width: 480px !important; display: flex !important; flex-direction: column !important; align-items: center !important; gap: 12px !important;">
-                
-                <div style="width: 100% !important; display: flex !important; justify-content: flex-end !important;">
-                    <button style="background: none !important; border: none !important; font-size: 32px !important; color: #ffffff !important; cursor: pointer !important; font-weight: 200 !important; line-height: 1 !important;" @click="openGraphics = false">&times;</button>
+            <div class="bg-[#F5F1EA] max-w-2xl w-full p-4 relative shadow-2xl my-auto" @click.away="openGraphics = false">
+                <div class="relative p-2 md:p-4 bg-white border border-[#2C2A29]/10 w-full">
+                    <div class="absolute inset-0 border-2 border-amber-700/30 translate-x-1.5 translate-y-1.5 z-0 m-2 md:m-4"></div>
+                    <div class="relative border border-[#2C2A29] p-4 bg-[#FBF9F6] z-10 space-y-4">
+                        
+                        <div class="flex justify-between items-center border-b border-gray-200 pb-2">
+                            <div>
+                                <h3 class="text-lg font-serif text-[#2C2A29]">Graphics Showcase</h3>
+                                <p class="text-[10px] uppercase tracking-widest text-amber-800 font-bold">Image <span x-text="graphicsIndex + 1"></span> of <span x-text="graphicsImages.length"></span></p>
+                            </div>
+                            <button class="text-2xl text-[#2C2A29] hover:text-amber-700 font-light" @click="openGraphics = false">&times;</button>
+                        </div>
+                        
+                        <div class="relative w-full overflow-hidden bg-black flex items-center justify-center max-h-[60vh] border border-[#2C2A29]/20">
+                            <img :src="graphicsImages[graphicsIndex]" class="w-full h-full object-contain max-h-[60vh]">
+                        </div>
+                        
+                        <div class="flex justify-between items-center pt-2">
+                            <button class="px-4 py-2 border border-[#2C2A29] text-xs uppercase tracking-widest font-bold text-[#2C2A29] bg-white hover:bg-[#2C2A29] hover:text-white transition-colors duration-300" @click="graphicsIndex = (graphicsIndex === 0) ? graphicsImages.length - 1 : graphicsIndex - 1">◄ Prev</button>
+                            <button class="px-4 py-2 border border-[#2C2A29] text-xs uppercase tracking-widest font-bold text-[#2C2A29] bg-white hover:bg-[#2C2A29] hover:text-white transition-colors duration-300" @click="graphicsIndex = (graphicsIndex === graphicsImages.length - 1) ? 0 : graphicsIndex + 1">Next ►</button>
+                        </div>
+                    </div>
                 </div>
-
-                <div style="width: 100% !important; height: 50vh !important; display: flex !important; align-items: center !important; justify-content: center !important; overflow: hidden !important;">
-                    <img :src="graphicsImages[graphicsIndex]" style="max-width: 100% !important; max-height: 100% !important; object-fit: contain !important; display: block !important; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.7) !important;">
-                </div>
-                
-                <div style="width: 100% !important; display: flex !important; justify-content: space-between !important; align-items: center !important; padding-top: 4px !important;">
-                    <button style="padding: 8px 16px !important; border: 1px solid #ffffff !important; font-size: 11px !important; text-transform: uppercase !important; font-weight: bold !important; background-color: transparent !important; color: #ffffff !important; cursor: pointer !important;" @click="graphicsIndex = (graphicsIndex === 0) ? graphicsImages.length - 1 : graphicsIndex - 1">◄ Prev</button>
-                    <span style="color: #ffffff !important; font-size: 11px !important; font-family: monospace !important; uppercase !important; tracking: 0.1em !important;">Image <span x-text="graphicsIndex + 1"></span>/<span x-text="graphicsImages.length"></span></span>
-                    <button style="padding: 8px 16px !important; border: 1px solid #ffffff !important; font-size: 11px !important; text-transform: uppercase !important; font-weight: bold !important; background-color: transparent !important; color: #ffffff !important; cursor: pointer !important;" @click="graphicsIndex = (graphicsIndex === graphicsImages.length - 1) ? 0 : graphicsIndex + 1">Next ►</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="hidden py-24 bg-[#2C2A29] text-[#FBF9F6] px-6 section-fade pt-32">
-        <div class="max-w-4xl mx-auto text-center space-y-8">
-            <h2 class="text-4xl font-normal">Let's Create Something Beautiful Together</h2>
-            <p class="text-gray-400 max-w-lg mx-auto text-sm">Open for freelance projects, fashion collaborations, and brand identity consultations.</p>
-            <div class="pt-6 space-y-2 text-sm tracking-wider">
-                <p>EMAIL: <a href="mailto:hello@yourdomain.com" class="underline text-amber-400">hello@yourdomain.com</a></p>
-                <p>INSTAGRAM: <a href="#" class="underline text-amber-400">@yourcreative.studio</a></p>
             </div>
         </div>
     </section>
