@@ -6,7 +6,6 @@
     <title>Mark Jeino | Personal Portfolio</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
-    
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     
     <style>
@@ -42,7 +41,7 @@
         </div>
     </nav>
 
-   <section id="home" class="min-h-screen flex items-center pt-24 pb-12 px-6 max-w-6xl mx-auto">
+    <section id="home" class="min-h-screen flex items-center pt-24 pb-12 px-6 max-w-6xl mx-auto section-fade show">
         <div class="grid md:grid-cols-2 gap-16 items-center w-full">
             
             <div class="space-y-5">
@@ -59,12 +58,12 @@
             
             <div class="w-full flex justify-center items-center py-4">
                 <div class="relative inline-block max-w-[340px] w-full group">
-                    
                     <div class="absolute inset-0 border-2 border-amber-700/60 translate-x-4 translate-y-4 transition-transform duration-500 group-hover:translate-x-2 group-hover:translate-y-2 z-0"></div>
-                    
                     <div class="relative border border-[#2C2A29] p-2 bg-[#FBF9F6] shadow-md z-10">
                         <div class="border border-[#2C2A29]/20 overflow-hidden">
-                      <img src="1778984595066.png" alt="Project Description" class="h-80 w-full object-cover">
+                            <img src="1778984595066.png" alt="Project Description" class="h-80 w-full object-cover">
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -73,11 +72,8 @@
 
     <section id="about" class="hidden py-24 bg-[#F5F1EA] px-6 section-fade pt-32">
         <div class="max-w-6xl mx-auto flex justify-center items-center">
-            
             <div class="relative group p-4 md:p-8 bg-white shadow-md w-full border border-[#2C2A29]/10">
-                
                 <div class="absolute inset-0 border-2 border-amber-700/40 translate-x-3 translate-y-3 transition-transform duration-500 group-hover:translate-x-1 group-hover:translate-y-1 z-0 m-4 md:m-8"></div>
-                
                 <div class="relative border border-[#2C2A29] p-6 md:p-12 bg-[#FBF9F6] z-10">
                     <div class="grid md:grid-cols-3 gap-12">
                         
@@ -138,10 +134,13 @@
                             </div>
                         </div>
 
-                    </div> </div> </div> </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-<section id="portfolio" class="hidden py-24 bg-[#FBF9F6] px-6 section-fade pt-32" 
+    <section id="portfolio" class="hidden py-24 bg-[#FBF9F6] px-6 section-fade pt-32" 
              x-data="{ 
                 openFashion: false, 
                 openGraphics: false,
@@ -166,14 +165,11 @@
              }">
         
         <div class="max-w-5xl mx-auto space-y-24">
-            
             <div class="space-y-16">
                 <div class="text-center space-y-4">
                     <h2 class="text-4xl font-normal font-serif text-[#2C2A29]">Selected Works</h2>
                     <div class="w-16 h-1 bg-amber-700 mx-auto"></div>
-                    <p class="text-xs uppercase tracking-[0.3em] text-amber-800 font-bold">
-                        Visual & Fashion Design Collections
-                    </p>
+                    <p class="text-xs uppercase tracking-[0.3em] text-amber-800 font-bold">Visual & Fashion Design Collections</p>
                 </div>
 
                 <div class="grid md:grid-cols-2 gap-16 pt-6">
@@ -223,9 +219,7 @@
                 <div class="text-center space-y-4">
                     <h2 class="text-4xl font-normal font-serif text-[#2C2A29]">Performing Arts</h2>
                     <div class="w-16 h-1 bg-amber-700 mx-auto"></div>
-                    <p class="text-xs uppercase tracking-[0.3em] text-amber-800 font-bold">
-                        Dance & Choreography Showcase
-                    </p>
+                    <p class="text-xs uppercase tracking-[0.3em] text-amber-800 font-bold">Dance & Choreography Showcase</p>
                 </div>
 
                 <div class="grid md:grid-cols-2 gap-16 pt-6">
@@ -234,13 +228,7 @@
                             <div class="absolute inset-0 border border-amber-700/40 translate-x-3 translate-y-3 transition-transform duration-500 group-hover:translate-x-1 group-hover:translate-y-1 z-0"></div>
                             <div class="relative border border-[#2C2A29] p-2 bg-white z-10 shadow-sm">
                                 <div class="border border-[#2C2A29]/10 overflow-hidden aspect-video bg-black relative">
-                                   <iframe class="w-full h-full" 
-        src="https://www.youtube.com/embed/OvJeJAeXACU?autoplay=0&mute=0" 
-        title="Trashion Show 2025" 
-        frameborder="0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-        allowfullscreen>
-</iframe>
+                                    <iframe class="w-full h-full" src="https://www.youtube.com/embed/OvJeJAeXACU?autoplay=0&mute=0" title="Trashion Show 2025" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                                 </div>
                             </div>
                         </div>
@@ -256,13 +244,7 @@
                             <div class="absolute inset-0 border border-amber-700/40 translate-x-3 translate-y-3 transition-transform duration-500 group-hover:translate-x-1 group-hover:translate-y-1 z-0"></div>
                             <div class="relative border border-[#2C2A29] p-2 bg-white z-10 shadow-sm">
                                 <div class="border border-[#2C2A29]/10 overflow-hidden aspect-video bg-black relative">
-                                    <iframe class="w-full h-full" 
-        src="https://www.youtube.com/embed/a4Q8UsrWktw?autoplay=0&mute=0" 
-        title="Dance Performance" 
-        frameborder="0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-        allowfullscreen>
-</iframe>
+                                    <iframe class="w-full h-full" src="https://www.youtube.com/embed/a4Q8UsrWktw?autoplay=0&mute=0" title="Dance Performance" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                                 </div>
                             </div>
                         </div>
@@ -275,62 +257,49 @@
                 </div>
             </div>
 
-<div class="fixed inset-0 z-50 overflow-y-auto bg-black/85 backdrop-blur-sm flex items-center justify-center p-4" 
-             x-show="openFashion" 
-             x-transition.opacity 
-             style="display: none;">
-            
-            <div class="bg-[#F5F1EA] max-w-2xl w-full p-4 relative shadow-2xl my-auto" @click.away="openFashion = false">
-                <div class="relative p-2 md:p-4 bg-white border border-[#2C2A29]/10 w-full">
-                    <div class="absolute inset-0 border-2 border-amber-700/30 translate-x-1.5 translate-y-1.5 z-0 m-2 md:m-4"></div>
-                    <div class="relative border border-[#2C2A29] p-4 bg-[#FBF9F6] z-10 space-y-4">
-                        
-                        <div class="flex justify-between items-center border-b border-gray-200 pb-2">
-                            <div>
-                                <h3 class="text-lg font-serif text-[#2C2A29]">Fashion Showcase</h3>
-                                <p class="text-[10px] uppercase tracking-widest text-amber-800 font-bold">Image <span x-text="fashionIndex + 1"></span> of <span x-text="fashionImages.length"></span></p>
+            <div class="fixed inset-0 z-50 overflow-y-auto bg-black/85 backdrop-blur-sm flex items-center justify-center p-4" x-show="openFashion" x-transition.opacity style="display: none;">
+                <div class="bg-[#F5F1EA] max-w-2xl w-full p-4 relative shadow-2xl my-auto" @click.away="openFashion = false">
+                    <div class="relative p-2 md:p-4 bg-white border border-[#2C2A29]/10 w-full">
+                        <div class="absolute inset-0 border-2 border-amber-700/30 translate-x-1.5 translate-y-1.5 z-0 m-2 md:m-4"></div>
+                        <div class="relative border border-[#2C2A29] p-4 bg-[#FBF9F6] z-10 space-y-4">
+                            <div class="flex justify-between items-center border-b border-gray-200 pb-2">
+                                <div>
+                                    <h3 class="text-lg font-serif text-[#2C2A29]">Fashion Showcase</h3>
+                                    <p class="text-[10px] uppercase tracking-widest text-amber-800 font-bold">Image <span x-text="fashionIndex + 1"></span> of <span x-text="fashionImages.length"></span></p>
+                                </div>
+                                <button class="text-2xl text-[#2C2A29] hover:text-amber-700 font-light" @click="openFashion = false">&times;</button>
                             </div>
-                            <button class="text-2xl text-[#2C2A29] hover:text-amber-700 font-light" @click="openFashion = false">&times;</button>
-                        </div>
-                        
-                        <div class="relative w-full overflow-hidden bg-black flex items-center justify-center max-h-[60vh] border border-[#2C2A29]/20">
-                            <img :src="fashionImages[fashionIndex]" class="w-full h-full object-contain max-h-[60vh]">
-                        </div>
-                        
-                        <div class="flex justify-between items-center pt-2">
-                            <button class="px-4 py-2 border border-[#2C2A29] text-xs uppercase tracking-widest font-bold text-[#2C2A29] bg-white hover:bg-[#2C2A29] hover:text-white transition-colors duration-300" @click="fashionIndex = (fashionIndex === 0) ? fashionImages.length - 1 : fashionIndex - 1">◄ Prev</button>
-                            <button class="px-4 py-2 border border-[#2C2A29] text-xs uppercase tracking-widest font-bold text-[#2C2A29] bg-white hover:bg-[#2C2A29] hover:text-white transition-colors duration-300" @click="fashionIndex = (fashionIndex === fashionImages.length - 1) ? 0 : fashionIndex + 1">Next ►</button>
+                            <div class="relative w-full overflow-hidden bg-black flex items-center justify-center max-h-[60vh] border border-[#2C2A29]/20">
+                                <img :src="fashionImages[fashionIndex]" class="w-full h-full object-contain max-h-[60vh]">
+                            </div>
+                            <div class="flex justify-between items-center pt-2">
+                                <button class="px-4 py-2 border border-[#2C2A29] text-xs uppercase tracking-widest font-bold text-[#2C2A29] bg-white hover:bg-[#2C2A29] hover:text-white transition-colors duration-300" @click="fashionIndex = (fashionIndex === 0) ? fashionImages.length - 1 : fashionIndex - 1">◄ Prev</button>
+                                <button class="px-4 py-2 border border-[#2C2A29] text-xs uppercase tracking-widest font-bold text-[#2C2A29] bg-white hover:bg-[#2C2A29] hover:text-white transition-colors duration-300" @click="fashionIndex = (fashionIndex === fashionImages.length - 1) ? 0 : fashionIndex + 1">Next ►</button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="fixed inset-0 z-50 overflow-y-auto bg-black/85 backdrop-blur-sm flex items-center justify-center p-4" 
-             x-show="openGraphics" 
-             x-transition.opacity 
-             style="display: none;">
-            
-            <div class="bg-[#F5F1EA] max-w-2xl w-full p-4 relative shadow-2xl my-auto" @click.away="openGraphics = false">
-                <div class="relative p-2 md:p-4 bg-white border border-[#2C2A29]/10 w-full">
-                    <div class="absolute inset-0 border-2 border-amber-700/30 translate-x-1.5 translate-y-1.5 z-0 m-2 md:m-4"></div>
-                    <div class="relative border border-[#2C2A29] p-4 bg-[#FBF9F6] z-10 space-y-4">
-                        
-                        <div class="flex justify-between items-center border-b border-gray-200 pb-2">
-                            <div>
-                                <h3 class="text-lg font-serif text-[#2C2A29]">Graphics Showcase</h3>
-                                <p class="text-[10px] uppercase tracking-widest text-amber-800 font-bold">Image <span x-text="graphicsIndex + 1"></span> of <span x-text="graphicsImages.length"></span></p>
+            <div class="fixed inset-0 z-50 overflow-y-auto bg-black/85 backdrop-blur-sm flex items-center justify-center p-4" x-show="openGraphics" x-transition.opacity style="display: none;">
+                <div class="bg-[#F5F1EA] max-w-2xl w-full p-4 relative shadow-2xl my-auto" @click.away="openGraphics = false">
+                    <div class="relative p-2 md:p-4 bg-white border border-[#2C2A29]/10 w-full">
+                        <div class="absolute inset-0 border-2 border-amber-700/30 translate-x-1.5 translate-y-1.5 z-0 m-2 md:m-4"></div>
+                        <div class="relative border border-[#2C2A29] p-4 bg-[#FBF9F6] z-10 space-y-4">
+                            <div class="flex justify-between items-center border-b border-gray-200 pb-2">
+                                <div>
+                                    <h3 class="text-lg font-serif text-[#2C2A29]">Graphics Showcase</h3>
+                                    <p class="text-[10px] uppercase tracking-widest text-amber-800 font-bold">Image <span x-text="graphicsIndex + 1"></span> of <span x-text="graphicsImages.length"></span></p>
+                                </div>
+                                <button class="text-2xl text-[#2C2A29] hover:text-amber-700 font-light" @click="openGraphics = false">&times;</button>
                             </div>
-                            <button class="text-2xl text-[#2C2A29] hover:text-amber-700 font-light" @click="openGraphics = false">&times;</button>
-                        </div>
-                        
-                        <div class="relative w-full overflow-hidden bg-black flex items-center justify-center max-h-[60vh] border border-[#2C2A29]/20">
-                            <img :src="graphicsImages[graphicsIndex]" class="w-full h-full object-contain max-h-[60vh]">
-                        </div>
-                        
-                        <div class="flex justify-between items-center pt-2">
-                            <button class="px-4 py-2 border border-[#2C2A29] text-xs uppercase tracking-widest font-bold text-[#2C2A29] bg-white hover:bg-[#2C2A29] hover:text-white transition-colors duration-300" @click="graphicsIndex = (graphicsIndex === 0) ? graphicsImages.length - 1 : graphicsIndex - 1">◄ Prev</button>
-                            <button class="px-4 py-2 border border-[#2C2A29] text-xs uppercase tracking-widest font-bold text-[#2C2A29] bg-white hover:bg-[#2C2A29] hover:text-white transition-colors duration-300" @click="graphicsIndex = (graphicsIndex === graphicsImages.length - 1) ? 0 : graphicsIndex + 1">Next ►</button>
+                            <div class="relative w-full overflow-hidden bg-black flex items-center justify-center max-h-[60vh] border border-[#2C2A29]/20">
+                                <img :src="graphicsImages[graphicsIndex]" class="w-full h-full object-contain max-h-[60vh]">
+                            </div>
+                            <div class="flex justify-between items-center pt-2">
+                                <button class="px-4 py-2 border border-[#2C2A29] text-xs uppercase tracking-widest font-bold text-[#2C2A29] bg-white hover:bg-[#2C2A29] hover:text-white transition-colors duration-300" @click="graphicsIndex = (graphicsIndex === 0) ? graphicsImages.length - 1 : graphicsIndex - 1">◄ Prev</button>
+                                <button class="px-4 py-2 border border-[#2C2A29] text-xs uppercase tracking-widest font-bold text-[#2C2A29] bg-white hover:bg-[#2C2A29] hover:text-white transition-colors duration-300" @click="graphicsIndex = (graphicsIndex === graphicsImages.length - 1) ? 0 : graphicsIndex + 1">Next ►</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -338,10 +307,7 @@
         </div>
     </section>
                 
-<section id="contact" 
-             class="py-24 bg-[#F5F1EA] px-6 section-fade pt-32" 
-             x-show="activeSection === 'contact'" 
-             x-cloak>
+    <section id="contact" class="hidden py-24 bg-[#F5F1EA] px-6 section-fade pt-32">
         <div class="max-w-5xl mx-auto">
             
             <div class="text-center mb-16">
@@ -439,64 +405,48 @@
         </div>
     </section>
 
- <script>
-    // 1. NAVIGATION LOGIC (Para sa pagpapalit-palit ng page)
-    function showSection(sectionId) {
-        // Ilista lahat ng active sections mo
-        const sections = ['home', 'about', 'portfolio', 'choreography'];
-        
-        sections.forEach(id => {
-            const el = document.getElementById(id);
-            if (el) {
-                if (id === sectionId) {
-                    el.classList.remove('hidden');
-                    // Agad nating bigyan ng 'show' class para hindi maging transparent dahil sa section-fade
-                    el.classList.add('show'); 
-                } else {
-                    el.classList.add('hidden');
-                    el.classList.remove('show');
+    <script>
+        // 1. NAVIGATION LOGIC (Idinagdag na si 'contact' sa listahan!)
+        function showSection(sectionId) {
+            const sections = ['home', 'about', 'portfolio', 'contact'];
+            
+            sections.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) {
+                    if (id === sectionId) {
+                        el.classList.remove('hidden');
+                        setTimeout(() => {
+                            el.classList.add('show');
+                        }, 50);
+                    } else {
+                        el.classList.add('hidden');
+                        el.classList.remove('show');
+                    }
                 }
-            }
+            });
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // 2. INTERSECTION OBSERVER (Para sa smooth slide-up effect)
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.05
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.section-fade').forEach(section => {
+            observer.observe(section);
         });
-        
-        // Awtomatikong mag-scroll sa itaas kapag nagpalit ng pahina
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    // Pakinggan ang mga clicks sa iyong Navbar Buttons
-    // Siguraduhing tumutugma ang mga ID na ito sa id ng mga buttons mo sa <nav>
-    document.addEventListener('DOMContentLoaded', () => {
-        const homeBtn = document.getElementById('nav-home') || document.getElementById('home-btn');
-        const aboutBtn = document.getElementById('nav-about') || document.getElementById('about-btn');
-        const portfolioBtn = document.getElementById('nav-portfolio') || document.getElementById('portfolio-btn');
-        const danceBtn = document.getElementById('nav-dance') || document.getElementById('dance-btn') || document.getElementById('choreography-btn');
-
-        if (homeBtn) homeBtn.addEventListener('click', () => showSection('home'));
-        if (aboutBtn) aboutBtn.addEventListener('click', () => showSection('about'));
-        if (portfolioBtn) portfolioBtn.addEventListener('click', () => showSection('portfolio'));
-        if (danceBtn) danceBtn.addEventListener('click', () => showSection('choreography'));
-    });
-
-    // 2. INTERSECTION OBSERVER (Para sa makinis na paglitaw/fade-in habang nag-o-scroll)
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('show');
-            }
-        });
-    }, observerOptions);
-
-    // Re-target lahat ng section-fade kasama ang choreography
-    document.querySelectorAll('.section-fade').forEach(section => {
-        observer.observe(section);
-    });
-</script>
+    </script>
 
 </body>
 </html>
