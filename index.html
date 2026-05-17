@@ -70,33 +70,45 @@
         </div>
     </section>
 
-    <section id="about" class="hidden py-24 bg-[#F5F1EA] px-6 section-fade pt-32">
+<section id="about" class="hidden py-24 bg-[#F5F1EA] px-6 section-fade pt-32">
         <div class="max-w-6xl mx-auto flex justify-center items-center">
             <div class="relative group p-4 md:p-8 bg-white shadow-md w-full border border-[#2C2A29]/10">
                 <div class="absolute inset-0 border-2 border-amber-700/40 translate-x-3 translate-y-3 transition-transform duration-500 group-hover:translate-x-1 group-hover:translate-y-1 z-0 m-4 md:m-8"></div>
+                
                 <div class="relative border border-[#2C2A29] p-6 md:p-12 bg-[#FBF9F6] z-10">
                     <div class="grid md:grid-cols-3 gap-12">
                         
-                        <div class="md:col-span-1 space-y-6">
-                            <h2 class="text-4xl font-normal font-serif text-[#2C2A29] leading-tight">
-                                The Creative Narrative
-                            </h2>
-                            <div class="w-20 h-1 bg-amber-700"></div>
-                            
-                            <ul class="space-y-3 text-xs uppercase tracking-[0.25em] text-amber-800 font-bold block pt-2">
-                                <li class="flex items-center gap-2">
-                                    <span class="w-1.5 h-1.5 bg-amber-700 rounded-full"></span>
-                                    Movement
-                                </li>
-                                <li class="flex items-center gap-2">
-                                    <span class="w-1.5 h-1.5 bg-amber-700 rounded-full"></span>
-                                    Structure
-                                </li>
-                                <li class="flex items-center gap-2">
-                                    <span class="w-1.5 h-1.5 bg-amber-700 rounded-full"></span>
-                                    Style
-                                </li>
-                            </ul>
+                        <div class="md:col-span-1 space-y-8">
+                            <div class="relative inline-block w-48 h-48 md:w-full md:h-auto aspect-square group/img">
+                                <div class="absolute inset-0 border border-amber-700/40 translate-x-2 translate-y-2 z-0"></div>
+                                <div class="relative border border-[#2C2A29] p-1.5 bg-white z-10 shadow-sm h-full">
+                                    <div class="border border-[#2C2A29]/10 overflow-hidden h-full">
+                                        <img src="YOUR_PICTURE_HERE.jpg" alt="Mark Jeino" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="space-y-6 pt-4">
+                                <h2 class="text-4xl font-normal font-serif text-[#2C2A29] leading-tight">
+                                    The Creative Narrative
+                                </h2>
+                                <div class="w-20 h-1 bg-amber-700"></div>
+                                
+                                <ul class="space-y-3 text-xs uppercase tracking-[0.25em] text-amber-800 font-bold block pt-2">
+                                    <li class="flex items-center gap-2">
+                                        <span class="w-1.5 h-1.5 bg-amber-700 rounded-full"></span>
+                                        Movement
+                                    </li>
+                                    <li class="flex items-center gap-2">
+                                        <span class="w-1.5 h-1.5 bg-amber-700 rounded-full"></span>
+                                        Structure
+                                    </li>
+                                    <li class="flex items-center gap-2">
+                                        <span class="w-1.5 h-1.5 bg-amber-700 rounded-full"></span>
+                                        Style
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
 
                         <div class="md:col-span-2 space-y-8">
@@ -139,7 +151,6 @@
             </div>
         </div>
     </section>
-
     <section id="portfolio" class="hidden py-24 bg-[#FBF9F6] px-6 section-fade pt-32" 
              x-data="{ 
                 openFashion: false, 
