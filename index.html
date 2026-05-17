@@ -141,9 +141,31 @@
                     </div> </div> </div> </div>
     </section>
 
- <section id="portfolio" class="hidden py-24 bg-[#FBF9F6] px-6 section-fade pt-32" x-data="{ openFashion: false, openGraphics: false }">
+<section id="portfolio" class="hidden py-24 bg-[#FBF9F6] px-6 section-fade pt-32" 
+             x-data="{ 
+                openFashion: false, 
+                openGraphics: false,
+                fashionIndex: 0,
+                graphicsIndex: 0,
+                fashionImages: [
+                    'IMG_20240714_111602_806.jpg',
+                    'IMG_20240714_111503_068.jpg',
+                    'IMG_20240224_170909_231.jpg',
+                    'received_820714480635242.jpeg',
+                    'FB_IMG_1779000014964.jpg',
+                    'Messenger_creation_af327c18-1ac9-4a4c-96d3-2e7c04b0e259.jpeg'
+                ],
+                graphicsImages: [
+                    '503495372_122128286618719235_7217267866289702018_n.jpg',
+                    '503267015_122128286690719235_282922571820621843_n.jpg',
+                    '600205119_122149677644719235_4594288921041813284_n.jpg',
+                    '613514412_122152509416719235_3240649580143492533_n.jpg',
+                    '613693042_122152509464719235_8486207591415544049_n.jpg',
+                    '614664655_122152509614719235_7188500091631875761_n.jpg'
+                ]
+             }">
+        
         <div class="max-w-5xl mx-auto space-y-16">
-            
             <div class="text-center space-y-4">
                 <h2 class="text-4xl font-normal font-serif text-[#2C2A29]">Selected Works</h2>
                 <div class="w-16 h-1 bg-amber-700 mx-auto"></div>
@@ -153,8 +175,7 @@
             </div>
 
             <div class="grid md:grid-cols-2 gap-16 pt-6">
-                
-                <div class="space-y-4 group cursor-pointer" @click="openFashion = true">
+                <div class="space-y-4 group cursor-pointer" @click="openFashion = true; fashionIndex = 0">
                     <div class="relative inline-block w-full">
                         <div class="absolute inset-0 border border-amber-700/40 translate-x-3 translate-y-3 transition-transform duration-500 group-hover:translate-x-1 group-hover:translate-y-1 z-0"></div>
                         <div class="relative border border-[#2C2A29] p-2 bg-white z-10 shadow-sm">
@@ -173,7 +194,7 @@
                     </div>
                 </div>
 
-                <div class="space-y-4 group cursor-pointer" @click="openGraphics = true">
+                <div class="space-y-4 group cursor-pointer" @click="openGraphics = true; graphicsIndex = 0">
                     <div class="relative inline-block w-full">
                         <div class="absolute inset-0 border border-amber-700/40 translate-x-3 translate-y-3 transition-transform duration-500 group-hover:translate-x-1 group-hover:translate-y-1 z-0"></div>
                         <div class="relative border border-[#2C2A29] p-2 bg-white z-10 shadow-sm">
@@ -191,56 +212,75 @@
                         <p class="text-gray-600 text-sm leading-relaxed">Click to explore typography experiments, and digital compositions.</p>
                     </div>
                 </div>
-
             </div>
         </div>
 
-        <div class="fixed inset-0 z-50 overflow-y-auto bg-black/70 backdrop-blur-sm flex items-center justify-center p-4" x-show="openFashion" x-transition.opacity>
-            <div class="bg-[#F5F1EA] max-w-4xl w-full p-4 md:p-8 relative max-h-[90vh] overflow-y-auto shadow-2xl" @click.away="openFashion = false">
-                <div class="relative p-4 md:p-8 bg-white border border-[#2C2A29]/10 w-full">
-                    <div class="absolute inset-0 border-2 border-amber-700/40 translate-x-2 translate-y-2 z-0 m-4 md:m-8"></div>
-                    <div class="relative border border-[#2C2A29] p-6 md:p-10 bg-[#FBF9F6] z-10 space-y-8">
-                        <div class="flex justify-between items-start border-b border-gray-200 pb-4">
-                            <div class="space-y-2">
-                                <h3 class="text-3xl font-serif text-[#2C2A29]">Fashion Collection</h3>
-                                <div class="w-16 h-0.5 bg-amber-700"></div>
-                                <p class="text-[10px] uppercase tracking-[0.25em] text-amber-800 font-bold">Apparel & Lookbook Works</p>
+        <div class="fixed inset-0 z-50 overflow-y-auto bg-black/85 backdrop-blur-sm flex items-center justify-center p-4" x-show="openFashion" x-transition.opacity>
+            <div class="bg-[#F5F1EA] max-w-2xl w-full p-4 relative shadow-2xl" @click.away="openFashion = false">
+                <div class="relative p-2 md:p-4 bg-white border border-[#2C2A29]/10 w-full">
+                    <div class="absolute inset-0 border-2 border-amber-700/30 translate-x-1.5 translate-y-1.5 z-0 m-2 md:m-4"></div>
+                    
+                    <div class="relative border border-[#2C2A29] p-4 bg-[#FBF9F6] z-10 space-y-4">
+                        <div class="flex justify-between items-center border-b border-gray-200 pb-2">
+                            <div>
+                                <h3 class="text-lg font-serif text-[#2C2A29]">Fashion Showcase</h3>
+                                <p class="text-[10px] uppercase tracking-widest text-amber-800 font-bold">
+                                    Image <span x-text="fashionIndex + 1"></span> of <span x-text="fashionImages.length"></span>
+                                </p>
                             </div>
-                            <button class="text-3xl text-[#2C2A29] hover:text-amber-700 font-light leading-none" @click="openFashion = false">&times;</button>
+                            <button class="text-2xl text-[#2C2A29] hover:text-amber-700 font-light" @click="openFashion = false">&times;</button>
                         </div>
-                        <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
-                            <div class="border border-[#2C2A29] p-1.5 bg-white shadow-sm"><img src="IMG_20240714_111602_806.jpg" class="w-full h-auto object-cover aspect-square bg-gray-100"></div>
-                            <div class="border border-[#2C2A29] p-1.5 bg-white shadow-sm"><img src="IMG_20240714_111503_068.jpg" class="w-full h-auto object-cover aspect-square bg-gray-100"></div>
-                            <div class="border border-[#2C2A29] p-1.5 bg-white shadow-sm"><img src="IMG_20240224_170909_231.jpg" class="w-full h-auto object-cover aspect-square bg-gray-100"></div>
-                            <div class="border border-[#2C2A29] p-1.5 bg-white shadow-sm"><img src="received_820714480635242.jpeg" class="w-full h-auto object-cover aspect-square bg-gray-100"></div>
-                            <div class="border border-[#2C2A29] p-1.5 bg-white shadow-sm"><img src="FB_IMG_1779000014964.jpg" class="w-full h-auto object-cover aspect-square bg-gray-100"></div>
-                            <div class="border border-[#2C2A29] p-1.5 bg-white shadow-sm"><img src="Messenger_creation_af327c18-1ac9-4a4c-96d3-2e7c04b0e259.jpeg" class="w-full h-auto object-cover aspect-square bg-gray-100"></div>
+
+                        <div class="relative w-full overflow-hidden bg-black flex items-center justify-center max-h-[60vh] border border-[#2C2A29]/20">
+                            <img :src="fashionImages[fashionIndex]" class="w-full h-full object-contain max-h-[60vh]">
+                        </div>
+
+                        <div class="flex justify-between items-center pt-2">
+                            <button class="px-4 py-2 border border-[#2C2A29] text-xs uppercase tracking-widest font-bold text-[#2C2A29] bg-white hover:bg-[#2C2A29] hover:text-white transition-colors duration-300"
+                                    @click="fashionIndex = (fashionIndex === 0) ? fashionImages.length - 1 : fashionIndex - 1">
+                                ◄ Prev
+                            </button>
+                            
+                            <button class="px-4 py-2 border border-[#2C2A29] text-xs uppercase tracking-widest font-bold text-[#2C2A29] bg-white hover:bg-[#2C2A29] hover:text-white transition-colors duration-300"
+                                    @click="fashionIndex = (fashionIndex === fashionImages.length - 1) ? 0 : fashionIndex + 1">
+                                Next ►
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="fixed inset-0 z-50 overflow-y-auto bg-black/70 backdrop-blur-sm flex items-center justify-center p-4" x-show="openGraphics" x-transition.opacity>
-            <div class="bg-[#F5F1EA] max-w-4xl w-full p-4 md:p-8 relative max-h-[90vh] overflow-y-auto shadow-2xl" @click.away="openGraphics = false">
-                <div class="relative p-4 md:p-8 bg-white border border-[#2C2A29]/10 w-full">
-                    <div class="absolute inset-0 border-2 border-amber-700/40 translate-x-2 translate-y-2 z-0 m-4 md:m-8"></div>
-                    <div class="relative border border-[#2C2A29] p-6 md:p-10 bg-[#FBF9F6] z-10 space-y-8">
-                        <div class="flex justify-between items-start border-b border-gray-200 pb-4">
-                            <div class="space-y-2">
-                                <h3 class="text-3xl font-serif text-[#2C2A29]">Graphics & Branding</h3>
-                                <div class="w-16 h-0.5 bg-amber-700"></div>
-                                <p class="text-[10px] uppercase tracking-[0.25em] text-amber-800 font-bold">Digital Identity & Layouts</p>
+        <div class="fixed inset-0 z-50 overflow-y-auto bg-black/85 backdrop-blur-sm flex items-center justify-center p-4" x-show="openGraphics" x-transition.opacity>
+            <div class="bg-[#F5F1EA] max-w-2xl w-full p-4 relative shadow-2xl" @click.away="openGraphics = false">
+                <div class="relative p-2 md:p-4 bg-white border border-[#2C2A29]/10 w-full">
+                    <div class="absolute inset-0 border-2 border-amber-700/30 translate-x-1.5 translate-y-1.5 z-0 m-2 md:m-4"></div>
+                    
+                    <div class="relative border border-[#2C2A29] p-4 bg-[#FBF9F6] z-10 space-y-4">
+                        <div class="flex justify-between items-center border-b border-gray-200 pb-2">
+                            <div>
+                                <h3 class="text-lg font-serif text-[#2C2A29]">Graphics Showcase</h3>
+                                <p class="text-[10px] uppercase tracking-widest text-amber-800 font-bold">
+                                    Image <span x-text="graphicsIndex + 1"></span> of <span x-text="graphicsImages.length"></span>
+                                </p>
                             </div>
-                            <button class="text-3xl text-[#2C2A29] hover:text-amber-700 font-light leading-none" @click="openGraphics = false">&times;</button>
+                            <button class="text-2xl text-[#2C2A29] hover:text-amber-700 font-light" @click="openGraphics = false">&times;</button>
                         </div>
-                        <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
-                            <div class="border border-[#2C2A29] p-1.5 bg-white shadow-sm"><img src="503495372_122128286618719235_7217267866289702018_n.jpg" class="w-full h-auto object-cover aspect-square bg-gray-100"></div>
-                            <div class="border border-[#2C2A29] p-1.5 bg-white shadow-sm"><img src="503267015_122128286690719235_282922571820621843_n.jpg" class="w-full h-auto object-cover aspect-square bg-gray-100"></div>
-                            <div class="border border-[#2C2A29] p-1.5 bg-white shadow-sm"><img src="600205119_122149677644719235_4594288921041813284_n.jpg" class="w-full h-auto object-cover aspect-square bg-gray-100"></div>
-                            <div class="border border-[#2C2A29] p-1.5 bg-white shadow-sm"><img src="613514412_122152509416719235_3240649580143492533_n.jpg" class="w-full h-auto object-cover aspect-square bg-gray-100"></div>
-                            <div class="border border-[#2C2A29] p-1.5 bg-white shadow-sm"><img src="613693042_122152509464719235_8486207591415544049_n.jpg" class="w-full h-auto object-cover aspect-square bg-gray-100"></div>
-                            <div class="border border-[#2C2A29] p-1.5 bg-white shadow-sm"><img src="614664655_122152509614719235_7188500091631875761_n.jpg" class="w-full h-auto object-cover aspect-square bg-gray-100"></div>
+
+                        <div class="relative w-full overflow-hidden bg-black flex items-center justify-center max-h-[60vh] border border-[#2C2A29]/20">
+                            <img :src="graphicsImages[graphicsIndex]" class="w-full h-full object-contain max-h-[60vh]">
+                        </div>
+
+                        <div class="flex justify-between items-center pt-2">
+                            <button class="px-4 py-2 border border-[#2C2A29] text-xs uppercase tracking-widest font-bold text-[#2C2A29] bg-white hover:bg-[#2C2A29] hover:text-white transition-colors duration-300"
+                                    @click="graphicsIndex = (graphicsIndex === 0) ? graphicsImages.length - 1 : graphicsIndex - 1">
+                                ◄ Prev
+                            </button>
+                            
+                            <button class="px-4 py-2 border border-[#2C2A29] text-xs uppercase tracking-widest font-bold text-[#2C2A29] bg-white hover:bg-[#2C2A29] hover:text-white transition-colors duration-300"
+                                    @click="graphicsIndex = (graphicsIndex === graphicsImages.length - 1) ? 0 : graphicsIndex + 1">
+                                Next ►
+                            </button>
                         </div>
                     </div>
                 </div>
