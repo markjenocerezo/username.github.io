@@ -165,180 +165,152 @@
                 ]
              }">
         
-        <div class="max-w-5xl mx-auto space-y-16">
-            <div class="text-center space-y-4">
-                <h2 class="text-4xl font-normal font-serif text-[#2C2A29]">Selected Works</h2>
-                <div class="w-16 h-1 bg-amber-700 mx-auto"></div>
-                <p class="text-xs uppercase tracking-[0.3em] text-amber-800 font-bold">
-                    Click to view full collections
-                </p>
-            </div>
+        <div class="max-w-5xl mx-auto space-y-24">
+            
+            <div class="space-y-16">
+                <div class="text-center space-y-4">
+                    <h2 class="text-4xl font-normal font-serif text-[#2C2A29]">Selected Works</h2>
+                    <div class="w-16 h-1 bg-amber-700 mx-auto"></div>
+                    <p class="text-xs uppercase tracking-[0.3em] text-amber-800 font-bold">
+                        Visual & Fashion Design Collections
+                    </p>
+                </div>
 
-            <div class="grid md:grid-cols-2 gap-16 pt-6">
-                <div class="space-y-4 group cursor-pointer" @click="openFashion = true; fashionIndex = 0">
-                    <div class="relative inline-block w-full">
-                        <div class="absolute inset-0 border border-amber-700/40 translate-x-3 translate-y-3 transition-transform duration-500 group-hover:translate-x-1 group-hover:translate-y-1 z-0"></div>
-                        <div class="relative border border-[#2C2A29] p-2 bg-white z-10 shadow-sm">
-                            <div class="border border-[#2C2A29]/10 overflow-hidden aspect-[4/5] bg-gray-100 relative">
-                                <img src="IMG_20240224_170909_231.jpg" alt="Fashion Cover" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                                <div class="absolute inset-0 bg-[#2C2A29]/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                                    <span class="text-white uppercase tracking-widest text-xs border border-white px-4 py-2 bg-[#2C2A29]/60">View Collection</span>
+                <div class="grid md:grid-cols-2 gap-16 pt-6">
+                    <div class="space-y-4 group cursor-pointer" @click="openFashion = true; fashionIndex = 0">
+                        <div class="relative inline-block w-full">
+                            <div class="absolute inset-0 border border-amber-700/40 translate-x-3 translate-y-3 transition-transform duration-500 group-hover:translate-x-1 group-hover:translate-y-1 z-0"></div>
+                            <div class="relative border border-[#2C2A29] p-2 bg-white z-10 shadow-sm">
+                                <div class="border border-[#2C2A29]/10 overflow-hidden aspect-[4/5] bg-gray-100 relative">
+                                    <img src="IMG_20240224_170909_231.jpg" alt="Fashion Cover" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                                    <div class="absolute inset-0 bg-[#2C2A29]/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                                        <span class="text-white uppercase tracking-widest text-xs border border-white px-4 py-2 bg-[#2C2A29]/60">View Collection</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                        <div class="pt-2 space-y-1">
+                            <span class="text-xs uppercase tracking-widest text-amber-800 font-bold">01 / Fashion Design</span>
+                            <h3 class="text-2xl font-normal font-serif text-[#2C2A29]">Contemporary Apparel</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed">Click to explore the lookbook, and costume concepts.</p>
+                        </div>
                     </div>
-                    <div class="pt-2 space-y-1">
-                        <span class="text-xs uppercase tracking-widest text-amber-800 font-bold">01 / Fashion Design</span>
-                        <h3 class="text-2xl font-normal font-serif text-[#2C2A29]">Contemporary Apparel</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed">Click to explore the lookbook, and costume concepts.</p>
-                    </div>
-                </div>
 
-                <div class="space-y-4 group cursor-pointer" @click="openGraphics = true; graphicsIndex = 0">
-                    <div class="relative inline-block w-full">
-                        <div class="absolute inset-0 border border-amber-700/40 translate-x-3 translate-y-3 transition-transform duration-500 group-hover:translate-x-1 group-hover:translate-y-1 z-0"></div>
-                        <div class="relative border border-[#2C2A29] p-2 bg-white z-10 shadow-sm">
-                            <div class="border border-[#2C2A29]/10 overflow-hidden aspect-[4/5] bg-gray-100 relative">
-                                <img src="572251611_122145432056719235_2548540388744510290_n.jpg" alt="Graphics Cover" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                                <div class="absolute inset-0 bg-[#2C2A29]/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                                    <span class="text-white uppercase tracking-widest text-xs border border-white px-4 py-2 bg-[#2C2A29]/60">View Collection</span>
+                    <div class="space-y-4 group cursor-pointer" @click="openGraphics = true; graphicsIndex = 0">
+                        <div class="relative inline-block w-full">
+                            <div class="absolute inset-0 border border-amber-700/40 translate-x-3 translate-y-3 transition-transform duration-500 group-hover:translate-x-1 group-hover:translate-y-1 z-0"></div>
+                            <div class="relative border border-[#2C2A29] p-2 bg-white z-10 shadow-sm">
+                                <div class="border border-[#2C2A29]/10 overflow-hidden aspect-[4/5] bg-gray-100 relative">
+                                    <img src="572251611_122145432056719235_2548540388744510290_n.jpg" alt="Graphics Cover" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                                    <div class="absolute inset-0 bg-[#2C2A29]/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                                        <span class="text-white uppercase tracking-widest text-xs border border-white px-4 py-2 bg-[#2C2A29]/60">View Collection</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="pt-2 space-y-1">
-                        <span class="text-xs uppercase tracking-widest text-amber-800 font-bold">02 / Graphic Design</span>
-                        <h3 class="text-2xl font-normal font-serif text-[#2C2A29]">Visual Branding Systems</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed">Click to explore typography experiments, and digital compositions.</p>
+                        <div class="pt-2 space-y-1">
+                            <span class="text-xs uppercase tracking-widest text-amber-800 font-bold">02 / Graphic Design</span>
+                            <h3 class="text-2xl font-normal font-serif text-[#2C2A29]">Visual Branding Systems</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed">Click to explore typography experiments, and digital compositions.</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="fixed inset-0 z-50 overflow-y-auto bg-black/85 backdrop-blur-sm flex items-center justify-center p-4" x-show="openFashion" x-transition.opacity>
+            <hr class="border-[#2C2A29]/10 my-12">
+
+            <div class="space-y-16">
+                <div class="text-center space-y-4">
+                    <h2 class="text-4xl font-normal font-serif text-[#2C2A29]">Performing Arts</h2>
+                    <div class="w-16 h-1 bg-amber-700 mx-auto"></div>
+                    <p class="text-xs uppercase tracking-[0.3em] text-amber-800 font-bold">
+                        Dance & Choreography Showcase
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-16 pt-6">
+                    <div class="space-y-4 group">
+                        <div class="relative inline-block w-full">
+                            <div class="absolute inset-0 border border-amber-700/40 translate-x-3 translate-y-3 transition-transform duration-500 group-hover:translate-x-1 group-hover:translate-y-1 z-0"></div>
+                            <div class="relative border border-[#2C2A29] p-2 bg-white z-10 shadow-sm">
+                                <div class="border border-[#2C2A29]/10 overflow-hidden aspect-video bg-black relative">
+                                    <iframe class="w-full h-full" src="https://www.youtube.com/embed/OvJeJAeXACU" title="Trashion Show 2025" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pt-2 space-y-1">
+                            <span class="text-xs uppercase tracking-widest text-amber-800 font-bold">03 / Fashion & Movement</span>
+                            <h3 class="text-2xl font-normal font-serif text-[#2C2A29]">Visual Rhythm Showcase</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed">Capturing dynamic hip-hop execution, performance synchronization, and translating musical energy into physical art.</p>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4 group">
+                        <div class="relative inline-block w-full">
+                            <div class="absolute inset-0 border border-amber-700/40 translate-x-3 translate-y-3 transition-transform duration-500 group-hover:translate-x-1 group-hover:translate-y-1 z-0"></div>
+                            <div class="relative border border-[#2C2A29] p-2 bg-white z-10 shadow-sm">
+                                <div class="border border-[#2C2A29]/10 overflow-hidden aspect-video bg-black relative">
+                                    <iframe class="w-full h-full" src="https://www.youtube.com/embed/a4Q8UsrWktw" title="Dance Performance" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pt-2 space-y-1">
+                            <span class="text-xs uppercase tracking-widest text-amber-800 font-bold">04 / Choreography</span>
+                            <h3 class="text-2xl font-normal font-serif text-[#2C2A29]">Trashion Show 2025</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed">A grand fusion of eco-friendly wearable art and runway direction, showcasing sustainable style through creative movement.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div> <div class="fixed inset-0 z-50 overflow-y-auto bg-black/85 backdrop-blur-sm flex items-center justify-center p-4" x-show="openFashion" x-transition.opacity style="display: none;">
             <div class="bg-[#F5F1EA] max-w-2xl w-full p-4 relative shadow-2xl" @click.away="openFashion = false">
                 <div class="relative p-2 md:p-4 bg-white border border-[#2C2A29]/10 w-full">
                     <div class="absolute inset-0 border-2 border-amber-700/30 translate-x-1.5 translate-y-1.5 z-0 m-2 md:m-4"></div>
-                    
                     <div class="relative border border-[#2C2A29] p-4 bg-[#FBF9F6] z-10 space-y-4">
                         <div class="flex justify-between items-center border-b border-gray-200 pb-2">
                             <div>
                                 <h3 class="text-lg font-serif text-[#2C2A29]">Fashion Showcase</h3>
-                                <p class="text-[10px] uppercase tracking-widest text-amber-800 font-bold">
-                                    Image <span x-text="fashionIndex + 1"></span> of <span x-text="fashionImages.length"></span>
-                                </p>
+                                <p class="text-[10px] uppercase tracking-widest text-amber-800 font-bold">Image <span x-text="fashionIndex + 1"></span> of <span x-text="fashionImages.length"></span></p>
                             </div>
                             <button class="text-2xl text-[#2C2A29] hover:text-amber-700 font-light" @click="openFashion = false">&times;</button>
                         </div>
-
                         <div class="relative w-full overflow-hidden bg-black flex items-center justify-center max-h-[60vh] border border-[#2C2A29]/20">
                             <img :src="fashionImages[fashionIndex]" class="w-full h-full object-contain max-h-[60vh]">
                         </div>
-
                         <div class="flex justify-between items-center pt-2">
-                            <button class="px-4 py-2 border border-[#2C2A29] text-xs uppercase tracking-widest font-bold text-[#2C2A29] bg-white hover:bg-[#2C2A29] hover:text-white transition-colors duration-300"
-                                    @click="fashionIndex = (fashionIndex === 0) ? fashionImages.length - 1 : fashionIndex - 1">
-                                ◄ Prev
-                            </button>
-                            
-                            <button class="px-4 py-2 border border-[#2C2A29] text-xs uppercase tracking-widest font-bold text-[#2C2A29] bg-white hover:bg-[#2C2A29] hover:text-white transition-colors duration-300"
-                                    @click="fashionIndex = (fashionIndex === fashionImages.length - 1) ? 0 : fashionIndex + 1">
-                                Next ►
-                            </button>
+                            <button class="px-4 py-2 border border-[#2C2A29] text-xs uppercase tracking-widest font-bold text-[#2C2A29] bg-white hover:bg-[#2C2A29] hover:text-white transition-colors duration-300" @click="fashionIndex = (fashionIndex === 0) ? fashionImages.length - 1 : fashionIndex - 1">◄ Prev</button>
+                            <button class="px-4 py-2 border border-[#2C2A29] text-xs uppercase tracking-widest font-bold text-[#2C2A29] bg-white hover:bg-[#2C2A29] hover:text-white transition-colors duration-300" @click="fashionIndex = (fashionIndex === fashionImages.length - 1) ? 0 : fashionIndex + 1">Next ►</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="fixed inset-0 z-50 overflow-y-auto bg-black/85 backdrop-blur-sm flex items-center justify-center p-4" x-show="openGraphics" x-transition.opacity>
+        <div class="fixed inset-0 z-50 overflow-y-auto bg-black/85 backdrop-blur-sm flex items-center justify-center p-4" x-show="openGraphics" x-transition.opacity style="display: none;">
             <div class="bg-[#F5F1EA] max-w-2xl w-full p-4 relative shadow-2xl" @click.away="openGraphics = false">
                 <div class="relative p-2 md:p-4 bg-white border border-[#2C2A29]/10 w-full">
                     <div class="absolute inset-0 border-2 border-amber-700/30 translate-x-1.5 translate-y-1.5 z-0 m-2 md:m-4"></div>
-                    
                     <div class="relative border border-[#2C2A29] p-4 bg-[#FBF9F6] z-10 space-y-4">
                         <div class="flex justify-between items-center border-b border-gray-200 pb-2">
                             <div>
                                 <h3 class="text-lg font-serif text-[#2C2A29]">Graphics Showcase</h3>
-                                <p class="text-[10px] uppercase tracking-widest text-amber-800 font-bold">
-                                    Image <span x-text="graphicsIndex + 1"></span> of <span x-text="graphicsImages.length"></span>
-                                </p>
+                                <p class="text-[10px] uppercase tracking-widest text-amber-800 font-bold">Image <span x-text="graphicsIndex + 1"></span> of <span x-text="graphicsImages.length"></span></p>
                             </div>
                             <button class="text-2xl text-[#2C2A29] hover:text-amber-700 font-light" @click="openGraphics = false">&times;</button>
                         </div>
-
                         <div class="relative w-full overflow-hidden bg-black flex items-center justify-center max-h-[60vh] border border-[#2C2A29]/20">
                             <img :src="graphicsImages[graphicsIndex]" class="w-full h-full object-contain max-h-[60vh]">
                         </div>
-
                         <div class="flex justify-between items-center pt-2">
-                            <button class="px-4 py-2 border border-[#2C2A29] text-xs uppercase tracking-widest font-bold text-[#2C2A29] bg-white hover:bg-[#2C2A29] hover:text-white transition-colors duration-300"
-                                    @click="graphicsIndex = (graphicsIndex === 0) ? graphicsImages.length - 1 : graphicsIndex - 1">
-                                ◄ Prev
-                            </button>
-                            
-                            <button class="px-4 py-2 border border-[#2C2A29] text-xs uppercase tracking-widest font-bold text-[#2C2A29] bg-white hover:bg-[#2C2A29] hover:text-white transition-colors duration-300"
-                                    @click="graphicsIndex = (graphicsIndex === graphicsImages.length - 1) ? 0 : graphicsIndex + 1">
-                                Next ►
-                            </button>
+                            <button class="px-4 py-2 border border-[#2C2A29] text-xs uppercase tracking-widest font-bold text-[#2C2A29] bg-white hover:bg-[#2C2A29] hover:text-white transition-colors duration-300" @click="graphicsIndex = (graphicsIndex === 0) ? graphicsImages.length - 1 : graphicsIndex - 1">◄ Prev</button>
+                            <button class="px-4 py-2 border border-[#2C2A29] text-xs uppercase tracking-widest font-bold text-[#2C2A29] bg-white hover:bg-[#2C2A29] hover:text-white transition-colors duration-300" @click="graphicsIndex = (graphicsIndex === graphicsImages.length - 1) ? 0 : graphicsIndex + 1">Next ►</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-    </section>
-  <section id="choreography" class="py-24 bg-[#F5F1EA] px-6 section-fade pt-32">
-        <div class="max-w-5xl mx-auto space-y-16">
-            
-            <div class="text-center space-y-4">
-                <h2 class="text-4xl font-normal font-serif text-[#2C2A29]">Performing Arts</h2>
-                <div class="w-16 h-1 bg-amber-700 mx-auto"></div>
-                <p class="text-xs uppercase tracking-[0.3em] text-amber-800 font-bold">
-                    Dance & Choreography Showcase
-                </p>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-16 pt-6">
-                
-                <div class="space-y-4 group">
-                    <div class="relative inline-block w-full">
-                        <div class="absolute inset-0 border border-amber-700/40 translate-x-3 translate-y-3 transition-transform duration-500 group-hover:translate-x-1 group-hover:translate-y-1 z-0"></div>
-                        <div class="relative border border-[#2C2A29] p-2 bg-white z-10 shadow-sm">
-                            <div class="border border-[#2C2A29]/10 overflow-hidden aspect-video bg-black relative">
-                                <iframe class="w-full h-full" src="https://www.youtube.com/embed/OvJeJAeXACU" title="Trashion Show 2025" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pt-2 space-y-1">
-                        <span class="text-xs uppercase tracking-widest text-amber-800 font-bold">01 / Fashion & Movement</span>
-                        <h3 class="text-2xl font-normal font-serif text-[#2C2A29]">Trashion Show 2025</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed">
-                            A grand fusion of eco-friendly wearable art and runway direction, showcasing sustainable style through creative movement and performance stage design.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="space-y-4 group">
-                    <div class="relative inline-block w-full">
-                        <div class="absolute inset-0 border border-amber-700/40 translate-x-3 translate-y-3 transition-transform duration-500 group-hover:translate-x-1 group-hover:translate-y-1 z-0"></div>
-                        <div class="relative border border-[#2C2A29] p-2 bg-white z-10 shadow-sm">
-                            <div class="border border-[#2C2A29]/10 overflow-hidden aspect-video bg-black relative">
-                                <iframe class="w-full h-full" src="https://www.youtube.com/embed/a4Q8UsrWktw" title="Dance Performance" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pt-2 space-y-1">
-                        <span class="text-xs uppercase tracking-widest text-amber-800 font-bold">02 / Choreography</span>
-                        <h3 class="text-2xl font-normal font-serif text-[#2C2A29]">Visual Rhythm Showcase</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed">
-                            Capturing dynamic hip-hop execution, performance synchronization, and cinematic framework—perfectly translating musical energy into physical art.
-                        </p>
-                    </div>
-                </div>
-
-            </div> 
-        </div>
     </section>
 
     <section id="contact" class="hidden py-24 bg-[#2C2A29] text-[#FBF9F6] px-6 section-fade pt-32">
