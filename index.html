@@ -352,32 +352,64 @@
         </div>
     </section>
 
-    <script>
-        function showSection(sectionId) {
-            const sections = ['about', 'portfolio', 'contact'];
-            
-            sections.forEach(id => {
-                const sec = document.getElementById(id);
-                sec.classList.add('hidden');
-                sec.classList.remove('show');
-            });
-            
-            if (sectionId === 'home') {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-                return;
+ <script>
+    // 1. NAVIGATION LOGIC (Para sa pagpapalit-palit ng page)
+    function showSection(sectionId) {
+        // Ilista lahat ng active sections mo
+        const sections = ['home', 'about', 'portfolio', 'choreography'];
+        
+        sections.forEach(id => {
+            const el = document.getElementById(id);
+            if (el) {
+                if (id === sectionId) {
+                    el.classList.remove('hidden');
+                    // Agad nating bigyan ng 'show' class para hindi maging transparent dahil sa section-fade
+                    el.classList.add('show'); 
+                } else {
+                    el.classList.add('hidden');
+                    el.classList.remove('show');
+                }
             }
-            
-            const activeSection = document.getElementById(sectionId);
-            if (activeSection) {
-                activeSection.classList.remove('hidden');
-                
-                setTimeout(() => {
-                    activeSection.classList.add('show');
-                    activeSection.scrollIntoView({ behavior: 'smooth' });
-                }, 50);
+        });
+        
+        // Awtomatikong mag-scroll sa itaas kapag nagpalit ng pahina
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Pakinggan ang mga clicks sa iyong Navbar Buttons
+    // Siguraduhing tumutugma ang mga ID na ito sa id ng mga buttons mo sa <nav>
+    document.addEventListener('DOMContentLoaded', () => {
+        const homeBtn = document.getElementById('nav-home') || document.getElementById('home-btn');
+        const aboutBtn = document.getElementById('nav-about') || document.getElementById('about-btn');
+        const portfolioBtn = document.getElementById('nav-portfolio') || document.getElementById('portfolio-btn');
+        const danceBtn = document.getElementById('nav-dance') || document.getElementById('dance-btn') || document.getElementById('choreography-btn');
+
+        if (homeBtn) homeBtn.addEventListener('click', () => showSection('home'));
+        if (aboutBtn) aboutBtn.addEventListener('click', () => showSection('about'));
+        if (portfolioBtn) portfolioBtn.addEventListener('click', () => showSection('portfolio'));
+        if (danceBtn) danceBtn.addEventListener('click', () => showSection('choreography'));
+    });
+
+    // 2. INTERSECTION OBSERVER (Para sa makinis na paglitaw/fade-in habang nag-o-scroll)
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
             }
-        }
-    </script>
+        });
+    }, observerOptions);
+
+    // Re-target lahat ng section-fade kasama ang choreography
+    document.querySelectorAll('.section-fade').forEach(section => {
+        observer.observe(section);
+    });
+</script>
 
 </body>
 </html>
