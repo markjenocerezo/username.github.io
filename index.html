@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mark Jeino | Personal Portfolio</title>
+    
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@200..800&display=swap');
         body { font-family: 'Plus Jakarta Sans', sans-serif; }
@@ -137,7 +141,7 @@
                     </div> </div> </div> </div>
     </section>
 
-  <section id="portfolio" class="hidden py-24 bg-[#FBF9F6] px-6 section-fade pt-32" x-data="{ openFashion: false, openGraphics: false }">
+ <section id="portfolio" class="hidden py-24 bg-[#FBF9F6] px-6 section-fade pt-32" x-data="{ openFashion: false, openGraphics: false }">
         <div class="max-w-5xl mx-auto space-y-16">
             
             <div class="text-center space-y-4">
@@ -191,15 +195,11 @@
             </div>
         </div>
 
-        <div class="fixed inset-0 z-50 overflow-y-auto bg-black/70 backdrop-blur-sm flex items-center justify-center p-4" x-show="openFashion" x-transition.opacity style="display: none;">
+        <div class="fixed inset-0 z-50 overflow-y-auto bg-black/70 backdrop-blur-sm flex items-center justify-center p-4" x-show="openFashion" x-transition.opacity>
             <div class="bg-[#F5F1EA] max-w-4xl w-full p-4 md:p-8 relative max-h-[90vh] overflow-y-auto shadow-2xl" @click.away="openFashion = false">
-                
                 <div class="relative p-4 md:p-8 bg-white border border-[#2C2A29]/10 w-full">
-                    
                     <div class="absolute inset-0 border-2 border-amber-700/40 translate-x-2 translate-y-2 z-0 m-4 md:m-8"></div>
-                    
                     <div class="relative border border-[#2C2A29] p-6 md:p-10 bg-[#FBF9F6] z-10 space-y-8">
-                        
                         <div class="flex justify-between items-start border-b border-gray-200 pb-4">
                             <div class="space-y-2">
                                 <h3 class="text-3xl font-serif text-[#2C2A29]">Fashion Collection</h3>
@@ -208,7 +208,6 @@
                             </div>
                             <button class="text-3xl text-[#2C2A29] hover:text-amber-700 font-light leading-none" @click="openFashion = false">&times;</button>
                         </div>
-
                         <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
                             <div class="border border-[#2C2A29] p-1.5 bg-white shadow-sm"><img src="IMG_20240714_111602_806.jpg" class="w-full h-auto object-cover aspect-square bg-gray-100"></div>
                             <div class="border border-[#2C2A29] p-1.5 bg-white shadow-sm"><img src="IMG_20240714_111503_068.jpg" class="w-full h-auto object-cover aspect-square bg-gray-100"></div>
@@ -219,19 +218,14 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
 
-        <div class="fixed inset-0 z-50 overflow-y-auto bg-black/70 backdrop-blur-sm flex items-center justify-center p-4" x-show="openGraphics" x-transition.opacity style="display: none;">
+        <div class="fixed inset-0 z-50 overflow-y-auto bg-black/70 backdrop-blur-sm flex items-center justify-center p-4" x-show="openGraphics" x-transition.opacity>
             <div class="bg-[#F5F1EA] max-w-4xl w-full p-4 md:p-8 relative max-h-[90vh] overflow-y-auto shadow-2xl" @click.away="openGraphics = false">
-                
                 <div class="relative p-4 md:p-8 bg-white border border-[#2C2A29]/10 w-full">
-                    
                     <div class="absolute inset-0 border-2 border-amber-700/40 translate-x-2 translate-y-2 z-0 m-4 md:m-8"></div>
-                    
                     <div class="relative border border-[#2C2A29] p-6 md:p-10 bg-[#FBF9F6] z-10 space-y-8">
-                        
                         <div class="flex justify-between items-start border-b border-gray-200 pb-4">
                             <div class="space-y-2">
                                 <h3 class="text-3xl font-serif text-[#2C2A29]">Graphics & Branding</h3>
@@ -240,7 +234,6 @@
                             </div>
                             <button class="text-3xl text-[#2C2A29] hover:text-amber-700 font-light leading-none" @click="openGraphics = false">&times;</button>
                         </div>
-
                         <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
                             <div class="border border-[#2C2A29] p-1.5 bg-white shadow-sm"><img src="503495372_122128286618719235_7217267866289702018_n.jpg" class="w-full h-auto object-cover aspect-square bg-gray-100"></div>
                             <div class="border border-[#2C2A29] p-1.5 bg-white shadow-sm"><img src="503267015_122128286690719235_282922571820621843_n.jpg" class="w-full h-auto object-cover aspect-square bg-gray-100"></div>
@@ -251,7 +244,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
 
