@@ -26,15 +26,19 @@
         [x-cloak] { display: none !important; }
 
         /* DITO NAGSIMULA ANG BAGONG CODE PARA SA BACKGROUND */
+       /* MAS MAXIMUM AT RESPONSIVE NA BACKGROUND GAMIT ANG IYONG FILE NAME */
         #home {
             background-image: url('6cf05c97-bf40-40eb-9653-d8eef040d7d9.png');
-            background-size: cover;
-            background-position: center;
+            background-size: cover;       /* Sasakupin ang buong screen */
+            background-position: center;  /* Gitna ang focus ng disenyo */
             background-repeat: no-repeat;
+            background-attachment: fixed; /* Parang nakapako ang bg habang nag-o-scroll */
             position: relative;
+            width: 100%;                  
+            min-height: 100vh;            /* Sasakupin ang buong taas ng monitor/cellphone */
         }
 
-        /* Nilagyan natin ng translucent white overlay para mabasa pa rin nang malinaw ang mga text mo */
+        /* Translucent overlay para mabasa pa rin nang malinaw ang mga text mo */
         #home::before {
             content: "";
             position: absolute;
@@ -44,6 +48,12 @@
             height: 100%;
             background-color: rgba(251, 249, 246, 0.85); 
             z-index: 0;
+        }
+
+        /* Para siguradong nakalutang ang text at picture mo sa ibabaw ng background */
+        #home .grid {
+            position: relative;
+            z-index: 10;
         }
 
         /* Para siguradong nakalutang ang text at picture mo sa ibabaw ng background */
