@@ -157,8 +157,8 @@
         </div>
     </nav>
 
- <section id="home" class="min-h-screen flex items-center pt-24 pb-12 px-16 md:px-32 section-fade show w-full">
-        <div class="grid md:grid-cols-2 gap-16 items-center w-full max-w-6xl mx-auto">
+<section id="home" class="min-h-screen flex items-center pt-24 pb-12 px-16 md:px-32 section-fade show w-full">
+        <div class="grid md:grid-cols-2 gap-16 items-center w-full max-w-7xl mx-auto">
             
             <div class="space-y-6">
                 <p class="text-xs md:text-sm font-bold tracking-[0.2em] text-amber-700 uppercase font-sans">
@@ -188,8 +188,8 @@
                 </div>
             </div>
             
-            <div class="w-full flex justify-center items-center py-4">
-                <div class="relative w-full max-w-[550px] overflow-hidden py-4 flex flex-col items-center"
+            <div class="w-full flex justify-center items-center py-4 overflow-visible">
+                <div class="relative w-full max-w-[650px] flex flex-col items-center"
                      x-data="{ 
                         currentIndex: 0, 
                         images: [
@@ -200,14 +200,14 @@
                      }" 
                      x-init="setInterval(() => { currentIndex = (currentIndex + 1) % images.length }, 4000)">
                     
-                    <div class="relative w-full h-[240px] flex justify-center items-center">
+                    <div class="relative w-full h-[320px] flex justify-center items-center">
                         
                         <template x-for="(img, index) in images" :key="index">
-                            <div class="absolute w-[200px] h-[200px] rounded-xl overflow-hidden border border-[#2C2A29] bg-[#FBF9F6] p-1.5 shadow-md transition-all duration-700 ease-in-out image-shimmer-container"
+                            <div class="absolute w-[280px] h-[280px] rounded-xl overflow-hidden border border-[#2C2A29] bg-[#FBF9F6] p-2 shadow-md transition-all duration-700 ease-in-out image-shimmer-container"
                                  :class="{
                                     'scale-110 z-30 opacity-100 shadow-lg translate-x-0 border-amber-700/50': currentIndex === index,
-                                    'scale-90 z-10 opacity-40 blur-[1px] -translate-x-[130px]': (currentIndex === 0 && index === images.length - 1) || (currentIndex > 0 && index === currentIndex - 1),
-                                    'scale-90 z-10 opacity-40 blur-[1px] translate-x-[130px]': (currentIndex === images.length - 1 && index === 0) || (index === currentIndex + 1),
+                                    'scale-90 z-10 opacity-30 blur-[1px] -translate-x-[170px]': (currentIndex === 0 && index === images.length - 1) || (currentIndex > 0 && index === currentIndex - 1),
+                                    'scale-90 z-10 opacity-30 blur-[1px] translate-x-[170px]': (currentIndex === images.length - 1 && index === 0) || (index === currentIndex + 1),
                                     'scale-75 z-0 opacity-0 pointer-events-none': currentIndex !== index && index !== ((currentIndex + 1) % images.length) && index !== ((currentIndex - 1 + images.length) % images.length)
                                  }">
                                 
