@@ -88,10 +88,33 @@
     Dancer • Dance Choreographer • Graphic & Fashion Designer
 </p>
                 
-                <h1 class="text-4xl md:text-6xl font-normal text-[#2C2A29] leading-tight font-serif">
-                    Where Visual Identity <br>
-                    <span class="italic font-medium text-[#5A4E46]">Meets Wearable Art.</span>
-                </h1>
+               <h1 class="text-4xl md:text-6xl font-normal text-[#2C2A29] leading-tight font-serif text-shimmer">
+    Where Visual Identity <br>
+    <span class="italic font-medium text-[#5A4E46]">Meets Wearable Art.</span>
+</h1>
+
+<style>
+    @keyframes shine {
+        0% { background-position: -200% center; }
+        100% { background-position: 200% center; }
+    }
+
+    .text-shimmer, .text-shimmer span {
+        background: linear-gradient(
+            to right, 
+            currentColor 0%, 
+            currentColor 40%, 
+            rgba(255, 255, 255, 0.7) 50%, 
+            currentColor 60%, 
+            currentColor 100%
+        );
+        background-size: 200% auto;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: shine 4s linear infinite;
+        display: inline-block;
+    }
+</style>
                 
   <div class="space-y-4 pt-4 border-t border-[#2C2A29]/20">
                     <p class="text-[#2C2A29] text-sm tracking-[0.15em] uppercase font-bold font-sans">
