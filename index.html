@@ -500,7 +500,7 @@
         </div>
     </section>
                 
-    <section id="contact" class="hidden py-24 bg-[#F5F1EA] px-6 section-fade pt-32">
+  <section id="contact" class="hidden py-24 bg-[#F5F1EA] px-6 section-fade pt-32">
         <div class="max-w-5xl mx-auto">
             
             <div class="text-center mb-12">
@@ -568,23 +568,28 @@
                 </div>
 
                 <div class="bg-white border border-[#2C2A29]/40 p-4 rounded-xl flex flex-col justify-between">
-                    <form class="space-y-4 bg-[#FBF9F6]/50 border border-[#2C2A29]/10 p-4 h-full flex flex-col justify-between rounded-lg">
+                    <form action="https://api.web3forms.com/submit" method="POST" class="space-y-4 bg-[#FBF9F6]/50 border border-[#2C2A29]/10 p-4 h-full flex flex-col justify-between rounded-lg">
+                        
+                        <input type="hidden" name="access_key" value="5fbbb5f4-b014-4a5a-966e-d546687ef990">
+                        
+                        <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
                         <div>
                             <label class="block text-[9px] uppercase tracking-widest font-bold text-[#2C2A29] mb-1">Your Name</label>
-                            <input type="text" class="w-full p-2 border border-[#2C2A29]/20 bg-white text-xs rounded-md focus:outline-none focus:border-amber-800 transition-colors" placeholder="Enter your full name">
+                            <input type="text" name="name" required class="w-full p-2 border border-[#2C2A29]/20 bg-white text-xs rounded-md focus:outline-none focus:border-amber-800 transition-colors" placeholder="Enter your full name">
                         </div>
                         
                         <div>
                             <label class="block text-[9px] uppercase tracking-widest font-bold text-[#2C2A29] mb-1">Email Address</label>
-                            <input type="email" class="w-full p-2 border border-[#2C2A29]/20 bg-white text-xs rounded-md focus:outline-none focus:border-amber-800 transition-colors" placeholder="johndoe@example.com">
+                            <input type="email" name="email" required class="w-full p-2 border border-[#2C2A29]/20 bg-white text-xs rounded-md focus:outline-none focus:border-amber-800 transition-colors" placeholder="johndoe@example.com">
                         </div>
                         
                         <div class="flex-grow flex flex-col mb-1">
                             <label class="block text-[9px] uppercase tracking-widest font-bold text-[#2C2A29] mb-1">Message</label>
-                            <textarea class="w-full p-2 border border-[#2C2A29]/20 bg-white text-xs rounded-md focus:outline-none focus:border-amber-800 transition-colors resize-none flex-grow" rows="3" placeholder="Write your message here..."></textarea>
+                            <textarea name="message" required class="w-full p-2 border border-[#2C2A29]/20 bg-white text-xs rounded-md focus:outline-none focus:border-amber-800 transition-colors resize-none flex-grow" rows="3" placeholder="Write your message here..."></textarea>
                         </div>
                         
-                        <button type="submit" class="w-full py-2.5 text-[11px] uppercase tracking-widest font-bold text-white bg-[#2C2A29] hover:bg-amber-800 transition-colors duration-300 rounded-md flex-shrink-0">
+                        <button type="submit" class="w-full py-2.5 text-[11px] uppercase tracking-widest font-bold text-white bg-[#2C2A29] hover:bg-amber-800 transition-colors duration-300 rounded-md flex-shrink-0 cursor-pointer">
                             Send Message ►
                         </button>
                     </form>
