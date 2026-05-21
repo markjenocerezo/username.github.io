@@ -8,7 +8,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     
-    <style>
+  <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@200..800&display=swap');
         body { font-family: 'Plus Jakarta Sans', sans-serif; }
         h1, h2, h3 { font-family: 'Playfair Display', serif; }
@@ -25,7 +25,7 @@
         }
         [x-cloak] { display: none !important; }
 
-        /* FIXED BACKGROUND SETUP */
+        /* FIXED BACKGROUND SETUP - HOME SECTION */
         #home {
             background-image: url('6cf05c97-bf40-40eb-9653-d8eef040d7d9.png');
             background-size: 100%;            
@@ -53,6 +53,37 @@
         }
 
         #home .grid {
+            position: relative;
+            z-index: 10;
+        }
+
+        /* IDINAGDAG: FIXED BACKGROUND SETUP PARA SA LIKOD NG ABOUT SECTION */
+        #about {
+            background-image: url('6cf05c97-bf40-40eb-9653-d8eef040d7d9.png');
+            background-size: 100%;            
+            background-position: center 45%;   
+            background-repeat: no-repeat;
+            background-attachment: fixed;     
+            position: relative;
+            width: 100% !important;           
+            max-width: none !important;       
+            min-height: 100vh;            
+        }
+
+        /* Translucent overlay sa likod ng About section */
+        #about::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(251, 249, 246, 0.75); 
+            z-index: 0;
+        }
+
+        /* Sinisiguro nitong nakalutang ang card sa ibabaw ng background image */
+        #about > div {
             position: relative;
             z-index: 10;
         }
