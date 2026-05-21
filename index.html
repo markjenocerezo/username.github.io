@@ -28,14 +28,20 @@
         /* FIXED BACKGROUND SETUP */
        /* MAS PINALAWAK AT INIBANG POSISYON NG BACKGROUND */
       /* MAS PINALAWAK AT MAS IBINABA PANG BACKGROUND */
+       /* SAGAD SA GILID AT WALANG BORDER NA BACKGROUND */
         #home {
             background-image: url('6cf05c97-bf40-40eb-9653-d8eef040d7d9.png');
-            background-size: 135% auto;   /* Mas pinalawak pa ang lapad ng picture */
-            background-position: center 45%; /* Mas ibinaba pa nang husto ang anggulo ng larawan */
+            background-size: 140%;            /* Malapad at swak na laki */
+            background-position: center 45%;   /* Posisyon pababa */
             background-repeat: no-repeat;
-            background-attachment: fixed; /* Naka-parallax effect pa rin habang nag-o-scroll */
+            background-attachment: fixed;     
             position: relative;
-            width: 100%;                  
+            
+            /* ETO ANG TRICK PARA MAWALA ANG BORDER SA GILID: */
+            width: 100% !important;           
+            max-width: none !important;       /* Tinatanggal ang harang sa gilid */
+            margin-left: 0 !important;
+            margin-right: 0 !important;
             min-height: 100vh;            
         }
 
@@ -74,7 +80,7 @@
         </div>
     </nav>
 
-<section id="home" class="min-h-screen flex items-center pt-24 pb-12 px-6 max-w-6xl mx-auto section-fade show">
+<section id="home" class="min-h-screen flex items-center pt-24 pb-12 px-6 section-fade show relative">
         <div class="grid md:grid-cols-2 gap-16 items-center w-full">
             
             <div class="space-y-5">
