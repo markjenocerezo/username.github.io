@@ -8,7 +8,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     
-  <style>
+<style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@200..800&display=swap');
         body { font-family: 'Plus Jakarta Sans', sans-serif; }
         h1, h2, h3 { font-family: 'Playfair Display', serif; }
@@ -57,7 +57,7 @@
             z-index: 10;
         }
 
-        /* IDINAGDAG: FIXED BACKGROUND SETUP PARA SA LIKOD NG ABOUT SECTION */
+        /* FIXED BACKGROUND SETUP PARA SA LIKOD NG ABOUT SECTION */
         #about {
             background-image: url('6cf05c97-bf40-40eb-9653-d8eef040d7d9.png');
             background-size: 100%;            
@@ -134,6 +134,11 @@
             pointer-events: none;
             z-index: 20;
         }
+
+        /* Z-INDEX LAYER FIX PARA SA AUTOMATIC SLIDESHOW EFFECT */
+        .image-shimmer-container .luxury-image-shimmer {
+            z-index: 30 !important;
+        }
     </style>
 </head>
 <body class="bg-[#FBF9F6] text-[#2C2A29] scroll-smooth">
@@ -208,13 +213,31 @@
                 
                 <div class="relative border border-[#2C2A29] p-6 md:p-12 bg-[#FBF9F6] z-10 rounded-xl flex flex-col items-center text-center w-full">
                     
-                    <div class="relative w-full max-w-[240px] mb-6">
-                        <div class="absolute inset-0 border border-amber-700/30 translate-x-2 translate-y-2 rounded-xl z-0"></div>
-                        <div class="relative aspect-square border-2 border-[#2C2A29] bg-[#FBF9F6] rounded-xl overflow-hidden shadow-sm z-10 image-shimmer-container">
-                            <img src=" 473802872_2010395539468278_1233830341626882435_n.jpg" alt="Mark Jeino" class="w-full h-full object-cover">
-                            <div class="luxury-image-shimmer"></div>
-                        </div>
-                    </div>
+                   <div class="relative w-full max-w-[240px] mb-6" 
+     x-data="{ 
+        currentImage: 0, 
+        images: [
+            ' 473802872_2010395539468278_1233830341626882435_n.jpg',
+            'IMG_20230707_130218_762.jpg', 
+            'Untitled design.png'
+        ] 
+     }" 
+     x-init="setInterval(() => { currentImage = (currentImage + 1) % images.length }, 4000)">
+    
+    <div class="absolute inset-0 border border-amber-700/30 translate-x-2 translate-y-2 rounded-xl z-0"></div>
+    
+    <div class="relative aspect-square border-2 border-[#2C2A29] bg-[#FBF9F6] rounded-xl overflow-hidden shadow-sm z-10 image-shimmer-container">
+        
+        <template x-for="(img, index) in images" :key="index">
+            <img :src="img" 
+                 alt="Mark Jeino" 
+                 class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out"
+                 :class="currentImage === index ? 'opacity-100 z-10' : 'opacity-0 z-0'">
+        </template>
+        
+        <div class="luxury-image-shimmer"></div>
+    </div>
+</div>
 
                     <h2 class="text-3xl md:text-4xl font-normal font-serif text-[#2C2A29] leading-tight mb-3">
                         The Creative Narrative
