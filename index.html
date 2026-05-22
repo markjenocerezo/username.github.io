@@ -154,7 +154,7 @@
 </head>
 <body class="bg-[#FBF9F6] text-[#2C2A29]">
 
-    <nav class="fixed top-0 left-0 w-full bg-[#FBF9F6]/90 backdrop-blur-md z-50 border-b border-[#EAE6DF]" x-data="{ mobileMenuOpen: false }">
+   <nav class="fixed top-0 left-0 w-full bg-[#FBF9F6]/90 backdrop-blur-md z-50 border-b border-[#EAE6DF]" x-data="{ mobileMenuOpen: false }">
         <div class="max-w-6xl mx-auto px-4 md:px-6 py-4 flex justify-between items-center relative">
             <a href="#" onclick="showSection('home')" class="text-base md:text-xl font-extrabold tracking-widest uppercase border-b-2 border-amber-700 pb-1">
                 MJ Collection.
@@ -164,6 +164,8 @@
                 <button onclick="showSection('home')" class="px-3.5 py-1 text-sm text-[#2C2A29] font-medium rounded-lg border border-transparent transition-all duration-300 hover:text-amber-800 hover:border-amber-700/60 hover:bg-amber-500/5 hover:shadow-[0_0_12px_rgba(180,83,9,0.35)]">Home</button>
                 <button onclick="showSection('about')" class="px-3.5 py-1 text-sm text-[#2C2A29] font-medium rounded-lg border border-transparent transition-all duration-300 hover:text-amber-800 hover:border-amber-700/60 hover:bg-amber-500/5 hover:shadow-[0_0_12px_rgba(180,83,9,0.35)]">About</button>
                 <button onclick="showSection('portfolio')" class="px-3.5 py-1 text-sm text-[#2C2A29] font-medium rounded-lg border border-transparent transition-all duration-300 hover:text-amber-800 hover:border-amber-700/60 hover:bg-amber-500/5 hover:shadow-[0_0_12px_rgba(180,83,9,0.35)]">Portfolio</button>
+                <button onclick="showSection('services')" class="px-3.5 py-1 text-sm text-[#2C2A29] font-medium rounded-lg border border-transparent transition-all duration-300 hover:text-amber-800 hover:border-amber-700/60 hover:bg-amber-500/5 hover:shadow-[0_0_12px_rgba(180,83,9,0.35)]">Services</button>
+                <button onclick="showSection('achievements')" class="px-3.5 py-1 text-sm text-[#2C2A29] font-medium rounded-lg border border-transparent transition-all duration-300 hover:text-amber-800 hover:border-amber-700/60 hover:bg-amber-500/5 hover:shadow-[0_0_12px_rgba(180,83,9,0.35)]">Achievements</button>
                 <button onclick="showSection('contact')" class="px-3.5 py-1 text-sm text-[#2C2A29] font-medium rounded-lg border border-transparent transition-all duration-300 hover:text-amber-800 hover:border-amber-700/60 hover:bg-amber-500/5 hover:shadow-[0_0_12px_rgba(180,83,9,0.35)]">Contact</button>
             </div>
 
@@ -189,6 +191,8 @@
             <button onclick="showSection('home')" @click="mobileMenuOpen = false" class="block w-full text-left px-4 py-2.5 text-sm text-[#2C2A29] font-medium rounded-lg hover:bg-amber-500/5 hover:text-amber-800 transition-all">Home</button>
             <button onclick="showSection('about')" @click="mobileMenuOpen = false" class="block w-full text-left px-4 py-2.5 text-sm text-[#2C2A29] font-medium rounded-lg hover:bg-amber-500/5 hover:text-amber-800 transition-all">About</button>
             <button onclick="showSection('portfolio')" @click="mobileMenuOpen = false" class="block w-full text-left px-4 py-2.5 text-sm text-[#2C2A29] font-medium rounded-lg hover:bg-amber-500/5 hover:text-amber-800 transition-all">Portfolio</button>
+            <button onclick="showSection('services')" @click="mobileMenuOpen = false" class="block w-full text-left px-4 py-2.5 text-sm text-[#2C2A29] font-medium rounded-lg hover:bg-amber-500/5 hover:text-amber-800 transition-all">Services</button>
+            <button onclick="showSection('achievements')" @click="mobileMenuOpen = false" class="block w-full text-left px-4 py-2.5 text-sm text-[#2C2A29] font-medium rounded-lg hover:bg-amber-500/5 hover:text-amber-800 transition-all">Achievements</button>
             <button onclick="showSection('contact')" @click="mobileMenuOpen = false" class="block w-full text-left px-4 py-2.5 text-sm text-[#2C2A29] font-medium rounded-lg hover:bg-amber-500/5 hover:text-amber-800 transition-all">Contact</button>
         </div>
     </nav>
