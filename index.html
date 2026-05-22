@@ -166,74 +166,74 @@
         </div>
     </nav>
 
-<section id="home" class="min-h-screen flex items-center pt-24 pb-12 px-6 sm:px-12 md:px-32 section-fade show w-full">
-        <div class="grid md:grid-cols-2 gap-16 items-center w-full max-w-7xl mx-auto">
+<section id="home" class="min-h-screen flex items-center pt-24 pb-12 px-4 sm:px-12 md:px-32 section-fade show w-full">
+    <div class="grid md:grid-cols-2 gap-12 md:gap-16 items-center w-full max-w-7xl mx-auto">
+        
+        <div class="space-y-6 text-left w-full pl-0 flex flex-col items-start">
+            <p class="text-xs md:text-sm font-bold tracking-[0.2em] text-amber-700 uppercase font-sans text-left">
+                Dancer • Dance Choreographer • Graphic & Fashion Designer
+            </p>
             
-            <div class="space-y-6">
-                <p class="text-xs md:text-sm font-bold tracking-[0.2em] text-amber-700 uppercase font-sans">
-                    Dancer • Dance Choreographer • Graphic & Fashion Designer
+            <div class="text-shimmer-container inline-block pr-4 text-left">
+                <h1 class="text-4xl md:text-6xl font-normal text-[#2C2A29] leading-tight font-serif text-left">
+                    Where Visual Identity <br>
+                    <span class="italic font-medium text-[#5A4E46]">Meets Wearable Art.</span>
+                </h1>
+                <div class="luxury-shimmer"></div>
+            </div>
+            
+            <div class="space-y-4 pt-4 border-t border-[#2C2A29]/20 w-full text-left flex flex-col items-start">
+                <p class="text-[#2C2A29] text-sm tracking-[0.15em] uppercase font-bold font-sans text-left">
+                    Introducing
                 </p>
                 
-                <div class="text-shimmer-container inline-block pr-4">
-                    <h1 class="text-4xl md:text-6xl font-normal text-[#2C2A29] leading-tight font-serif">
-                        Where Visual Identity <br>
-                        <span class="italic font-medium text-[#5A4E46]">Meets Wearable Art.</span>
-                    </h1>
-                    <div class="luxury-shimmer"></div>
-                </div>
+                <h2 class="text-2xl md:text-3xl font-normal tracking-wide text-[#2C2A29] font-serif italic text-left">
+                    Mark Jeino Desonia Cerezo
+                </h2>
                 
-                <div class="space-y-4 pt-4 border-t border-[#2C2A29]/20">
-                    <p class="text-[#2C2A29] text-sm tracking-[0.15em] uppercase font-bold font-sans">
-                        Introducing
-                    </p>
-                    
-                    <h2 class="text-2xl md:text-3xl font-normal tracking-wide text-[#2C2A29] font-serif italic">
-                        Mark Jeino Desonia Cerezo
-                    </h2>
-                    
-                    <p class="text-[#1A1919] text-xs md:text-sm font-normal tracking-[0.08em] leading-relaxed font-sans max-w-md italic">
-                        Merging creative movement and choreography with visual identity and contemporary fashion.
-                    </p>
-                </div>
+                <p class="text-[#1A1919] text-xs md:text-sm font-normal tracking-[0.08em] leading-relaxed font-sans max-w-md italic text-left">
+                    Merging creative movement and choreography with visual identity and contemporary fashion.
+                </p>
             </div>
-            
-            <div class="w-full flex justify-center items-center py-4 overflow-visible">
-                <div class="relative w-full max-w-[650px] flex flex-col items-center"
-                     x-data="{ 
-                        currentIndex: 0, 
-                        images: [
-                            '1778984595066.png',
-                            '473802872_2010395539468278_1233830341626882435_n.jpg', 
-                            'IMG_20230707_130218_762.jpg'
-                        ] 
-                     }" 
-                     x-init="setInterval(() => { currentIndex = (currentIndex + 1) % images.length }, 4000)">
-                    
-                    <div class="relative w-full h-[320px] flex justify-center items-center">
-                        
-                        <template x-for="(img, index) in images" :key="index">
-                            <div class="absolute w-[280px] h-[280px] rounded-xl overflow-hidden border border-[#2C2A29] bg-[#FBF9F6] p-2 shadow-md transition-all duration-700 ease-in-out image-shimmer-container"
-                                 :class="{
-                                    'scale-110 z-30 opacity-100 shadow-lg translate-x-0 border-amber-700/50': currentIndex === index,
-                                    'scale-90 z-10 opacity-30 blur-[1px] -translate-x-[170px]': (currentIndex === 0 && index === images.length - 1) || (currentIndex > 0 && index === currentIndex - 1),
-                                    'scale-90 z-10 opacity-30 blur-[1px] translate-x-[170px]': (currentIndex === images.length - 1 && index === 0) || (index === currentIndex + 1),
-                                    'scale-75 z-0 opacity-0 pointer-events-none': currentIndex !== index && index !== ((currentIndex + 1) % images.length) && index !== ((currentIndex - 1 + images.length) % images.length)
-                                 }">
-                                
-                                <div class="w-full h-full border border-[#2C2A29]/40 overflow-hidden rounded-lg">
-                                    <img :src="img" alt="Mark Jeino - Portfolio" class="w-full h-full object-cover">
-                                </div>
-                                
-                                <div class="luxury-image-shimmer" x-show="currentIndex === index"></div>
-                            </div>
-                        </template>
-
-                    </div>
-                </div>
-            </div>
-
         </div>
-    </section>
+        
+        <div class="w-full flex justify-center items-center py-4 overflow-visible">
+            <div class="relative w-full max-w-[650px] flex flex-col items-center"
+                 x-data="{ 
+                    currentIndex: 0, 
+                    images: [
+                        '1778984595066.png',
+                        '473802872_2010395539468278_1233830341626882435_n.jpg', 
+                        'IMG_20230707_130218_762.jpg'
+                    ] 
+                 }" 
+                 x-init="setInterval(() => { currentIndex = (currentIndex + 1) % images.length }, 4000)">
+                
+                <div class="relative w-full h-[320px] flex justify-center items-center">
+                    
+                    <template x-for="(img, index) in images" :key="index">
+                        <div class="absolute w-[280px] h-[280px] rounded-xl overflow-hidden border border-[#2C2A29] bg-[#FBF9F6] p-2 shadow-md transition-all duration-700 ease-in-out image-shimmer-container"
+                             :class="{
+                                'scale-110 z-30 opacity-100 shadow-lg translate-x-0 border-amber-700/50': currentIndex === index,
+                                'scale-90 z-10 opacity-30 blur-[1px] -translate-x-[170px]': (currentIndex === 0 && index === images.length - 1) || (currentIndex > 0 && index === currentIndex - 1),
+                                'scale-90 z-10 opacity-30 blur-[1px] translate-x-[170px]': (currentIndex === images.length - 1 && index === 0) || (index === currentIndex + 1),
+                                'scale-75 z-0 opacity-0 pointer-events-none': currentIndex !== index && index !== ((currentIndex + 1) % images.length) && index !== ((currentIndex - 1 + images.length) % images.length)
+                             }">
+                            
+                            <div class="w-full h-full border border-[#2C2A29]/40 overflow-hidden rounded-lg">
+                                <img :src="img" alt="Mark Jeino - Portfolio" class="w-full h-full object-cover">
+                            </div>
+                            
+                            <div class="luxury-image-shimmer" x-show="currentIndex === index"></div>
+                        </div>
+                    </template>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
 
 <section id="about" class="hidden py-24 px-6 section-fade pt-32 w-full">
         <div class="max-w-6xl mx-auto flex justify-center items-center w-full">
