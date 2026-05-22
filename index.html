@@ -23,7 +23,6 @@
         body { font-family: 'Plus Jakarta Sans', sans-serif; }
         h1, h2, h3 { font-family: 'Playfair Display', serif; }
         
-        /* Makinis na transition kapag lumilitaw ang seksyon */
         .section-fade {
             opacity: 0;
             transform: translateY(20px);
@@ -50,7 +49,6 @@
             min-height: 100vh;            
         }
 
-        /* Translucent overlay para mabasa pa rin nang malinaw ang mga text mo */
         #home::before {
             content: "";
             position: absolute;
@@ -80,7 +78,6 @@
             min-height: 100vh;            
         }
 
-        /* Translucent overlay sa likod ng About section */
         #about::before {
             content: "";
             position: absolute;
@@ -92,13 +89,12 @@
             z-index: 0;
         }
 
-        /* Sinisiguro nitong nakalutang ang card sa ibabaw ng background image */
         #about > div {
             position: relative;
             z-index: 10;
         }
 
-        /* --- LUXURY SHIMMER EFFECTS (LEFT TO RIGHT) --- */
+        /* --- LUXURY SHIMMER EFFECTS --- */
         @keyframes luxury-slide {
             0% { transform: translateX(-150%) skewX(-25deg); }
             100% { transform: translateX(250%) skewX(-25deg); }
@@ -109,7 +105,6 @@
             overflow: hidden;
         }
 
-        /* Ang anino para sa Text */
         .luxury-shimmer {
             position: absolute;
             top: 0;
@@ -127,7 +122,6 @@
             z-index: 5;
         }
 
-        /* Ang anino para sa Larawan */
         .luxury-image-shimmer {
             position: absolute;
             top: 0;
@@ -145,7 +139,6 @@
             z-index: 20;
         }
 
-        /* Z-INDEX LAYER FIX PARA SA AUTOMATIC SLIDESHOW EFFECT */
         .image-shimmer-container .luxury-image-shimmer {
             z-index: 30 !important;
         }
@@ -754,7 +747,7 @@
                                 
     <script>
         function showSection(sectionId) {
-            // UPDATED SECTIONS ARRAY
+            // KUMPLETONG ARRAY NG MGA SECTIONS
             const sections = ['home', 'about', 'portfolio', 'services', 'testimonials', 'contact'];
             
             sections.forEach(id => {
