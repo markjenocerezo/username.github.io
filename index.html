@@ -151,8 +151,10 @@
         }
     </style>
 </head>
+<body class="bg-[#FBF9F6]">
+
 <nav class="fixed top-0 left-0 w-full bg-[#FBF9F6]/90 backdrop-blur-md z-50 border-b border-[#EAE6DF]"
-     x-data="{ mobileMenuOpen: false }">
+     x-data="{ menuOpen: false }">
     
     <div class="max-w-6xl mx-auto px-4 md:px-6 py-4 flex justify-between items-center relative">
         
@@ -160,41 +162,39 @@
             MJ Collection.
         </a>
         
-        <div class="hidden md:flex space-x-6 text-sm uppercase tracking-wider font-medium">
-            <button onclick="showSection('home')" class="px-3.5 py-1 text-sm text-[#2C2A29] font-medium rounded-lg border border-transparent transition-all duration-300 hover:text-amber-800 hover:border-amber-700/60 hover:bg-amber-500/5 hover:shadow-[0_0_12px_rgba(180,83,9,0.35)]">Home</button>
-            <button onclick="showSection('about')" class="px-3.5 py-1 text-sm text-[#2C2A29] font-medium rounded-lg border border-transparent transition-all duration-300 hover:text-amber-800 hover:border-amber-700/60 hover:bg-amber-500/5 hover:shadow-[0_0_12px_rgba(180,83,9,0.35)]">About</button>
-            <button onclick="showSection('portfolio')" class="px-3.5 py-1 text-sm text-[#2C2A29] font-medium rounded-lg border border-transparent transition-all duration-300 hover:text-amber-800 hover:border-amber-700/60 hover:bg-amber-500/5 hover:shadow-[0_0_12px_rgba(180,83,9,0.35)]">Portfolio</button>
-            <button onclick="showSection('contact')" class="px-3.5 py-1 text-sm text-[#2C2A29] font-medium rounded-lg border border-transparent transition-all duration-300 hover:text-amber-800 hover:border-amber-700/60 hover:bg-amber-500/5 hover:shadow-[0_0_12px_rgba(180,83,9,0.35)]">Contact</button>
-        </div>
-
-        <div class="md:hidden flex items-center">
-            <button @click="mobileMenuOpen = !mobileMenuOpen" 
-                    class="p-2 text-[#2C2A29] hover:text-amber-800 focus:outline-none transition-colors duration-300">
+        <div class="flex items-center">
+            <button @click="menuOpen = !menuOpen" 
+                    class="p-2 text-[#2C2A29] hover:text-amber-800 focus:outline-none transition-colors duration-300 flex items-center gap-2">
+                <span class="text-xs uppercase tracking-widest font-bold font-sans text-gray-500 hidden sm:inline" x-text="menuOpen ? 'Close Menu' : 'Menu'">Menu</span>
                 <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path x-show="!mobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                    <path x-show="mobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" style="display: none;" />
+                    <path x-show="!menuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    <path x-show="menuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" style="display: none;" />
                 </svg>
             </button>
         </div>
     </div>
 
-    <div x-show="mobileMenuOpen" 
+    <div x-show="menuOpen" 
          x-transition:enter="transition ease-out duration-200"
          x-transition:enter-start="opacity-0 -translate-y-2"
          x-transition:enter-end="opacity-100 translate-y-0"
          x-transition:leave="transition ease-in duration-150"
          x-transition:leave-start="opacity-100 translate-y-0"
          x-transition:leave-end="opacity-0 -translate-y-2"
-         class="md:hidden bg-[#FBF9F6] border-b border-[#EAE6DF] px-4 pt-2 pb-4 space-y-2 shadow-lg absolute w-full left-0 z-40"
+         class="bg-[#FBF9F6] border-b border-[#EAE6DF] px-6 pt-2 pb-6 space-y-1 shadow-xl absolute w-full left-0 z-40 max-w-md mx-auto right-0 sm:rounded-b-2xl md:border-x"
          style="display: none;">
         
-        <button onclick="showSection('home')" @click="mobileMenuOpen = false" class="block w-full text-left px-4 py-2.5 text-sm text-[#2C2A29] font-medium rounded-lg hover:bg-amber-500/5 hover:text-amber-800 transition-all">Home</button>
-        <button onclick="showSection('about')" @click="mobileMenuOpen = false" class="block w-full text-left px-4 py-2.5 text-sm text-[#2C2A29] font-medium rounded-lg hover:bg-amber-500/5 hover:text-amber-800 transition-all">About</button>
-        <button onclick="showSection('portfolio')" @click="mobileMenuOpen = false" class="block w-full text-left px-4 py-2.5 text-sm text-[#2C2A29] font-medium rounded-lg hover:bg-amber-500/5 hover:text-amber-800 transition-all">Portfolio</button>
-        <button onclick="showSection('contact')" @click="mobileMenuOpen = false" class="block w-full text-left px-4 py-2.5 text-sm text-[#2C2A29] font-medium rounded-lg hover:bg-amber-500/5 hover:text-amber-800 transition-all">Contact</button>
+        <p class="text-[10px] uppercase tracking-[0.2em] text-amber-800 font-bold px-4 pt-2 pb-1 border-b border-[#2C2A29]/5 mb-2">Navigation Links</p>
+        <button onclick="showSection('home')" @click="menuOpen = false" class="block w-full text-left px-4 py-2.5 text-sm text-[#2C2A29] font-medium rounded-lg hover:bg-amber-500/5 hover:text-amber-800 transition-all font-serif">Home</button>
+        <button onclick="showSection('about')" @click="menuOpen = false" class="block w-full text-left px-4 py-2.5 text-sm text-[#2C2A29] font-medium rounded-lg hover:bg-amber-500/5 hover:text-amber-800 transition-all font-serif">About</button>
+        <button onclick="showSection('portfolio')" @click="menuOpen = false" class="block w-full text-left px-4 py-2.5 text-sm text-[#2C2A29] font-medium rounded-lg hover:bg-amber-500/5 hover:text-amber-800 transition-all font-serif">Portfolio</button>
+        <button onclick="showSection('services')" @click="menuOpen = false" class="block w-full text-left px-4 py-2.5 text-sm text-[#2C2A29] font-medium rounded-lg hover:bg-amber-500/5 hover:text-amber-800 transition-all font-serif">Services</button>
+        <button onclick="showSection('testimonials')" @click="menuOpen = false" class="block w-full text-left px-4 py-2.5 text-sm text-[#2C2A29] font-medium rounded-lg hover:bg-amber-500/5 hover:text-amber-800 transition-all font-serif">Achievements</button>
+        <button onclick="showSection('contact')" @click="menuOpen = false" class="block w-full text-left px-4 py-2.5 text-sm text-[#2C2A29] font-medium rounded-lg hover:bg-amber-500/5 hover:text-amber-800 transition-all font-serif">Contact</button>
     </div>
 </nav>
- <section id="home" class="h-auto min-h-screen md:h-screen flex items-center pt-24 pb-6 pl-4 pr-4 md:pl-8 md:pr-16 section-fade show w-full overflow-x-hidden md:overflow-y-hidden box-border">
+
+<section id="home" class="h-auto min-h-screen md:h-screen flex items-center pt-24 pb-6 pl-4 pr-4 md:pl-8 md:pr-16 section-fade show w-full overflow-x-hidden md:overflow-y-hidden box-border">
     <div class="grid md:grid-cols-2 gap-6 md:gap-12 items-center w-full max-w-7xl mx-auto h-full">
         
         <div class="space-y-4 md:space-y-6 text-left w-full max-w-xl flex flex-col items-start justify-center pl-0 md:pl-4">
@@ -209,6 +209,10 @@
                 </h1>
                 <div class="luxury-shimmer"></div>
             </div>
+            
+            <p class="text-gray-600 text-sm leading-relaxed max-w-md bg-amber-700/5 p-4 border-l-2 border-amber-700 rounded-r-lg">
+                This portfolio shows my journey as a student combining technology and creative arts. My design concept is all about balancing the clean structure of engineering with the energetic feel of dance and fashion. The purpose of this project is to present my skills and show how I mix logic and creativity in everything I do.
+            </p>
             
             <div class="space-y-3 md:space-y-4 pt-4 border-t border-[#2C2A29]/20 w-full text-left flex flex-col items-start">
                 <p class="text-[#2C2A29] text-sm tracking-[0.15em] uppercase font-bold font-sans text-left">
@@ -262,6 +266,7 @@
 
     </div>
 </section>
+
 <section id="about" class="hidden py-24 px-4 sm:px-6 section-fade pt-32 w-full flex flex-col items-center justify-center overflow-x-hidden">
     <div class="max-w-6xl mx-auto flex justify-center items-center w-full">
         <div class="relative group p-3 md:p-8 bg-[#F5F1EA] shadow-md w-full border border-[#2C2A29]/10 rounded-2xl">
@@ -340,36 +345,36 @@
 
                 <hr class="w-full max-w-4xl border-t-2 border-amber-700/40 my-12">
 
-              <div class="w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-12 pt-2">
-    
-    <div class="space-y-4 flex flex-col items-center justify-center text-center">
-        <h4 class="font-extrabold text-[#2C2A29] text-sm uppercase tracking-widest border-b border-amber-700/20 pb-2 px-6 inline-block">Tech & Design</h4>
-        <div class="w-full flex justify-center">
-            <ul class="text-left space-y-2.5 text-sm text-gray-600 font-medium list-none w-fit">
-                <li>• Computer Engineering Tech</li>
-                <li>• Graphic Branding Identity</li>
-                <li>• Fashion & Apparel Design</li>
-                <li>• Digital Layout & Structure</li>
-            </ul>
-        </div>
-    </div>
-    
-    <div class="space-y-4 flex flex-col items-center justify-center text-center">
-        <h4 class="font-extrabold text-[#2C2A29] text-sm uppercase tracking-widest border-b border-amber-700/20 pb-2 px-2 inline-block">Production & Arts</h4>
-        <div class="w-full flex justify-center">
-            <ul class="text-left space-y-2.5 text-sm text-gray-600 font-medium list-none w-fit">
-                <li>• Pageant Stage Direction</li>
-                <li>• Dance Choreography & Blocking</li>
-                <li>• Creative Event Production</li>
-                <li>• Stage Movement & Concept</li>
-            </ul>
-        </div>
-    </div>
-    
-</div>
+                <div class="w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-12 pt-2">
+                    <div class="space-y-4 flex flex-col items-center justify-center text-center">
+                        <h4 class="font-extrabold text-[#2C2A29] text-sm uppercase tracking-widest border-b border-amber-700/20 pb-2 px-6 inline-block">Tech & Design</h4>
+                        <div class="w-full flex justify-center">
+                            <ul class="text-left space-y-2.5 text-sm text-gray-600 font-medium list-none w-fit">
+                                <li>• Computer Engineering Tech</li>
+                                <li>• Graphic Branding Identity</li>
+                                <li>• Fashion & Apparel Design</li>
+                                <li>• Digital Layout & Structure</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-4 flex flex-col items-center justify-center text-center">
+                        <h4 class="font-extrabold text-[#2C2A29] text-sm uppercase tracking-widest border-b border-amber-700/20 pb-2 px-2 inline-block">Production & Arts</h4>
+                        <div class="w-full flex justify-center">
+                            <ul class="text-left space-y-2.5 text-sm text-gray-600 font-medium list-none w-fit">
+                                <li>• Pageant Stage Direction</li>
+                                <li>• Dance Choreography & Blocking</li>
+                                <li>• Creative Event Production</li>
+                                <li>• Stage Movement & Concept</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
+
 <section id="portfolio" class="hidden py-24 bg-[#FBF9F6] px-6 section-fade pt-24" 
          x-data="{ 
             openFashion: false, 
@@ -542,7 +547,114 @@
         </div>
     </div>
 </section>
-                
+
+<section id="services" class="hidden py-24 bg-[#FBF9F6] px-6 section-fade pt-24">
+    <div class="max-w-5xl mx-auto space-y-16">
+        <div class="text-center space-y-4">
+            <h2 class="text-4xl font-normal font-serif text-[#2C2A29]">Creative Services</h2>
+            <div class="w-16 h-1 bg-amber-700 mx-auto rounded-full"></div>
+            <p class="text-xs uppercase tracking-[0.3em] text-amber-800 font-bold">What I Can Do For You</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 pt-6">
+            <div class="bg-white border border-[#2C2A29]/10 p-8 rounded-2xl shadow-sm hover:border-amber-700 hover:shadow-[0_0_20px_rgba(180,83,9,0.15)] transition-all duration-300 flex flex-col justify-between">
+                <div class="space-y-4">
+                    <div class="text-amber-800 text-2xl font-serif">01</div>
+                    <h3 class="text-xl font-normal font-serif text-[#2C2A29]">Graphic Design</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Logo making, visual branding layouts, pubmats, and digital compositions tailored for your brand identity.</p>
+                </div>
+            </div>
+
+            <div class="bg-white border border-[#2C2A29]/10 p-8 rounded-2xl shadow-sm hover:border-amber-700 hover:shadow-[0_0_20px_rgba(180,83,9,0.15)] transition-all duration-300 flex flex-col justify-between">
+                <div class="space-y-4">
+                    <div class="text-amber-800 text-2xl font-serif">02</div>
+                    <h3 class="text-xl font-normal font-serif text-[#2C2A29]">Fashion Design</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Custom apparel concepts, lookbook planning, and creative wearable art designs for shows or events.</p>
+                </div>
+            </div>
+
+            <div class="bg-white border border-[#2C2A29]/10 p-8 rounded-2xl shadow-sm hover:border-amber-700 hover:shadow-[0_0_20px_rgba(180,83,9,0.15)] transition-all duration-300 flex flex-col justify-between">
+                <div class="space-y-4">
+                    <div class="text-amber-800 text-2xl font-serif">03</div>
+                    <h3 class="text-xl font-normal font-serif text-[#2C2A29]">Choreography</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Dance routines, hip-hop execution blocking, and stage movement direction for crews, pageants, or school production teams.</p>
+                </div>
+            </div>
+
+            <div class="bg-white border border-[#2C2A29]/10 p-8 rounded-2xl shadow-sm hover:border-amber-700 hover:shadow-[0_0_20px_rgba(180,83,9,0.15)] transition-all duration-300 flex flex-col justify-between">
+                <div class="space-y-4">
+                    <div class="text-amber-800 text-2xl font-serif">04</div>
+                    <h3 class="text-xl font-normal font-serif text-[#2C2A29]">Tech Assistance</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Basic computer engineering tech solutions, structured project analysis, or technical implementation guidance.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="testimonials" class="hidden py-24 bg-[#FBF9F6] px-6 section-fade pt-24">
+    <div class="max-w-5xl mx-auto space-y-20">
+        <div class="text-center space-y-4">
+            <h2 class="text-4xl font-normal font-serif text-[#2C2A29]">Milestones & Words</h2>
+            <div class="w-16 h-1 bg-amber-700 mx-auto rounded-full"></div>
+            <p class="text-xs uppercase tracking-[0.3em] text-amber-800 font-bold">Achievements & Testimonials</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-16 items-start">
+            <div class="space-y-8">
+                <h3 class="text-2xl font-normal font-serif text-[#2C2A29] border-b border-amber-700/20 pb-2">Key Achievements</h3>
+                <div class="space-y-6">
+                    <div class="flex gap-4 items-start">
+                        <span class="text-amber-800 text-lg font-bold">2025</span>
+                        <div>
+                            <h4 class="font-bold text-[#2C2A29] text-sm uppercase tracking-wide">Trashion Show Director & Designer</h4>
+                            <p class="text-gray-600 text-sm">Successfully directed and showcased sustainable wearable art designs fusing movement and eco-fashion.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4 items-start">
+                        <span class="text-amber-800 text-lg font-bold">2024</span>
+                        <div>
+                            <h4 class="font-bold text-[#2C2A29] text-sm uppercase tracking-wide">Lead Dance Choreographer</h4>
+                            <p class="text-gray-600 text-sm">Orchestrated stage formations and routines for major school production events and dance showcases.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4 items-start">
+                        <span class="text-amber-800 text-lg font-bold">2023</span>
+                        <div>
+                            <h4 class="font-bold text-[#2C2A29] text-sm uppercase tracking-wide">Freelance Brand Designer</h4>
+                            <p class="text-gray-600 text-sm">Created multiple digital layouts, logos, and advertising materials for local student organizations and small brands.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-8">
+                <h3 class="text-2xl font-normal font-serif text-[#2C2A29] border-b border-amber-700/20 pb-2">Client Reviews</h3>
+                <div class="space-y-6">
+                    <div class="bg-white border border-[#2C2A29]/10 p-6 rounded-xl shadow-sm relative">
+                        <p class="text-gray-600 text-sm italic leading-relaxed">"Mark brings incredible visual rhythm to everything he handles. His direction in the 2025 fashion project beautifully connected clothing styling with seamless stage choreography."</p>
+                        <div class="mt-4 pt-2 border-t border-gray-100 flex flex-col">
+                            <span class="font-serif text-sm font-medium text-[#2C2A29]">Project Organizer</span>
+                            <span class="text-[10px] text-amber-800 uppercase font-bold tracking-wider">Trashion Show Client</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-white border border-[#2C2A29]/10 p-6 rounded-xl shadow-sm relative">
+                        <p class="text-gray-600 text-sm italic leading-relaxed">"Very easy to work with as a graphics designer. He understands technical design rules while still maintaining an artistic touch that stands out."</p>
+                        <div class="mt-4 pt-2 border-t border-gray-100 flex flex-col">
+                            <span class="font-serif text-sm font-medium text-[#2C2A29]">Student Leader</span>
+                            <span class="text-[10px] text-amber-800 uppercase font-bold tracking-wider">Branding & Pubmats Client</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="w-24 h-1 bg-amber-700 mx-auto rounded-full opacity-80 pt-4"></div>
+    </div>
+</section>
+
 <section id="contact" class="hidden min-h-screen md:h-screen md:max-h-screen flex items-center bg-[#F5F1EA] px-6 section-fade pt-24 pb-8 md:overflow-y-hidden box-border">
     <div class="w-full max-w-5xl mx-auto flex flex-col justify-center h-full">
         
@@ -612,7 +724,6 @@
 
             <div class="bg-white border border-[#2C2A29]/40 p-4 rounded-xl flex flex-col justify-between h-full">
                 <form action="https://api.web3forms.com/submit" method="POST" class="space-y-3 bg-[#FBF9F6]/50 border border-[#2C2A29]/10 p-4 h-full flex flex-col justify-between rounded-lg">
-                    
                     <input type="hidden" name="access_key" value="5fbbb5f4-b014-4a5a-966e-d546687ef990">
                     <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
 
@@ -643,7 +754,8 @@
                                 
     <script>
         function showSection(sectionId) {
-            const sections = ['home', 'about', 'portfolio', 'contact'];
+            // UPDATED SECTIONS ARRAY
+            const sections = ['home', 'about', 'portfolio', 'services', 'testimonials', 'contact'];
             
             sections.forEach(id => {
                 const el = document.getElementById(id);
