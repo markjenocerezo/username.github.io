@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>MJ | Collection</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
@@ -151,7 +151,7 @@
         }
     </style>
 </head>
-<body class="bg-[#FBF9F6] text-[#2C2A29] scroll-smooth">
+<body class="bg-[#FBF9F6] text-[#2C2A29] scroll-smooth w-full overflow-x-hidden">
 
     <nav class="fixed top-0 left-0 w-full bg-[#FBF9F6]/90 backdrop-blur-md z-50 border-b border-[#EAE6DF]">
         <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
@@ -160,80 +160,81 @@
             </a>
             <div class="space-x-6 text-sm uppercase tracking-wider font-medium">
                 <button onclick="showSection('home')" class="px-3.5 py-1 text-sm text-[#2C2A29] font-medium rounded-lg border border-transparent transition-all duration-300 hover:text-amber-800 hover:border-amber-700/60 hover:bg-amber-500/5 hover:shadow-[0_0_12px_rgba(180,83,9,0.35)]">Home</button>
-<button onclick="showSection('about')" class="px-3.5 py-1 text-sm text-[#2C2A29] font-medium rounded-lg border border-transparent transition-all duration-300 hover:text-amber-800 hover:border-amber-700/60 hover:bg-amber-500/5 hover:shadow-[0_0_12px_rgba(180,83,9,0.35)]">About</button>
-<button onclick="showSection('portfolio')" class="px-3.5 py-1 text-sm text-[#2C2A29] font-medium rounded-lg border border-transparent transition-all duration-300 hover:text-amber-800 hover:border-amber-700/60 hover:bg-amber-500/5 hover:shadow-[0_0_12px_rgba(180,83,9,0.35)]">Portfolio</button>
-<button onclick="showSection('contact')" class="px-3.5 py-1 text-sm text-[#2C2A29] font-medium rounded-lg border border-transparent transition-all duration-300 hover:text-amber-800 hover:border-amber-700/60 hover:bg-amber-500/5 hover:shadow-[0_0_12px_rgba(180,83,9,0.35)]">Contact</button>
+                <button onclick="showSection('about')" class="px-3.5 py-1 text-sm text-[#2C2A29] font-medium rounded-lg border border-transparent transition-all duration-300 hover:text-amber-800 hover:border-amber-700/60 hover:bg-amber-500/5 hover:shadow-[0_0_12px_rgba(180,83,9,0.35)]">About</button>
+                <button onclick="showSection('portfolio')" class="px-3.5 py-1 text-sm text-[#2C2A29] font-medium rounded-lg border border-transparent transition-all duration-300 hover:text-amber-800 hover:border-amber-700/60 hover:bg-amber-500/5 hover:shadow-[0_0_12px_rgba(180,83,9,0.35)]">Portfolio</button>
+                <button onclick="showSection('contact')" class="px-3.5 py-1 text-sm text-[#2C2A29] font-medium rounded-lg border border-transparent transition-all duration-300 hover:text-amber-800 hover:border-amber-700/60 hover:bg-amber-500/5 hover:shadow-[0_0_12px_rgba(180,83,9,0.35)]">Contact</button>
+            </div>
         </div>
     </nav>
 
-<section id="home" class="min-h-screen flex items-center pt-24 pb-12 pl-4 pr-4 md:pl-8 md:pr-16 section-fade show w-full overflow-x-hidden">
-    <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center w-full max-w-none mx-0">
-        
-        <div class="space-y-6 text-left w-full max-w-xl flex flex-col items-start justify-start pl-0 md:pl-4">
-            <p class="text-left text-xs md:text-sm font-bold tracking-[0.2em] text-amber-700 uppercase font-sans md:whitespace-nowrap max-w-full">
-                Dancer • Dance Choreographer • Graphic & Fashion Designer
-            </p>
+    <section id="home" class="min-h-screen flex items-center pt-24 pb-12 pl-4 pr-4 md:pl-8 md:pr-16 section-fade show w-full overflow-x-hidden">
+        <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center w-full max-w-none mx-0">
             
-            <div class="text-shimmer-container inline-block pr-2 text-left w-full">
-                <h1 class="text-4xl md:text-6xl font-normal text-[#2C2A29] leading-tight font-serif text-left">
-                    Where Visual Identity <br>
-                    <span class="italic font-medium text-[#5A4E46]">Meets Wearable Art.</span>
-                </h1>
-                <div class="luxury-shimmer"></div>
-            </div>
-            
-            <div class="space-y-4 pt-4 border-t border-[#2C2A29]/20 w-full text-left flex flex-col items-start">
-                <p class="text-[#2C2A29] text-sm tracking-[0.15em] uppercase font-bold font-sans text-left">
-                    Introducing
+            <div class="space-y-6 text-left w-full max-w-xl flex flex-col items-start justify-start pl-0 md:pl-4">
+                <p class="text-left text-xs md:text-sm font-bold tracking-[0.2em] text-amber-700 uppercase font-sans md:whitespace-nowrap max-w-full">
+                    Dancer • Dance Choreographer • Graphic & Fashion Designer
                 </p>
                 
-                <h2 class="text-2xl md:text-3xl font-normal tracking-wide text-[#2C2A29] font-serif italic text-left">
-                    Mark Jeino Desonia Cerezo
-                </h2>
+                <div class="text-shimmer-container inline-block pr-2 text-left w-full">
+                    <h1 class="text-4xl md:text-6xl font-normal text-[#2C2A29] leading-tight font-serif text-left">
+                        Where Visual Identity <br>
+                        <span class="italic font-medium text-[#5A4E46]">Meets Wearable Art.</span>
+                    </h1>
+                    <div class="luxury-shimmer"></div>
+                </div>
                 
-                <p class="text-[#1A1919] text-xs md:text-sm font-normal tracking-[0.08em] leading-relaxed font-sans max-w-md italic text-left">
-                    Merging creative movement and choreography with visual identity and contemporary fashion.
-                </p>
-            </div>
-        </div>
-        
-        <div class="w-full flex justify-center items-center py-4 overflow-hidden md:overflow-visible">
-            <div class="relative w-full max-w-[100%] md:max-w-[650px] flex flex-col items-center"
-                 x-data="{ 
-                    currentIndex: 0, 
-                    images: [
-                        '1778984595066.png',
-                        '473802872_2010395539468278_1233830341626882435_n.jpg', 
-                        'IMG_20230707_130218_762.jpg'
-                    ] 
-                 }" 
-                 x-init="setInterval(() => { currentIndex = (currentIndex + 1) % images.length }, 4000)">
-                
-                <div class="relative w-full h-[250px] md:h-[320px] flex justify-center items-center">
+                <div class="space-y-4 pt-4 border-t border-[#2C2A29]/20 w-full text-left flex flex-col items-start">
+                    <p class="text-[#2C2A29] text-sm tracking-[0.15em] uppercase font-bold font-sans text-left">
+                        Introducing
+                    </p>
                     
-                    <template x-for="(img, index) in images" :key="index">
-                        <div class="absolute w-[180px] h-[180px] md:w-[280px] md:h-[280px] rounded-xl overflow-hidden border border-[#2C2A29] bg-[#FBF9F6] p-2 shadow-md transition-all duration-700 ease-in-out image-shimmer-container"
-                             :class="{
-                                'scale-110 z-30 opacity-100 shadow-lg translate-x-0 border-amber-700/50': currentIndex === index,
-                                'scale-90 z-10 opacity-30 blur-[1px] -translate-x-[90px] md:-translate-x-[170px]': (currentIndex === 0 && index === images.length - 1) || (currentIndex > 0 && index === currentIndex - 1),
-                                'scale-90 z-10 opacity-30 blur-[1px] translate-x-[90px] md:translate-x-[170px]': (currentIndex === images.length - 1 && index === 0) || (index === currentIndex + 1),
-                                'scale-75 z-0 opacity-0 pointer-events-none': currentIndex !== index && index !== ((currentIndex + 1) % images.length) && index !== ((currentIndex - 1 + images.length) % images.length)
-                             }">
-                            
-                            <div class="w-full h-full border border-[#2C2A29]/40 overflow-hidden rounded-lg">
-                                <img :src="img" alt="Mark Jeino - Portfolio" class="w-full h-full object-cover">
-                            </div>
-                            
-                            <div class="luxury-image-shimmer" x-show="currentIndex === index"></div>
-                        </div>
-                    </template>
-
+                    <h2 class="text-2xl md:text-3xl font-normal tracking-wide text-[#2C2A29] font-serif italic text-left">
+                        Mark Jeino Desonia Cerezo
+                    </h2>
+                    
+                    <p class="text-[#1A1919] text-xs md:text-sm font-normal tracking-[0.08em] leading-relaxed font-sans max-w-md italic text-left">
+                        Merging creative movement and choreography with visual identity and contemporary fashion.
+                    </p>
                 </div>
             </div>
-        </div>
+            
+            <div class="w-full flex justify-center items-center py-4 overflow-hidden md:overflow-visible">
+                <div class="relative w-full max-w-[100%] md:max-w-[650px] flex flex-col items-center"
+                     x-data="{ 
+                        currentIndex: 0, 
+                        images: [
+                            '1778984595066.png',
+                            '473802872_2010395539468278_1233830341626882435_n.jpg', 
+                            'IMG_20230707_130218_762.jpg'
+                        ] 
+                     }" 
+                     x-init="setInterval(() => { currentIndex = (currentIndex + 1) % images.length }, 4000)">
+                    
+                    <div class="relative w-full h-[250px] md:h-[320px] flex justify-center items-center">
+                        
+                        <template x-for="(img, index) in images" :key="index">
+                            <div class="absolute w-[180px] h-[180px] md:w-[280px] md:h-[280px] rounded-xl overflow-hidden border border-[#2C2A29] bg-[#FBF9F6] p-2 shadow-md transition-all duration-700 ease-in-out image-shimmer-container"
+                                 :class="{
+                                    'scale-110 z-30 opacity-100 shadow-lg translate-x-0 border-amber-700/50': currentIndex === index,
+                                    'scale-90 z-10 opacity-30 blur-[1px] -translate-x-[90px] md:-translate-x-[170px]': (currentIndex === 0 && index === images.length - 1) || (currentIndex > 0 && index === currentIndex - 1),
+                                    'scale-90 z-10 opacity-30 blur-[1px] translate-x-[90px] md:translate-x-[170px]': (currentIndex === images.length - 1 && index === 0) || (index === currentIndex + 1),
+                                    'scale-75 z-0 opacity-0 pointer-events-none': currentIndex !== index && index !== ((currentIndex + 1) % images.length) && index !== ((currentIndex - 1 + images.length) % images.length)
+                                 }">
+                                
+                                <div class="w-full h-full border border-[#2C2A29]/40 overflow-hidden rounded-lg">
+                                    <img :src="img" alt="Mark Jeino - Portfolio" class="w-full h-full object-cover">
+                                </div>
+                                
+                                <div class="luxury-image-shimmer" x-show="currentIndex === index"></div>
+                            </div>
+                        </template>
 
-    </div>
-</section>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
 
 <section id="about" class="hidden py-24 px-4 sm:px-6 section-fade pt-32 w-full flex flex-col items-center justify-center overflow-x-hidden">
     <div class="max-w-6xl mx-auto flex justify-center items-center w-full">
