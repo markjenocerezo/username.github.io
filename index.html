@@ -235,109 +235,110 @@
     </div>
 </section>
 
-<section id="about" class="hidden py-24 px-6 section-fade pt-32 w-full">
-        <div class="max-w-6xl mx-auto flex justify-center items-center w-full">
-            <div class="relative group p-4 md:p-8 bg-[#F5F1EA] shadow-md w-full border border-[#2C2A29]/10 rounded-2xl">
+<section id="about" class="hidden py-24 px-4 sm:px-6 section-fade pt-32 w-full flex flex-col items-center justify-center">
+    <div class="max-w-6xl mx-auto flex justify-center items-center w-full">
+        <div class="relative group p-3 md:p-8 bg-[#F5F1EA] shadow-md w-full border border-[#2C2A29]/10 rounded-2xl">
+            
+            <div class="absolute inset-0 border-2 border-amber-700/40 translate-x-1 translate-y-1 sm:translate-x-3 sm:translate-y-3 transition-transform duration-500 group-hover:translate-x-0.5 group-hover:translate-y-0.5 z-0 m-3 md:m-8 rounded-2xl"></div>
+            
+            <div class="relative border border-[#2C2A29] p-5 md:p-12 bg-[#FBF9F6] z-10 rounded-xl flex flex-col items-center text-center w-full">
                 
-                <div class="absolute inset-0 border-2 border-amber-700/40 translate-x-3 translate-y-3 transition-transform duration-500 group-hover:translate-x-1 group-hover:translate-y-1 z-0 m-4 md:m-8 rounded-2xl"></div>
-                
-                <div class="relative border border-[#2C2A29] p-6 md:p-12 bg-[#FBF9F6] z-10 rounded-xl flex flex-col items-center text-center w-full">
+                <div class="relative w-full max-w-[650px] overflow-visible mb-8 flex flex-col items-center"
+                     x-data="{ 
+                        currentIndex: 0, 
+                        images: [
+                            ' 473802872_2010395539468278_1233830341626882435_n.jpg',
+                            '1778984595066.png', 
+                            'IMG_20230707_130218_762.jpg'
+                        ] 
+                     }" 
+                     x-init="setInterval(() => { currentIndex = (currentIndex + 1) % images.length }, 4000)">
                     
-                    <div class="relative w-full max-w-[650px] overflow-visible mb-8 flex flex-col items-center"
-                         x-data="{ 
-                            currentIndex: 0, 
-                            images: [
-                                ' 473802872_2010395539468278_1233830341626882435_n.jpg',
-                                '1778984595066.png', 
-                                'IMG_20230707_130218_762.jpg'
-                            ] 
-                         }" 
-                         x-init="setInterval(() => { currentIndex = (currentIndex + 1) % images.length }, 4000)">
+                    <div class="relative w-full h-[320px] flex justify-center items-center">
                         
-                        <div class="relative w-full h-[320px] flex justify-center items-center">
-                            
-                            <template x-for="(img, index) in images" :key="index">
-                                <div class="absolute w-[280px] h-[280px] rounded-xl overflow-hidden border border-[#2C2A29] bg-[#FBF9F6] p-2 shadow-md transition-all duration-700 ease-in-out image-shimmer-container"
-                                     :class="{
-                                        'scale-110 z-30 opacity-100 shadow-lg translate-x-0 border-amber-700/50': currentIndex === index,
-                                        'scale-90 z-10 opacity-30 blur-[1px] -translate-x-[170px]': (currentIndex === 0 && index === images.length - 1) || (currentIndex > 0 && index === currentIndex - 1),
-                                        'scale-90 z-10 opacity-30 blur-[1px] translate-x-[170px]': (currentIndex === images.length - 1 && index === 0) || (index === currentIndex + 1),
-                                        'scale-75 z-0 opacity-0 pointer-events-none': currentIndex !== index && index !== ((currentIndex + 1) % images.length) && index !== ((currentIndex - 1 + images.length) % images.length)
-                                     }">
-                                    
-                                    <div class="w-full h-full border border-[#2C2A29]/40 overflow-hidden rounded-lg">
-                                        <img :src="img" alt="Mark Jeino" class="w-full h-full object-cover">
-                                    </div>
-                                    
-                                    <div class="luxury-image-shimmer" x-show="currentIndex === index"></div>
+                        <template x-for="(img, index) in images" :key="index">
+                            <div class="absolute w-[280px] h-[280px] rounded-xl overflow-hidden border border-[#2C2A29] bg-[#FBF9F6] p-2 shadow-md transition-all duration-700 ease-in-out image-shimmer-container"
+                                 :class="{
+                                    'scale-110 z-30 opacity-100 shadow-lg translate-x-0 border-amber-700/50': currentIndex === index,
+                                    'scale-90 z-10 opacity-30 blur-[1px] -translate-x-[170px]': (currentIndex === 0 && index === images.length - 1) || (currentIndex > 0 && index === currentIndex - 1),
+                                    'scale-90 z-10 opacity-30 blur-[1px] translate-x-[170px]': (currentIndex === images.length - 1 && index === 0) || (index === currentIndex + 1),
+                                    'scale-75 z-0 opacity-0 pointer-events-none': currentIndex !== index && index !== ((currentIndex + 1) % images.length) && index !== ((currentIndex - 1 + images.length) % images.length)
+                                 }">
+                                
+                                <div class="w-full h-full border border-[#2C2A29]/40 overflow-hidden rounded-lg">
+                                    <img :src="img" alt="Mark Jeino" class="w-full h-full object-cover">
                                 </div>
-                            </template>
+                                
+                                <div class="luxury-image-shimmer" x-show="currentIndex === index"></div>
+                            </div>
+                        </template>
 
-                        </div>
                     </div>
+                </div>
 
-                    <h2 class="text-3xl md:text-4xl font-normal font-serif text-[#2C2A29] leading-tight mb-3">
-                        The Creative Narrative
-                    </h2>
-                    
-                    <p class="text-xs md:text-sm uppercase tracking-[0.25em] text-amber-800 font-bold mb-6">
-                        Movement &bull; Structure &bull; Style &bull; Direction
+                <h2 class="text-3xl md:text-4xl font-normal font-serif text-[#2C2A29] leading-tight mb-3">
+                    The Creative Narrative
+                </h2>
+                
+                <p class="text-xs md:text-sm uppercase tracking-[0.25em] text-amber-800 font-bold mb-6">
+                    Movement &bull; Structure &bull; Style &bull; Direction
+                </p>
+
+                <hr class="w-full max-w-4xl border-t-2 border-amber-700/40 mb-12">
+
+                <div class="space-y-6 text-gray-700 leading-relaxed text-base md:text-lg text-center w-full max-w-4xl mx-auto px-2">
+                    <p>
+                        Hi! I’m <span class="text-xl md:text-2xl font-normal tracking-wide text-[#2C2A29] font-serif italic">Mark Jeino Desonia Cerezo</span>, a 22-year-old student currently pursuing a Bachelor of Computer Engineering Technology. My creative identity thrives at the intersection of technical precision, structural mastery, and raw artistic expression.
+                    </p>
+                    <p>
+                        As a <span class="italic font-serif text-amber-900">dancer and dance choreographer</span>, I have developed an intimate understanding of rhythm, space, and human movement. Simultaneously, as a <span class="italic font-serif text-amber-900">graphics and fashion designer</span>, I translate that exact visual energy into striking digital branding and high-end wearable art.
                     </p>
 
-                    <hr class="w-full max-w-4xl border-t-2 border-amber-700/40 mb-12">
-
-                    <div class="space-y-6 text-gray-700 leading-relaxed text-lg text-center w-full max-w-4xl mx-auto">
-                        <p>
-                            Hi! I’m <span class="text-xl md:text-2xl font-normal tracking-wide text-[#2C2A29] font-serif italic">Mark Jeino Desonia Cerezo</span>, a 22-year-old student currently pursuing a Bachelor of Computer Engineering Technology. My creative identity thrives at the intersection of technical precision, structural mastery, and raw artistic expression.
-                        </p>
-                        <p>
-                            As a <span class="italic font-serif text-amber-900">dancer and dance choreographer</span>, I have developed an intimate understanding of rhythm, space, and human movement. Simultaneously, as a <span class="italic font-serif text-amber-900">graphics and fashion designer</span>, I translate that exact visual energy into striking digital branding and high-end wearable art.
-                        </p>
-
-                        <div class="relative w-full flex justify-center py-8">
-                            <div class="relative w-full max-w-[420px] border border-[#2C2A29] bg-[#FBF9F6] p-2 shadow-md rounded-2xl image-shimmer-container">
-                                <div class="w-full h-auto border border-[#2C2A29]/40 overflow-hidden rounded-xl">
-                                    <img src="received_1353218156145427.jpeg" alt="Production Vision" class="w-full h-auto object-cover max-h-[300px]">
-                                </div>
-                                <div class="luxury-image-shimmer"></div>
+                    <div class="relative w-full flex justify-center py-6">
+                        <div class="relative w-full max-w-[340px] md:max-w-[420px] border border-[#2C2A29] bg-[#FBF9F6] p-2 shadow-md rounded-2xl image-shimmer-container">
+                            <div class="w-full h-auto border border-[#2C2A29]/40 overflow-hidden rounded-xl">
+                                <img src="received_1353218156145427.jpeg" alt="Production Vision" class="w-full h-auto object-cover max-h-[300px]">
                             </div>
-                        </div>
-                        <p>
-                            My artistic vision further expands into the world of stage and production as a <span class="italic font-serif text-amber-900">Pageant Director</span>. In this role, I orchestrate the grand synergy of lights, garments, blocking, and storytelling—shaping not just a show, but a platform that celebrates confidence, culture, and poise. Whether it is a piece of code, a dance routine, a garment design, or a full-scale stage production, I view everything as canvas waiting for a distinct creative identity.
-                        </p>
-                        <p>
-                            Being the youngest in our family, I carry big and beautiful dreams—not just for my personal fulfillment, but as a tribute to the people who love and support me. I am driven by a deep sense of purpose, a refined artistic standard, and a resilient heart. No matter how demanding or unpredictable the path becomes, I am always ready to fight, adapt, and conquer every challenge—turning limitations into masterpieces.
-                        </p>
-                    </div>
-
-                    <hr class="w-full max-w-4xl border-t-2 border-amber-700/40 my-12">
-
-                    <div class="w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-12 text-center pt-2">
-                        <div class="space-y-4 flex flex-col items-center">
-                            <h4 class="font-extrabold text-[#2C2A29] text-sm uppercase tracking-widest border-b border-amber-700/20 pb-2 px-6 inline-block">Tech & Design</h4>
-                            <ul class="space-y-2.5 text-sm text-gray-600 font-medium list-none">
-                                <li>• Computer Engineering Tech</li>
-                                <li>• Graphic Branding Identity</li>
-                                <li>• Fashion & Apparel Design</li>
-                                <li>• Digital Layout & Structure</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="space-y-4 flex flex-col items-center">
-                            <h4 class="font-extrabold text-[#2C2A29] text-sm uppercase tracking-widest border-b border-amber-700/20 pb-2 px-2 inline-block">Production & Arts</h4>
-                            <ul class="space-y-2.5 text-sm text-gray-600 font-medium list-none">
-                                <li>• Pageant Stage Direction</li>
-                                <li>• Dance Choreography & Blocking</li>
-                                <li>• Creative Event Production</li>
-                                <li>• Stage Movement & Concept</li>
-                            </ul>
+                            <div class="luxury-image-shimmer"></div>
                         </div>
                     </div>
-
+                    
+                    <p>
+                        My artistic vision further expands into the world of stage and production as a <span class="italic font-serif text-amber-900">Pageant Director</span>. In this role, I orchestrate the grand synergy of lights, garments, blocking, and storytelling—shaping not just a show, but a platform that celebrates confidence, culture, and poise. Whether it is a piece of code, a dance routine, a garment design, or a full-scale stage production, I view everything as canvas waiting for a distinct creative identity.
+                    </p>
+                    <p>
+                        Being the youngest in our family, I carry big and beautiful dreams—not just for my personal fulfillment, but as a tribute to the people who love and support me. I am driven by a deep sense of purpose, a refined artistic standard, and a resilient heart. No matter how demanding or unpredictable the path becomes, I am always ready to fight, adapt, and conquer every challenge—turning limitations into masterpieces.
+                    </p>
                 </div>
+
+                <hr class="w-full max-w-4xl border-t-2 border-amber-700/40 my-12">
+
+                <div class="w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-12 text-center pt-2">
+                    <div class="space-y-4 flex flex-col items-center">
+                        <h4 class="font-extrabold text-[#2C2A29] text-sm uppercase tracking-widest border-b border-amber-700/20 pb-2 px-6 inline-block">Tech & Design</h4>
+                        <ul class="space-y-2.5 text-sm text-gray-600 font-medium list-none">
+                            <li>• Computer Engineering Tech</li>
+                            <li>• Graphic Branding Identity</li>
+                            <li>• Fashion & Apparel Design</li>
+                            <li>• Digital Layout & Structure</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="space-y-4 flex flex-col items-center">
+                        <h4 class="font-extrabold text-[#2C2A29] text-sm uppercase tracking-widest border-b border-amber-700/20 pb-2 px-2 inline-block">Production & Arts</h4>
+                        <ul class="space-y-2.5 text-sm text-gray-600 font-medium list-none">
+                            <li>• Pageant Stage Direction</li>
+                            <li>• Dance Choreography & Blocking</li>
+                            <li>• Creative Event Production</li>
+                            <li>• Stage Movement & Concept</li>
+                        </ul>
+                    </div>
+                </div>
+
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
 <section id="portfolio" class="hidden py-24 bg-[#FBF9F6] px-6 section-fade pt-32" 
              x-data="{ 
