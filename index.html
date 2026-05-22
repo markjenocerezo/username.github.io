@@ -18,11 +18,13 @@
     <meta name="twitter:title" content="MJC | Visual Design, Fashion & Performing Arts">
     <meta name="twitter:description" content="Movement • Structure • Style • Direction. Explore my design collections and choreography lookbook.">
     <meta name="twitter:image" content="Gemini_Generated_Image_sipogrsipogrsipo.png">
+    
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@200..800&display=swap');
         body { font-family: 'Plus Jakarta Sans', sans-serif; }
         h1, h2, h3 { font-family: 'Playfair Display', serif; }
         
+        /* Makinis na transition kapag lumilitaw ang seksyon */
         .section-fade {
             opacity: 0;
             transform: translateY(20px);
@@ -49,6 +51,7 @@
             min-height: 100vh;            
         }
 
+        /* Translucent overlay para mabasa pa rin nang malinaw ang mga text mo */
         #home::before {
             content: "";
             position: absolute;
@@ -78,6 +81,7 @@
             min-height: 100vh;            
         }
 
+        /* Translucent overlay sa likod ng About section */
         #about::before {
             content: "";
             position: absolute;
@@ -89,12 +93,13 @@
             z-index: 0;
         }
 
+        /* Sinisiguro nitong nakalutang ang card sa ibabaw ng background image */
         #about > div {
             position: relative;
             z-index: 10;
         }
 
-        /* --- LUXURY SHIMMER EFFECTS --- */
+        /* --- LUXURY SHIMMER EFFECTS (LEFT TO RIGHT) --- */
         @keyframes luxury-slide {
             0% { transform: translateX(-150%) skewX(-25deg); }
             100% { transform: translateX(250%) skewX(-25deg); }
@@ -105,6 +110,7 @@
             overflow: hidden;
         }
 
+        /* Ang anino para sa Text */
         .luxury-shimmer {
             position: absolute;
             top: 0;
@@ -122,6 +128,7 @@
             z-index: 5;
         }
 
+        /* Ang anino para sa Larawan */
         .luxury-image-shimmer {
             position: absolute;
             top: 0;
@@ -139,616 +146,478 @@
             z-index: 20;
         }
 
+        /* Z-INDEX LAYER FIX PARA SA AUTOMATIC SLIDESHOW EFFECT */
         .image-shimmer-container .luxury-image-shimmer {
             z-index: 30 !important;
         }
     </style>
 </head>
-<body class="bg-[#FBF9F6]">
+<body class="bg-[#FBF9F6] text-[#2C2A29]">
 
-<nav class="fixed top-0 left-0 w-full bg-[#FBF9F6]/90 backdrop-blur-md z-50 border-b border-[#EAE6DF]"
-     x-data="{ menuOpen: false }">
-    
-    <div class="max-w-6xl mx-auto px-4 md:px-6 py-4 flex justify-between items-center relative">
-        
-        <a href="#" onclick="showSection('home')" class="text-base md:text-xl font-extrabold tracking-widest uppercase border-b-2 border-amber-700 pb-1">
-            MJ Collection.
-        </a>
-        
-        <div class="flex items-center">
-            <button @click="menuOpen = !menuOpen" 
-                    class="p-2 text-[#2C2A29] hover:text-amber-800 focus:outline-none transition-colors duration-300 flex items-center gap-2">
-                <span class="text-xs uppercase tracking-widest font-bold font-sans text-gray-500 hidden sm:inline" x-text="menuOpen ? 'Close Menu' : 'Menu'">Menu</span>
-                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path x-show="!menuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                    <path x-show="menuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" style="display: none;" />
-                </svg>
-            </button>
-        </div>
-    </div>
-
-    <div x-show="menuOpen" 
-         x-transition:enter="transition ease-out duration-200"
-         x-transition:enter-start="opacity-0 -translate-y-2"
-         x-transition:enter-end="opacity-100 translate-y-0"
-         x-transition:leave="transition ease-in duration-150"
-         x-transition:leave-start="opacity-100 translate-y-0"
-         x-transition:leave-end="opacity-0 -translate-y-2"
-         class="bg-[#FBF9F6] border-b border-[#EAE6DF] px-6 pt-2 pb-6 space-y-1 shadow-xl absolute w-full left-0 z-40 max-w-md mx-auto right-0 sm:rounded-b-2xl md:border-x"
-         style="display: none;">
-        
-        <p class="text-[10px] uppercase tracking-[0.2em] text-amber-800 font-bold px-4 pt-2 pb-1 border-b border-[#2C2A29]/5 mb-2">Navigation Links</p>
-        <button onclick="showSection('home')" @click="menuOpen = false" class="block w-full text-left px-4 py-2.5 text-sm text-[#2C2A29] font-medium rounded-lg hover:bg-amber-500/5 hover:text-amber-800 transition-all font-serif">Home</button>
-        <button onclick="showSection('about')" @click="menuOpen = false" class="block w-full text-left px-4 py-2.5 text-sm text-[#2C2A29] font-medium rounded-lg hover:bg-amber-500/5 hover:text-amber-800 transition-all font-serif">About</button>
-        <button onclick="showSection('portfolio')" @click="menuOpen = false" class="block w-full text-left px-4 py-2.5 text-sm text-[#2C2A29] font-medium rounded-lg hover:bg-amber-500/5 hover:text-amber-800 transition-all font-serif">Portfolio</button>
-        <button onclick="showSection('services')" @click="menuOpen = false" class="block w-full text-left px-4 py-2.5 text-sm text-[#2C2A29] font-medium rounded-lg hover:bg-amber-500/5 hover:text-amber-800 transition-all font-serif">Services</button>
-        <button onclick="showSection('testimonials')" @click="menuOpen = false" class="block w-full text-left px-4 py-2.5 text-sm text-[#2C2A29] font-medium rounded-lg hover:bg-amber-500/5 hover:text-amber-800 transition-all font-serif">Achievements</button>
-        <button onclick="showSection('contact')" @click="menuOpen = false" class="block w-full text-left px-4 py-2.5 text-sm text-[#2C2A29] font-medium rounded-lg hover:bg-amber-500/5 hover:text-amber-800 transition-all font-serif">Contact</button>
-    </div>
-</nav>
-
-<section id="home" class="h-auto min-h-screen md:h-screen flex items-center pt-24 pb-6 pl-4 pr-4 md:pl-8 md:pr-16 section-fade show w-full overflow-x-hidden md:overflow-y-hidden box-border">
-    <div class="grid md:grid-cols-2 gap-6 md:gap-12 items-center w-full max-w-7xl mx-auto h-full">
-        
-        <div class="space-y-4 md:space-y-6 text-left w-full max-w-xl flex flex-col items-start justify-center pl-0 md:pl-4">
-            <p class="text-left text-xs md:text-sm font-bold tracking-[0.2em] text-amber-700 uppercase font-sans md:whitespace-nowrap max-w-full">
-                Dancer • Dance Choreographer • Graphic & Fashion Designer
-            </p>
+    <nav class="fixed top-0 left-0 w-full bg-[#FBF9F6]/90 backdrop-blur-md z-50 border-b border-[#EAE6DF]" x-data="{ mobileMenuOpen: false }">
+        <div class="max-w-6xl mx-auto px-4 md:px-6 py-4 flex justify-between items-center relative">
+            <a href="#" onclick="showSection('home')" class="text-base md:text-xl font-extrabold tracking-widest uppercase border-b-2 border-amber-700 pb-1">
+                MJ Collection.
+            </a>
             
-            <div class="text-shimmer-container inline-block pr-2 text-left w-full">
-                <h1 class="text-4xl md:text-5xl lg:text-6xl font-normal text-[#2C2A29] leading-tight font-serif text-left">
-                    Where Visual Identity <br>
-                    <span class="italic font-medium text-[#5A4E46]">Meets Wearable Art.</span>
-                </h1>
-                <div class="luxury-shimmer"></div>
+            <div class="hidden md:flex space-x-6 text-sm uppercase tracking-wider font-medium">
+                <button onclick="showSection('home')" class="px-3.5 py-1 text-sm text-[#2C2A29] font-medium rounded-lg border border-transparent transition-all duration-300 hover:text-amber-800 hover:border-amber-700/60 hover:bg-amber-500/5 hover:shadow-[0_0_12px_rgba(180,83,9,0.35)]">Home</button>
+                <button onclick="showSection('about')" class="px-3.5 py-1 text-sm text-[#2C2A29] font-medium rounded-lg border border-transparent transition-all duration-300 hover:text-amber-800 hover:border-amber-700/60 hover:bg-amber-500/5 hover:shadow-[0_0_12px_rgba(180,83,9,0.35)]">About</button>
+                <button onclick="showSection('portfolio')" class="px-3.5 py-1 text-sm text-[#2C2A29] font-medium rounded-lg border border-transparent transition-all duration-300 hover:text-amber-800 hover:border-amber-700/60 hover:bg-amber-500/5 hover:shadow-[0_0_12px_rgba(180,83,9,0.35)]">Portfolio</button>
+                <button onclick="showSection('contact')" class="px-3.5 py-1 text-sm text-[#2C2A29] font-medium rounded-lg border border-transparent transition-all duration-300 hover:text-amber-800 hover:border-amber-700/60 hover:bg-amber-500/5 hover:shadow-[0_0_12px_rgba(180,83,9,0.35)]">Contact</button>
             </div>
-            
-            <p class="text-gray-600 text-sm leading-relaxed max-w-md bg-amber-700/5 p-4 border-l-2 border-amber-700 rounded-r-lg">
-                This portfolio shows my journey as a student combining technology and creative arts. My design concept is all about balancing the clean structure of engineering with the energetic feel of dance and fashion. The purpose of this project is to present my skills and show how I mix logic and creativity in everything I do.
-            </p>
-            
-            <div class="space-y-3 md:space-y-4 pt-4 border-t border-[#2C2A29]/20 w-full text-left flex flex-col items-start">
-                <p class="text-[#2C2A29] text-sm tracking-[0.15em] uppercase font-bold font-sans text-left">
-                    Introducing
-                </p>
-                
-                <h2 class="text-2xl md:text-3xl font-normal tracking-wide text-[#2C2A29] font-serif italic text-left">
-                    Mark Jeino Desonia Cerezo
-                </h2>
-                
-                <p class="text-[#1A1919] text-xs md:text-sm font-normal tracking-[0.08em] leading-relaxed font-sans max-w-md italic text-left">
-                    Merging creative movement and choreography with visual identity and contemporary fashion.
-                </p>
+
+            <div class="md:hidden flex items-center">
+                <button @click="mobileMenuOpen = !mobileMenuOpen" class="p-2 text-[#2C2A29] hover:text-amber-800 focus:outline-none transition-colors duration-300">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path x-show="!mobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        <path x-show="mobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" style="display: none;" />
+                    </svg>
+                </button>
             </div>
         </div>
-        
-        <div class="w-full flex justify-center items-center py-4 overflow-hidden md:overflow-visible">
-            <div class="relative w-full max-w-[100%] md:max-w-[650px] flex flex-col items-center"
-                 x-data="{ 
-                    currentIndex: 0, 
-                    images: [
-                        '1778984595066.png',
-                        '473802872_2010395539468278_1233830341626882435_n.jpg', 
-                        'IMG_20230707_130218_762.jpg'
-                    ] 
-                 }" 
-                 x-init="setInterval(() => { currentIndex = (currentIndex + 1) % images.length }, 4000)">
-                
-                <div class="relative w-full h-[250px] md:h-[300px] lg:h-[320px] flex justify-center items-center">
-                    
-                    <template x-for="(img, index) in images" :key="index">
-                        <div class="absolute w-[180px] h-[180px] md:w-[250px] md:h-[250px] lg:w-[280px] lg:h-[280px] rounded-xl overflow-hidden border border-[#2C2A29] bg-[#FBF9F6] p-2 shadow-md transition-all duration-700 ease-in-out image-shimmer-container"
-                             :class="{
-                                'scale-110 z-30 opacity-100 shadow-lg translate-x-0 border-amber-700/50': currentIndex === index,
-                                'scale-90 z-10 opacity-30 blur-[1px] -translate-x-[90px] md:-translate-x-[140px] lg:-translate-x-[170px]': (currentIndex === 0 && index === images.length - 1) || (currentIndex > 0 && index === currentIndex - 1),
-                                'scale-90 z-10 opacity-30 blur-[1px] translate-x-[90px] md:translate-x-[140px] lg:translate-x-[170px]': (currentIndex === images.length - 1 && index === 0) || (index === currentIndex + 1),
-                                'scale-75 z-0 opacity-0 pointer-events-none': currentIndex !== index && index !== ((currentIndex + 1) % images.length) && index !== ((currentIndex - 1 + images.length) % images.length)
-                             }">
-                            
-                            <div class="w-full h-full border border-[#2C2A29]/40 overflow-hidden rounded-lg">
-                                <img :src="img" alt="Mark Jeino - Portfolio" class="w-full h-full object-cover">
-                            </div>
-                            
-                            <div class="luxury-image-shimmer" x-show="currentIndex === index"></div>
-                        </div>
-                    </template>
 
+        <div x-show="mobileMenuOpen" 
+             x-transition:enter="transition ease-out duration-200"
+             x-transition:enter-start="opacity-0 -translate-y-2"
+             x-transition:enter-end="opacity-100 translate-y-0"
+             x-transition:leave="transition ease-in duration-150"
+             x-transition:leave-start="opacity-100 translate-y-0"
+             x-transition:leave-end="opacity-0 -translate-y-2"
+             class="md:hidden bg-[#FBF9F6] border-b border-[#EAE6DF] px-4 pt-2 pb-4 space-y-2 shadow-lg absolute w-full left-0 z-40"
+             style="display: none;">
+            <button onclick="showSection('home')" @click="mobileMenuOpen = false" class="block w-full text-left px-4 py-2.5 text-sm text-[#2C2A29] font-medium rounded-lg hover:bg-amber-500/5 hover:text-amber-800 transition-all">Home</button>
+            <button onclick="showSection('about')" @click="mobileMenuOpen = false" class="block w-full text-left px-4 py-2.5 text-sm text-[#2C2A29] font-medium rounded-lg hover:bg-amber-500/5 hover:text-amber-800 transition-all">About</button>
+            <button onclick="showSection('portfolio')" @click="mobileMenuOpen = false" class="block w-full text-left px-4 py-2.5 text-sm text-[#2C2A29] font-medium rounded-lg hover:bg-amber-500/5 hover:text-amber-800 transition-all">Portfolio</button>
+            <button onclick="showSection('contact')" @click="mobileMenuOpen = false" class="block w-full text-left px-4 py-2.5 text-sm text-[#2C2A29] font-medium rounded-lg hover:bg-amber-500/5 hover:text-amber-800 transition-all">Contact</button>
+        </div>
+    </nav>
+
+    <section id="home" class="h-auto min-h-screen md:h-screen flex items-center pt-24 pb-6 pl-4 pr-4 md:pl-8 md:pr-16 section-fade show w-full overflow-x-hidden md:overflow-y-hidden box-border">
+        <div class="grid md:grid-cols-2 gap-6 md:gap-12 items-center w-full max-w-7xl mx-auto h-full">
+            <div class="space-y-4 md:space-y-6 text-left w-full max-w-xl flex flex-col items-start justify-center pl-0 md:pl-4">
+                <p class="text-left text-xs md:text-sm font-bold tracking-[0.2em] text-amber-700 uppercase font-sans md:whitespace-nowrap max-w-full">
+                    Dancer • Dance Choreographer • Graphic & Fashion Designer
+                </p>
+                
+                <div class="text-shimmer-container inline-block pr-2 text-left w-full">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-normal text-[#2C2A29] leading-tight font-serif text-left">
+                        Where Visual Identity <br>
+                        <span class="italic font-medium text-[#5A4E46]">Meets Wearable Art.</span>
+                    </h1>
+                    <div class="luxury-shimmer"></div>
+                </div>
+                
+                <div class="space-y-3 md:space-y-4 pt-4 border-t border-[#2C2A29]/20 w-full text-left flex flex-col items-start">
+                    <p class="text-[#2C2A29] text-sm tracking-[0.15em] uppercase font-bold font-sans text-left">Introducing</p>
+                    <h2 class="text-2xl md:text-3xl font-normal tracking-wide text-[#2C2A29] font-serif italic text-left">
+                        Mark Jeino Desonia Cerezo
+                    </h2>
+                    <p class="text-[#1A1919] text-xs md:text-sm font-normal tracking-[0.08em] leading-relaxed font-sans max-w-md italic text-left">
+                        Merging creative movement and choreography with visual identity and contemporary fashion.
+                    </p>
                 </div>
             </div>
-        </div>
-
-    </div>
-</section>
-
-<section id="about" class="hidden py-24 px-4 sm:px-6 section-fade pt-32 w-full flex flex-col items-center justify-center overflow-x-hidden">
-    <div class="max-w-6xl mx-auto flex justify-center items-center w-full">
-        <div class="relative group p-3 md:p-8 bg-[#F5F1EA] shadow-md w-full border border-[#2C2A29]/10 rounded-2xl">
             
-            <div class="absolute inset-0 border-2 border-amber-700/40 translate-x-1 translate-y-1 sm:translate-x-3 sm:translate-y-3 transition-transform duration-500 group-hover:translate-x-0.5 group-hover:translate-y-0.5 z-0 m-3 md:m-8 rounded-2xl"></div>
-            
-            <div class="relative border border-[#2C2A29] p-5 md:p-12 bg-[#FBF9F6] z-10 rounded-xl flex flex-col items-center text-center w-full">
-                
-               <div class="relative w-full max-w-[100%] md:max-w-[650px] overflow-hidden md:overflow-visible mb-8 flex flex-col items-center"
-     x-data="{ 
-        currentIndex: 0, 
-        images: [
-            ' 473802872_2010395539468278_1233830341626882435_n.jpg',
-            '1778984595066.png', 
-            'IMG_20230707_130218_762.jpg'
-        ] 
-     }" 
-     x-init="setInterval(() => { currentIndex = (currentIndex + 1) % images.length }, 4000)">
-    
-    <div class="relative w-full h-[240px] md:h-[320px] flex justify-center items-center">
-        
-        <template x-for="(img, index) in images" :key="index">
-            <div class="absolute w-[200px] h-[200px] md:w-[280px] md:h-[280px] rounded-xl overflow-hidden border border-[#2C2A29] bg-[#FBF9F6] p-2 shadow-md transition-all duration-700 ease-in-out image-shimmer-container"
-                 :class="{
-                    'scale-110 z-30 opacity-100 shadow-lg translate-x-0 border-amber-700/50': currentIndex === index,
-                    'scale-90 z-10 opacity-30 blur-[1px] -translate-x-[120px] md:-translate-x-[170px]': (currentIndex === 0 && index === images.length - 1) || (currentIndex > 0 && index === currentIndex - 1),
-                    'scale-90 z-10 opacity-30 blur-[1px] translate-x-[120px] md:translate-x-[170px]': (currentIndex === images.length - 1 && index === 0) || (index === currentIndex + 1),
-                    'scale-75 z-0 opacity-0 pointer-events-none': currentIndex !== index && index !== ((currentIndex + 1) % images.length) && index !== ((currentIndex - 1 + images.length) % images.length)
-                 }">
+            <div class="w-full flex justify-center items-center py-4 overflow-hidden md:overflow-visible">
+                <div class="relative w-full max-w-[100%] md:max-w-[650px] flex flex-col items-center"
+                     x-data="{ 
+                        currentIndex: 0, 
+                        images: [
+                            '1778984595066.png',
+                            '473802872_2010395539468278_1233830341626882435_n.jpg', 
+                            'IMG_20230707_130218_762.jpg'
+                        ] 
+                     }" 
+                     x-init="setInterval(() => { currentIndex = (currentIndex + 1) % images.length }, 4000)">
+                    
+                    <div class="relative w-full h-[250px] md:h-[300px] lg:h-[320px] flex justify-center items-center">
+                        <template x-for="(img, index) in images" :key="index">
+                            <div class="absolute w-[180px] h-[180px] md:w-[250px] md:h-[250px] lg:w-[280px] lg:h-[280px] rounded-xl overflow-hidden border border-[#2C2A29] bg-[#FBF9F6] p-2 shadow-md transition-all duration-700 ease-in-out image-shimmer-container"
+                                 :class="{
+                                    'scale-110 z-30 opacity-100 shadow-lg translate-x-0 border-amber-700/50': currentIndex === index,
+                                    'scale-90 z-10 opacity-30 blur-[1px] -translate-x-[90px] md:-translate-x-[140px] lg:-translate-x-[170px]': (currentIndex === 0 && index === images.length - 1) || (currentIndex > 0 && index === currentIndex - 1),
+                                    'scale-90 z-10 opacity-30 blur-[1px] translate-x-[90px] md:translate-x-[140px] lg:translate-x-[170px]': (currentIndex === images.length - 1 && index === 0) || (index === currentIndex + 1),
+                                    'scale-75 z-0 opacity-0 pointer-events-none': currentIndex !== index && index !== ((currentIndex + 1) % images.length) && index !== ((currentIndex - 1 + images.length) % images.length)
+                                 }">
                                 
                                 <div class="w-full h-full border border-[#2C2A29]/40 overflow-hidden rounded-lg">
-                                    <img :src="img" alt="Mark Jeino" class="w-full h-full object-cover">
+                                    <img :src="img" alt="Mark Jeino - Portfolio" class="w-full h-full object-cover">
                                 </div>
-                                
                                 <div class="luxury-image-shimmer" x-show="currentIndex === index"></div>
                             </div>
                         </template>
-
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
 
-                <h2 class="text-3xl md:text-4xl font-normal font-serif text-[#2C2A29] leading-tight mb-3">
-                    The Creative Narrative
-                </h2>
+    <section id="about" class="hidden py-24 px-4 sm:px-6 section-fade pt-32 w-full flex flex-col items-center justify-center overflow-x-hidden">
+        <div class="max-w-6xl mx-auto flex justify-center items-center w-full">
+            <div class="relative group p-3 md:p-8 bg-[#F5F1EA] shadow-md w-full border border-[#2C2A29]/10 rounded-2xl">
+                <div class="absolute inset-0 border-2 border-amber-700/40 translate-x-1 translate-y-1 sm:translate-x-3 sm:translate-y-3 transition-transform duration-500 group-hover:translate-x-0.5 group-hover:translate-y-0.5 z-0 m-3 md:m-8 rounded-2xl"></div>
                 
-                <p class="text-xs md:text-sm uppercase tracking-[0.25em] text-amber-800 font-bold mb-6">
-                    Movement &bull; Structure &bull; Style &bull; Direction
-                </p>
-
-                <hr class="w-full max-w-4xl border-t-2 border-amber-700/40 mb-12">
-
-                <div class="space-y-6 text-gray-700 leading-relaxed text-base md:text-lg text-center w-full max-w-4xl mx-auto px-2">
-                    <p>
-                        Hi! I’m <span class="text-xl md:text-2xl font-normal tracking-wide text-[#2C2A29] font-serif italic">Mark Jeino Desonia Cerezo</span>, a 22-year-old student currently pursuing a Bachelor of Computer Engineering Technology. My creative identity thrives at the intersection of technical precision, structural mastery, and raw artistic expression.
-                    </p>
-                    <p>
-                        As a <span class="italic font-serif text-amber-900">dancer and dance choreographer</span>, I have developed an intimate understanding of rhythm, space, and human movement. Simultaneously, as a <span class="italic font-serif text-amber-900">graphics and fashion designer</span>, I translate that exact visual energy into striking digital branding and high-end wearable art.
-                    </p>
-
-                    <div class="relative w-full flex justify-center py-6">
-                        <div class="relative w-full max-w-[340px] md:max-w-[420px] border border-[#2C2A29] bg-[#FBF9F6] p-2 shadow-md rounded-2xl image-shimmer-container">
-                            <div class="w-full h-auto border border-[#2C2A29]/40 overflow-hidden rounded-xl">
-                                <img src="received_1353218156145427.jpeg" alt="Production Vision" class="w-full h-auto object-cover max-h-[300px]">
-                            </div>
-                            <div class="luxury-image-shimmer"></div>
-                        </div>
-                    </div>
-                    
-                    <p>
-                        My artistic vision further expands into the world of stage and production as a <span class="italic font-serif text-amber-900">Pageant Director</span>. In this role, I orchestrate the grand synergy of lights, garments, blocking, and storytelling—shaping not just a show, but a platform that celebrates confidence, culture, and poise. Whether it is a piece of code, a dance routine, a garment design, or a full-scale stage production, I view everything as canvas waiting for a distinct creative identity.
-                    </p>
-                    <p>
-                        Being the youngest in our family, I carry big and beautiful dreams—not just for my personal fulfillment, but as a tribute to the people who love and support me. I am driven by a deep sense of purpose, a refined artistic standard, and a resilient heart. No matter how demanding or unpredictable the path becomes, I am always ready to fight, adapt, and conquer every challenge—turning limitations into masterpieces.
-                    </p>
-                </div>
-
-                <hr class="w-full max-w-4xl border-t-2 border-amber-700/40 my-12">
-
-                <div class="w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-12 pt-2">
-                    <div class="space-y-4 flex flex-col items-center justify-center text-center">
-                        <h4 class="font-extrabold text-[#2C2A29] text-sm uppercase tracking-widest border-b border-amber-700/20 pb-2 px-6 inline-block">Tech & Design</h4>
-                        <div class="w-full flex justify-center">
-                            <ul class="text-left space-y-2.5 text-sm text-gray-600 font-medium list-none w-fit">
-                                <li>• Computer Engineering Tech</li>
-                                <li>• Graphic Branding Identity</li>
-                                <li>• Fashion & Apparel Design</li>
-                                <li>• Digital Layout & Structure</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="space-y-4 flex flex-col items-center justify-center text-center">
-                        <h4 class="font-extrabold text-[#2C2A29] text-sm uppercase tracking-widest border-b border-amber-700/20 pb-2 px-2 inline-block">Production & Arts</h4>
-                        <div class="w-full flex justify-center">
-                            <ul class="text-left space-y-2.5 text-sm text-gray-600 font-medium list-none w-fit">
-                                <li>• Pageant Stage Direction</li>
-                                <li>• Dance Choreography & Blocking</li>
-                                <li>• Creative Event Production</li>
-                                <li>• Stage Movement & Concept</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="portfolio" class="hidden py-24 bg-[#FBF9F6] px-6 section-fade pt-24" 
-         x-data="{ 
-            openFashion: false, 
-            openGraphics: false,
-            fashionIndex: 0,
-            graphicsIndex: 0,
-            fashionImages: [
-                'IMG_20240714_111602_806.jpg',
-                'IMG_20240714_111503_068.jpg',
-                'IMG_20240224_170909_231.jpg',
-                'received_820714480635242.jpeg',
-                'FB_IMG_1779000014964.jpg',
-                'Messenger_creation_af327c18-1ac9-4a4c-96d3-2e7c04b0e259.jpeg'
-            ],
-            graphicsImages: [
-                '503495372_122128286618719235_7217267866289702018_n.jpg',
-                '503267015_122128286690719235_282922571820621843_n.jpg',
-                '600205119_122149677644719235_4594288921041813284_n.jpg',
-                '613514412_122152509416719235_3240649580143492533_n.jpg',
-                '613693042_122152509464719235_8486207591415544049_n.jpg',
-                '614664655_122152509614719235_7188500091631875761_n.jpg'
-            ]
-         }">
-        
-    <div class="max-w-5xl mx-auto space-y-24">
-        
-        <div class="space-y-16">
-            <div class="text-center space-y-4">
-                <h2 class="text-4xl font-normal font-serif text-[#2C2A29]">Selected Works</h2>
-                <div class="w-16 h-1 bg-amber-700 mx-auto rounded-full"></div>
-                <p class="text-xs uppercase tracking-[0.3em] text-amber-800 font-bold">Visual & Fashion Design Collections</p>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-16 pt-6">
-                <div class="space-y-4 group cursor-pointer" @click="openFashion = true; fashionIndex = 2">
-                    <div class="relative inline-block w-full">
-                        <div class="absolute inset-0 border border-amber-700/40 translate-x-3 translate-y-3 transition-transform duration-500 group-hover:translate-x-1 group-hover:translate-y-1 z-0 rounded-2xl"></div>
+                <div class="relative border border-[#2C2A29] p-5 md:p-12 bg-[#FBF9F6] z-10 rounded-xl flex flex-col items-center text-center w-full">
+                    <div class="relative w-full max-w-[100%] md:max-w-[650px] overflow-hidden md:overflow-visible mb-8 flex flex-col items-center"
+                         x-data="{ 
+                            currentIndex: 0, 
+                            images: [
+                                '473802872_2010395539468278_1233830341626882435_n.jpg',
+                                '1778984595066.png', 
+                                'IMG_20230707_130218_762.jpg'
+                            ] 
+                         }" 
+                         x-init="setInterval(() => { currentIndex = (currentIndex + 1) % images.length }, 4000)">
                         
-                        <div class="relative border border-[#2C2A29]/30 p-2 bg-white z-10 shadow-sm rounded-2xl transition-all duration-500 group-hover:border-amber-700 group-hover:shadow-[0_0_25px_rgba(180,83,9,0.35)] image-shimmer-container">
-                            <div class="border border-[#2C2A29]/10 overflow-hidden aspect-[4/5] bg-gray-100 relative rounded-xl">
-                                <img src="IMG_20240224_170909_231.jpg" alt="Fashion Cover" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                                <div class="absolute inset-0 bg-[#2C2A29]/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                                    <span class="text-white uppercase tracking-widest text-xs border border-white px-4 py-2 bg-[#2C2A29]/60 rounded-md">View Collection</span>
+                        <div class="relative w-full h-[240px] md:h-[320px] flex justify-center items-center">
+                            <template x-for="(img, index) in images" :key="index">
+                                <div class="absolute w-[200px] h-[200px] md:w-[280px] md:h-[280px] rounded-xl overflow-hidden border border-[#2C2A29] bg-[#FBF9F6] p-2 shadow-md transition-all duration-700 ease-in-out image-shimmer-container"
+                                     :class="{
+                                        'scale-110 z-30 opacity-100 shadow-lg translate-x-0 border-amber-700/50': currentIndex === index,
+                                        'scale-90 z-10 opacity-30 blur-[1px] -translate-x-[120px] md:-translate-x-[170px]': (currentIndex === 0 && index === images.length - 1) || (currentIndex > 0 && index === currentIndex - 1),
+                                        'scale-90 z-10 opacity-30 blur-[1px] translate-x-[120px] md:translate-x-[170px]': (currentIndex === images.length - 1 && index === 0) || (index === currentIndex + 1),
+                                        'scale-75 z-0 opacity-0 pointer-events-none': currentIndex !== index && index !== ((currentIndex + 1) % images.length) && index !== ((currentIndex - 1 + images.length) % images.length)
+                                     }">
+                                    
+                                    <div class="w-full h-full border border-[#2C2A29]/40 overflow-hidden rounded-lg">
+                                        <img :src="img" alt="Mark Jeino" class="w-full h-full object-cover">
+                                    </div>
+                                    <div class="luxury-image-shimmer" x-show="currentIndex === index"></div>
                                 </div>
-                            </div>
-                            <div class="luxury-image-shimmer"></div>
+                            </template>
                         </div>
                     </div>
-                    <div class="pt-2 space-y-1">
-                        <span class="text-xs uppercase tracking-widest text-amber-800 font-bold">01 / Fashion Design</span>
-                        <h3 class="text-2xl font-normal font-serif text-[#2C2A29] transition-colors duration-300 group-hover:text-amber-800">Contemporary Apparel</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed">Click to explore the lookbook, and costume concepts.</p>
-                    </div>
-                </div>
 
-                <div class="space-y-4 group cursor-pointer" @click="openGraphics = true; graphicsIndex = 0">
-                    <div class="relative inline-block w-full">
-                        <div class="absolute inset-0 border border-amber-700/40 translate-x-3 translate-y-3 transition-transform duration-500 group-hover:translate-x-1 group-hover:translate-y-1 z-0 rounded-2xl"></div>
+                    <h2 class="text-3xl md:text-4xl font-normal font-serif text-[#2C2A29] leading-tight mb-3">The Creative Narrative</h2>
+                    <p class="text-xs md:text-sm uppercase tracking-[0.25em] text-amber-800 font-bold mb-6">Movement &bull; Structure &bull; Style &bull; Direction</p>
+                    <hr class="w-full max-w-4xl border-t-2 border-amber-700/40 mb-12">
+
+                    <div class="space-y-6 text-gray-700 leading-relaxed text-base md:text-lg text-center w-full max-w-4xl mx-auto px-2">
+                        <p>
+                            Hi! I’m <span class="text-xl md:text-2xl font-normal tracking-wide text-[#2C2A29] font-serif italic">Mark Jeino Desonia Cerezo</span>, a 22-year-old student currently pursuing a Bachelor of Computer Engineering Technology. My creative identity thrives at the intersection of technical precision, structural mastery, and raw artistic expression.
+                        </p>
+                        <p>
+                            As a <span class="italic font-serif text-amber-900">dancer and dance choreographer</span>, I have developed an intimate understanding of rhythm, space, and human movement. Simultaneously, as a <span class="italic font-serif text-amber-900">graphics and fashion designer</span>, I translate that exact visual energy into striking digital branding and high-end wearable art.
+                        </p>
+
+                        <div class="relative w-full flex justify-center py-6">
+                            <div class="relative w-full max-w-[340px] md:max-w-[420px] border border-[#2C2A29] bg-[#FBF9F6] p-2 shadow-md rounded-2xl image-shimmer-container">
+                                <div class="w-full h-auto border border-[#2C2A29]/40 overflow-hidden rounded-xl">
+                                    <img src="received_1353218156145427.jpeg" alt="Production Vision" class="w-full h-auto object-cover max-h-[300px]">
+                                </div>
+                                <div class="luxury-image-shimmer"></div>
+                            </div>
+                        </div>
                         
-                        <div class="relative border border-[#2C2A29]/30 p-2 bg-white z-10 shadow-sm rounded-2xl transition-all duration-500 group-hover:border-amber-700 group-hover:shadow-[0_0_25px_rgba(180,83,9,0.35)] image-shimmer-container">
-                            <div class="border border-[#2C2A29]/10 overflow-hidden aspect-[4/5] bg-gray-100 relative rounded-xl">
-                                <img src="572251611_122145432056719235_2548540388744510290_n.jpg" alt="Graphics Cover" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                                <div class="absolute inset-0 bg-[#2C2A29]/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                                    <span class="text-white uppercase tracking-widest text-xs border border-white px-4 py-2 bg-[#2C2A29]/60 rounded-md">View Collection</span>
-                                </div>
+                        <p>
+                            My artistic vision further expands into the world of stage and production as a <span class="italic font-serif text-amber-900">Pageant Director</span>. In this role, I orchestrate the grand synergy of lights, garments, blocking, and storytelling—shaping not just a show, but a platform that celebrates confidence, culture, and poise. Whether it is a piece of code, a dance routine, a garment design, or a full-scale stage production, I view everything as canvas waiting for a distinct creative identity.
+                        </p>
+                        <p>
+                            Being the youngest in our family, I carry big and beautiful dreams—not just for my personal fulfillment, but as a tribute to the people who love and support me. I am driven by a deep sense of purpose, a refined artistic standard, and a resilient heart. No matter how demanding or unpredictable the path becomes, I am always ready to fight, adapt, and conquer every challenge—turning limitations into masterpieces.
+                        </p>
+                    </div>
+
+                    <hr class="w-full max-w-4xl border-t-2 border-amber-700/40 my-12">
+
+                    <div class="w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-12 pt-2">
+                        <div class="space-y-4 flex flex-col items-center justify-center text-center">
+                            <h4 class="font-extrabold text-[#2C2A29] text-sm uppercase tracking-widest border-b border-amber-700/20 pb-2 px-6 inline-block">Tech & Design</h4>
+                            <div class="w-full flex justify-center">
+                                <ul class="text-left space-y-2.5 text-sm text-gray-600 font-medium list-none w-fit">
+                                    <li>• Computer Engineering Tech</li>
+                                    <li>• Graphic Branding Identity</li>
+                                    <li>• Fashion & Apparel Design</li>
+                                    <li>• Digital Layout & Structure</li>
+                                </ul>
                             </div>
-                            <div class="luxury-image-shimmer"></div>
                         </div>
-                    </div>
-                    <div class="pt-2 space-y-1">
-                        <span class="text-xs uppercase tracking-widest text-amber-800 font-bold">02 / Graphic Design</span>
-                        <h3 class="text-2xl font-normal font-serif text-[#2C2A29] transition-colors duration-300 group-hover:text-amber-800">Visual Branding Systems</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed">Click to explore typography experiments, and digital compositions.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <hr class="border-amber-700/40 my-16 max-w-4xl mx-auto">
-
-        <div class="space-y-16">
-            <div class="text-center space-y-4">
-                <h2 class="text-4xl font-normal font-serif text-[#2C2A29]">Performing Arts</h2>
-                <div class="w-16 h-1 bg-amber-700 mx-auto rounded-full"></div>
-                <p class="text-xs uppercase tracking-[0.3em] text-amber-800 font-bold">Dance & Choreography Showcase</p>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-16 pt-6">
-                <div class="space-y-4 group">
-                    <div class="relative inline-block w-full">
-                        <div class="absolute inset-0 border border-amber-700/40 translate-x-3 translate-y-3 transition-transform duration-500 group-hover:translate-x-1 group-hover:translate-y-1 z-0 rounded-2xl"></div>
-                        <div class="relative border border-[#2C2A29] p-2 bg-white z-10 shadow-sm rounded-2xl">
-                            <div class="border border-[#2C2A29]/10 overflow-hidden aspect-video bg-black relative rounded-xl">
-                                <iframe class="w-full h-full" src="https://www.youtube.com/embed/OvJeJAeXACU?autoplay=0&mute=0" title="Trashion Show 2025" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        
+                        <div class="space-y-4 flex flex-col items-center justify-center text-center">
+                            <h4 class="font-extrabold text-[#2C2A29] text-sm uppercase tracking-widest border-b border-amber-700/20 pb-2 px-2 inline-block">Production & Arts</h4>
+                            <div class="w-full flex justify-center">
+                                <ul class="text-left space-y-2.5 text-sm text-gray-600 font-medium list-none w-fit">
+                                    <li>• Pageant Stage Direction</li>
+                                    <li>• Dance Choreography & Blocking</li>
+                                    <li>• Creative Event Production</li>
+                                    <li>• Stage Movement & Concept</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
-                    <div class="pt-2 space-y-1">
-                        <span class="text-xs uppercase tracking-widest text-amber-800 font-bold">03 / Choreography</span>
-                        <h3 class="text-2xl font-normal font-serif text-[#2C2A29]">Visual Rhythm Showcase</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed">Capturing dynamic hip-hop execution, performance synchronization, and translating musical energy into physical art.</p>
-                    </div>
-                </div>
-
-                <div class="space-y-4 group">
-                    <div class="relative inline-block w-full">
-                        <div class="absolute inset-0 border border-amber-700/40 translate-x-3 translate-y-3 transition-transform duration-500 group-hover:translate-x-1 group-hover:translate-y-1 z-0 rounded-2xl"></div>
-                        <div class="relative border border-[#2C2A29] p-2 bg-white z-10 shadow-sm rounded-2xl">
-                            <div class="border border-[#2C2A29]/10 overflow-hidden aspect-video bg-black relative rounded-xl">
-                                <iframe class="w-full h-full" src="https://www.youtube.com/embed/a4Q8UsrWktw?autoplay=0&mute=0" title="Dance Performance" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pt-2 space-y-1">
-                        <span class="text-xs uppercase tracking-widest text-amber-800 font-bold">04 / Fashion & Movement</span>
-                        <h3 class="text-2xl font-normal font-serif text-[#2C2A29]">Trashion Show 2025</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed">A grand fusion of eco-friendly wearable art and runway direction, showcasing sustainable style through creative movement.</p>
-                    </div>
                 </div>
             </div>
         </div>
+    </section>
 
-    </div>
-
-    <div class="fixed inset-0 z-50 overflow-y-auto bg-black/85 backdrop-blur-sm flex items-center justify-center p-4" x-show="openFashion" x-transition.opacity style="display: none;">
-        <div class="bg-[#F5F1EA] max-w-2xl w-full p-4 relative shadow-2xl my-auto rounded-2xl" @click.away="openFashion = false">
-            <div class="relative p-2 md:p-4 bg-white border border-[#2C2A29]/10 w-full rounded-xl">
-                <div class="absolute inset-0 border-2 border-amber-700/30 translate-x-1.5 translate-y-1.5 z-0 m-2 md:m-4 rounded-xl"></div>
-                <div class="relative border border-[#2C2A29] p-4 bg-[#FBF9F6] z-10 space-y-4 rounded-lg">
-                    <div class="flex justify-between items-center border-b border-gray-200 pb-2">
-                        <div>
-                            <h3 class="text-lg font-serif text-[#2C2A29]">Fashion Showcase</h3>
-                            <p class="text-[10px] uppercase tracking-widest text-amber-800 font-bold">Image <span x-text="fashionIndex + 1"></span> of <span x-text="fashionImages.length"></span></p>
-                        </div>
-                        <button class="text-2xl text-[#2C2A29] hover:text-amber-700 font-light" @click="openFashion = false">&times;</button>
-                    </div>
-                    <div class="relative w-full overflow-hidden bg-black flex items-center justify-center max-h-[60vh] border border-[#2C2A29]/20 rounded-md">
-                        <img :src="fashionImages[fashionIndex]" class="w-full h-full object-contain max-h-[60vh]">
-                    </div>
-                    <div class="flex justify-between items-center pt-2">
-                        <button class="px-4 py-2 border border-[#2C2A29] text-xs uppercase tracking-widest font-bold text-[#2C2A29] bg-white hover:bg-[#2C2A29] hover:text-white transition-colors duration-300 rounded-md" @click="fashionIndex = (fashionIndex === 0) ? fashionImages.length - 1 : fashionIndex - 1">◄ Prev</button>
-                        <button class="px-4 py-2 border border-[#2C2A29] text-xs uppercase tracking-widest font-bold text-[#2C2A29] bg-white hover:bg-[#2C2A29] hover:text-white transition-colors duration-300 rounded-md" @click="fashionIndex = (fashionIndex === fashionImages.length - 1) ? 0 : fashionIndex + 1">Next ►</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="fixed inset-0 z-50 overflow-y-auto bg-black/85 backdrop-blur-sm flex items-center justify-center p-4" x-show="openGraphics" x-transition.opacity style="display: none;">
-        <div class="bg-[#F5F1EA] max-w-2xl w-full p-4 relative shadow-2xl my-auto rounded-2xl" @click.away="openGraphics = false">
-            <div class="relative p-2 md:p-4 bg-white border border-[#2C2A29]/10 w-full rounded-xl">
-                <div class="absolute inset-0 border-2 border-amber-700/30 translate-x-1.5 translate-y-1.5 z-0 m-2 md:m-4 rounded-xl"></div>
-                <div class="relative border border-[#2C2A29] p-4 bg-[#FBF9F6] z-10 space-y-4 rounded-lg">
-                    <div class="flex justify-between items-center border-b border-gray-200 pb-2">
-                        <div>
-                            <h3 class="text-lg font-serif text-[#2C2A29]">Graphics Showcase</h3>
-                            <p class="text-[10px] uppercase tracking-widest text-amber-800 font-bold">Image <span x-text="graphicsIndex + 1"></span> of <span x-text="graphicsImages.length"></span></p>
-                        </div>
-                        <button class="text-2xl text-[#2C2A29] hover:text-amber-700 font-light" @click="openGraphics = false">&times;</button>
-                    </div>
-                    <div class="relative w-full overflow-hidden bg-black flex items-center justify-center max-h-[60vh] border border-[#2C2A29]/20 rounded-md">
-                        <img :src="graphicsImages[graphicsIndex]" class="w-full h-full object-contain max-h-[60vh]">
-                    </div>
-                    <div class="flex justify-between items-center pt-2">
-                        <button class="px-4 py-2 border border-[#2C2A29] text-xs uppercase tracking-widest font-bold text-[#2C2A29] bg-white hover:bg-[#2C2A29] hover:text-white transition-colors duration-300 rounded-md" @click="graphicsIndex = (graphicsIndex === 0) ? graphicsImages.length - 1 : graphicsIndex - 1">◄ Prev</button>
-                        <button class="px-4 py-2 border border-[#2C2A29] text-xs uppercase tracking-widest font-bold text-[#2C2A29] bg-white hover:bg-[#2C2A29] hover:text-white transition-colors duration-300 rounded-md" @click="graphicsIndex = (graphicsIndex === graphicsImages.length - 1) ? 0 : graphicsIndex + 1">Next ►</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="services" class="hidden py-24 bg-[#FBF9F6] px-6 section-fade pt-24">
-    <div class="max-w-5xl mx-auto space-y-16">
-        <div class="text-center space-y-4">
-            <h2 class="text-4xl font-normal font-serif text-[#2C2A29]">Creative Services</h2>
-            <div class="w-16 h-1 bg-amber-700 mx-auto rounded-full"></div>
-            <p class="text-xs uppercase tracking-[0.3em] text-amber-800 font-bold">What I Can Do For You</p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 pt-6">
-            <div class="bg-white border border-[#2C2A29]/10 p-8 rounded-2xl shadow-sm hover:border-amber-700 hover:shadow-[0_0_20px_rgba(180,83,9,0.15)] transition-all duration-300 flex flex-col justify-between">
-                <div class="space-y-4">
-                    <div class="text-amber-800 text-2xl font-serif">01</div>
-                    <h3 class="text-xl font-normal font-serif text-[#2C2A29]">Graphic Design</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">Logo making, visual branding layouts, pubmats, and digital compositions tailored for your brand identity.</p>
-                </div>
-            </div>
-
-            <div class="bg-white border border-[#2C2A29]/10 p-8 rounded-2xl shadow-sm hover:border-amber-700 hover:shadow-[0_0_20px_rgba(180,83,9,0.15)] transition-all duration-300 flex flex-col justify-between">
-                <div class="space-y-4">
-                    <div class="text-amber-800 text-2xl font-serif">02</div>
-                    <h3 class="text-xl font-normal font-serif text-[#2C2A29]">Fashion Design</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">Custom apparel concepts, lookbook planning, and creative wearable art designs for shows or events.</p>
-                </div>
-            </div>
-
-            <div class="bg-white border border-[#2C2A29]/10 p-8 rounded-2xl shadow-sm hover:border-amber-700 hover:shadow-[0_0_20px_rgba(180,83,9,0.15)] transition-all duration-300 flex flex-col justify-between">
-                <div class="space-y-4">
-                    <div class="text-amber-800 text-2xl font-serif">03</div>
-                    <h3 class="text-xl font-normal font-serif text-[#2C2A29]">Choreography</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">Dance routines, hip-hop execution blocking, and stage movement direction for crews, pageants, or school production teams.</p>
-                </div>
-            </div>
-
-            <div class="bg-white border border-[#2C2A29]/10 p-8 rounded-2xl shadow-sm hover:border-amber-700 hover:shadow-[0_0_20px_rgba(180,83,9,0.15)] transition-all duration-300 flex flex-col justify-between">
-                <div class="space-y-4">
-                    <div class="text-amber-800 text-2xl font-serif">04</div>
-                    <h3 class="text-xl font-normal font-serif text-[#2C2A29]">Tech Assistance</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">Basic computer engineering tech solutions, structured project analysis, or technical implementation guidance.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="testimonials" class="hidden py-24 bg-[#FBF9F6] px-6 section-fade pt-24">
-    <div class="max-w-5xl mx-auto space-y-20">
-        <div class="text-center space-y-4">
-            <h2 class="text-4xl font-normal font-serif text-[#2C2A29]">Milestones & Words</h2>
-            <div class="w-16 h-1 bg-amber-700 mx-auto rounded-full"></div>
-            <p class="text-xs uppercase tracking-[0.3em] text-amber-800 font-bold">Achievements & Testimonials</p>
-        </div>
-
-        <div class="grid md:grid-cols-2 gap-16 items-start">
-            <div class="space-y-8">
-                <h3 class="text-2xl font-normal font-serif text-[#2C2A29] border-b border-amber-700/20 pb-2">Key Achievements</h3>
-                <div class="space-y-6">
-                    <div class="flex gap-4 items-start">
-                        <span class="text-amber-800 text-lg font-bold">2025</span>
-                        <div>
-                            <h4 class="font-bold text-[#2C2A29] text-sm uppercase tracking-wide">Trashion Show Director & Designer</h4>
-                            <p class="text-gray-600 text-sm">Successfully directed and showcased sustainable wearable art designs fusing movement and eco-fashion.</p>
-                        </div>
-                    </div>
-
-                    <div class="flex gap-4 items-start">
-                        <span class="text-amber-800 text-lg font-bold">2024</span>
-                        <div>
-                            <h4 class="font-bold text-[#2C2A29] text-sm uppercase tracking-wide">Lead Dance Choreographer</h4>
-                            <p class="text-gray-600 text-sm">Orchestrated stage formations and routines for major school production events and dance showcases.</p>
-                        </div>
-                    </div>
-
-                    <div class="flex gap-4 items-start">
-                        <span class="text-amber-800 text-lg font-bold">2023</span>
-                        <div>
-                            <h4 class="font-bold text-[#2C2A29] text-sm uppercase tracking-wide">Freelance Brand Designer</h4>
-                            <p class="text-gray-600 text-sm">Created multiple digital layouts, logos, and advertising materials for local student organizations and small brands.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="space-y-8">
-                <h3 class="text-2xl font-normal font-serif text-[#2C2A29] border-b border-amber-700/20 pb-2">Client Reviews</h3>
-                <div class="space-y-6">
-                    <div class="bg-white border border-[#2C2A29]/10 p-6 rounded-xl shadow-sm relative">
-                        <p class="text-gray-600 text-sm italic leading-relaxed">"Mark brings incredible visual rhythm to everything he handles. His direction in the 2025 fashion project beautifully connected clothing styling with seamless stage choreography."</p>
-                        <div class="mt-4 pt-2 border-t border-gray-100 flex flex-col">
-                            <span class="font-serif text-sm font-medium text-[#2C2A29]">Project Organizer</span>
-                            <span class="text-[10px] text-amber-800 uppercase font-bold tracking-wider">Trashion Show Client</span>
-                        </div>
-                    </div>
-
-                    <div class="bg-white border border-[#2C2A29]/10 p-6 rounded-xl shadow-sm relative">
-                        <p class="text-gray-600 text-sm italic leading-relaxed">"Very easy to work with as a graphics designer. He understands technical design rules while still maintaining an artistic touch that stands out."</p>
-                        <div class="mt-4 pt-2 border-t border-gray-100 flex flex-col">
-                            <span class="font-serif text-sm font-medium text-[#2C2A29]">Student Leader</span>
-                            <span class="text-[10px] text-amber-800 uppercase font-bold tracking-wider">Branding & Pubmats Client</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="w-24 h-1 bg-amber-700 mx-auto rounded-full opacity-80 pt-4"></div>
-    </div>
-</section>
-
-<section id="contact" class="hidden min-h-screen md:h-screen md:max-h-screen flex items-center bg-[#F5F1EA] px-6 section-fade pt-24 pb-8 md:overflow-y-hidden box-border">
-    <div class="w-full max-w-5xl mx-auto flex flex-col justify-center h-full">
-        
-        <div class="text-center mb-6 md:mb-8 flex-shrink-0">
-            <h2 class="text-3xl md:text-4xl font-serif text-[#2C2A29] mb-2">Get In Touch</h2>
-            <div class="w-16 h-[2px] bg-amber-800 mx-auto"></div>
-            <p class="text-xs uppercase tracking-widest text-amber-800 font-bold mt-3">Let's build or create something beautiful together</p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-stretch md:max-h-[65vh]">
+    <section id="portfolio" class="hidden py-24 bg-[#FBF9F6] px-6 section-fade pt-24" 
+             x-data="{ 
+                openFashion: false, 
+                openGraphics: false,
+                fashionIndex: 0,
+                graphicsIndex: 0,
+                fashionImages: [
+                    'IMG_20240714_111602_806.jpg',
+                    'IMG_20240714_111503_068.jpg',
+                    'IMG_20240224_170909_231.jpg',
+                    'received_820714480635242.jpeg',
+                    'FB_IMG_1779000014964.jpg',
+                    'Messenger_creation_af327c18-1ac9-4a4c-96d3-2e7c04b0e259.jpeg'
+                ],
+                graphicsImages: [
+                    '503495372_122128286618719235_7217267866289702018_n.jpg',
+                    '503267015_122128286690719235_282922571820621843_n.jpg',
+                    '600205119_122149677644719235_4594288921041813284_n.jpg',
+                    '613514412_122152509416719235_3240649580143492533_n.jpg',
+                    '613693042_122152509464719235_8486207591415544049_n.jpg',
+                    '614664655_122152509614719235_7188500091631875761_n.jpg'
+                ]
+             }">
             
-            <div class="flex flex-col justify-between space-y-3 h-full">
-                <div class="mb-1 flex-shrink-0">
-                    <h3 class="text-lg font-serif text-[#2C2A29]">Official Accounts</h3>
+        <div class="max-w-5xl mx-auto space-y-24">
+            <div class="space-y-16">
+                <div class="text-center space-y-4">
+                    <h2 class="text-4xl font-normal font-serif text-[#2C2A29]">Selected Works</h2>
+                    <div class="w-16 h-1 bg-amber-700 mx-auto rounded-full"></div>
+                    <p class="text-xs uppercase tracking-[0.3em] text-amber-800 font-bold">Visual & Fashion Design Collections</p>
                 </div>
-                
-                <a href="https://www.facebook.com/share/17jVJLPbtt/" target="_blank" class="block bg-white border border-[#2C2A29]/40 p-3 rounded-xl transition-all duration-300 hover:bg-[#2C2A29]/5 hover:-translate-y-0.5">
-                    <div class="flex items-center space-x-3">
-                        <svg class="w-6 h-6 text-[#1877F2] flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                        </svg>
-                        <div>
-                            <h4 class="font-serif text-[15px] text-[#2C2A29] m-0 font-normal leading-tight">Facebook</h4>
-                            <p class="text-[9px] uppercase tracking-widest text-amber-800/80 font-bold m-0 leading-none mt-0.5">add or follow me</p>
-                        </div>
-                    </div>
-                </a>
 
-                <a href="https://www.instagram.com/markjeino.official?igsh=NHpqYmk2ZnRhdHlz" target="_blank" class="block bg-white border border-[#2C2A29]/40 p-3 rounded-xl transition-all duration-300 hover:bg-[#2C2A29]/5 hover:-translate-y-0.5">
-                    <div class="flex items-center space-x-3">
-                        <div class="w-6 h-6 flex items-center justify-center rounded-md bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] text-white flex-shrink-0">
-                            <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
-                            </svg>
+                <div class="grid md:grid-cols-2 gap-16 pt-6">
+                    <div class="space-y-4 group cursor-pointer" @click="openFashion = true; fashionIndex = 2">
+                        <div class="relative inline-block w-full">
+                            <div class="absolute inset-0 border border-amber-700/40 translate-x-3 translate-y-3 transition-transform duration-500 group-hover:translate-x-1 group-hover:translate-y-1 z-0 rounded-2xl"></div>
+                            
+                            <div class="relative border border-[#2C2A29]/30 p-2 bg-white z-10 shadow-sm rounded-2xl transition-all duration-500 group-hover:border-amber-700 group-hover:shadow-[0_0_25px_rgba(180,83,9,0.35)] image-shimmer-container">
+                                <div class="border border-[#2C2A29]/10 overflow-hidden aspect-[4/5] bg-gray-100 relative rounded-xl">
+                                    <img src="IMG_20240224_170909_231.jpg" alt="Fashion Cover" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                                    <div class="absolute inset-0 bg-[#2C2A29]/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                                        <span class="text-white uppercase tracking-widest text-xs border border-white px-4 py-2 bg-[#2C2A29]/60 rounded-md">View Collection</span>
+                                    </div>
+                                </div>
+                                <div class="luxury-image-shimmer"></div>
+                            </div>
                         </div>
-                        <div>
-                            <h4 class="font-serif text-[15px] text-[#2C2A29] m-0 font-normal leading-tight">Instagram</h4>
-                            <p class="text-[9px] uppercase tracking-widest text-amber-800/80 font-bold m-0 opacity-80 leading-none mt-0.5">View my feed</p>
+                        <div class="pt-2 space-y-1">
+                            <span class="text-xs uppercase tracking-widest text-amber-800 font-bold">01 / Fashion Design</span>
+                            <h3 class="text-2xl font-normal font-serif text-[#2C2A29] transition-colors duration-300 group-hover:text-amber-800">Contemporary Apparel</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed">Click to explore the lookbook, and costume concepts.</p>
                         </div>
                     </div>
-                </a>
 
-                <a href="mailto:desoniacerezom@gmail.com" class="block bg-white border border-[#2C2A29]/40 p-3 rounded-xl transition-all duration-300 hover:bg-[#2C2A29]/5 hover:-translate-y-0.5">
-                    <div class="flex items-center space-x-3">
-                        <svg class="w-6 h-6 text-[#EA4335] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
-                        </svg>
-                        <div class="min-w-0">
-                            <h4 class="font-serif text-[15px] text-[#2C2A29] m-0 font-normal leading-tight">Email Address</h4>
-                            <p class="text-[9px] uppercase tracking-widest text-amber-800/80 font-bold m-0 opacity-80 leading-none mt-0.5">send a direct mail</p>
+                    <div class="space-y-4 group cursor-pointer" @click="openGraphics = true; graphicsIndex = 0">
+                        <div class="relative inline-block w-full">
+                            <div class="absolute inset-0 border border-amber-700/40 translate-x-3 translate-y-3 transition-transform duration-500 group-hover:translate-x-1 group-hover:translate-y-1 z-0 rounded-2xl"></div>
+                            
+                            <div class="relative border border-[#2C2A29]/30 p-2 bg-white z-10 shadow-sm rounded-2xl transition-all duration-500 group-hover:border-amber-700 group-hover:shadow-[0_0_25px_rgba(180,83,9,0.35)] image-shimmer-container">
+                                <div class="border border-[#2C2A29]/10 overflow-hidden aspect-[4/5] bg-gray-100 relative rounded-xl">
+                                    <img src="572251611_122145432056719235_2548540388744510290_n.jpg" alt="Graphics Cover" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                                    <div class="absolute inset-0 bg-[#2C2A29]/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                                        <span class="text-white uppercase tracking-widest text-xs border border-white px-4 py-2 bg-[#2C2A29]/60 rounded-md">View Collection</span>
+                                    </div>
+                                </div>
+                                <div class="luxury-image-shimmer"></div>
+                            </div>
+                        </div>
+                        <div class="pt-2 space-y-1">
+                            <span class="text-xs uppercase tracking-widest text-amber-800 font-bold">02 / Graphic Design</span>
+                            <h3 class="text-2xl font-normal font-serif text-[#2C2A29] transition-colors duration-300 group-hover:text-amber-800">Visual Branding Systems</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed">Click to explore typography experiments, and digital compositions.</p>
                         </div>
                     </div>
-                </a>
-
-                <a href="tel:09361587488" class="block bg-white border border-[#2C2A29]/40 p-3 rounded-xl transition-all duration-300 hover:bg-[#2C2A29]/5 hover:-translate-y-0.5">
-                    <div class="flex items-center space-x-3">
-                        <svg class="w-6 h-6 text-emerald-600 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-2.2 2.2c-2.83-1.44-5.15-3.75-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.56 11.56 0 018.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1z"/>
-                        </svg>
-                        <div>
-                            <h4 class="font-serif text-[15px] text-[#2C2A29] m-0 font-normal leading-tight">Cellphone Number</h4>
-                            <p class="text-[9px] uppercase tracking-widest text-amber-800/80 font-bold m-0 opacity-80 leading-none mt-0.5">Call or text me</p>
-                        </div>
-                    </div>
-                </a>
+                </div>
             </div>
 
-            <div class="bg-white border border-[#2C2A29]/40 p-4 rounded-xl flex flex-col justify-between h-full">
-                <form action="https://api.web3forms.com/submit" method="POST" class="space-y-3 bg-[#FBF9F6]/50 border border-[#2C2A29]/10 p-4 h-full flex flex-col justify-between rounded-lg">
-                    <input type="hidden" name="access_key" value="5fbbb5f4-b014-4a5a-966e-d546687ef990">
-                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+            <hr class="border-amber-700/40 my-16 max-w-4xl mx-auto">
 
-                    <div>
-                        <label class="block text-[9px] uppercase tracking-widest font-bold text-[#2C2A29] mb-1">Your Name</label>
-                        <input type="text" name="name" required class="w-full p-2 border border-[#2C2A29]/20 bg-white text-xs rounded-md focus:outline-none focus:border-amber-800 transition-colors" placeholder="Enter your full name">
+            <div class="space-y-16">
+                <div class="text-center space-y-4">
+                    <h2 class="text-4xl font-normal font-serif text-[#2C2A29]">Performing Arts</h2>
+                    <div class="w-16 h-1 bg-amber-700 mx-auto rounded-full"></div>
+                    <p class="text-xs uppercase tracking-[0.3em] text-amber-800 font-bold">Dance & Choreography Showcase</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-16 pt-6">
+                    <div class="space-y-4 group">
+                        <div class="relative inline-block w-full">
+                            <div class="absolute inset-0 border border-amber-700/40 translate-x-3 translate-y-3 transition-transform duration-500 group-hover:translate-x-1 group-hover:translate-y-1 z-0 rounded-2xl"></div>
+                            <div class="relative border border-[#2C2A29] p-2 bg-white z-10 shadow-sm rounded-2xl">
+                                <div class="border border-[#2C2A29]/10 overflow-hidden aspect-video bg-black relative rounded-xl">
+                                    <iframe class="w-full h-full" src="https://www.youtube.com/embed/OvJeJAeXACU?autoplay=0&mute=0" title="Trashion Show 2025" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pt-2 space-y-1">
+                            <span class="text-xs uppercase tracking-widest text-amber-800 font-bold">03 / Choreography</span>
+                            <h3 class="text-2xl font-normal font-serif text-[#2C2A29]">Visual Rhythm Showcase</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed">Capturing dynamic hip-hop execution, performance synchronization, and translating musical energy into physical art.</p>
+                        </div>
                     </div>
-                    
-                    <div>
-                        <label class="block text-[9px] uppercase tracking-widest font-bold text-[#2C2A29] mb-1">Email Address</label>
-                        <input type="email" name="email" required class="w-full p-2 border border-[#2C2A29]/20 bg-white text-xs rounded-md focus:outline-none focus:border-amber-800 transition-colors" placeholder="johndoe@example.com">
+
+                    <div class="space-y-4 group">
+                        <div class="relative inline-block w-full">
+                            <div class="absolute inset-0 border border-amber-700/40 translate-x-3 translate-y-3 transition-transform duration-500 group-hover:translate-x-1 group-hover:translate-y-1 z-0 rounded-2xl"></div>
+                            <div class="relative border border-[#2C2A29] p-2 bg-white z-10 shadow-sm rounded-2xl">
+                                <div class="border border-[#2C2A29]/10 overflow-hidden aspect-video bg-black relative rounded-xl">
+                                    <iframe class="w-full h-full" src="https://www.youtube.com/embed/a4Q8UsrWktw?autoplay=0&mute=0" title="Dance Performance" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pt-2 space-y-1">
+                            <span class="text-xs uppercase tracking-widest text-amber-800 font-bold">04 / Fashion & Movement</span>
+                            <h3 class="text-2xl font-normal font-serif text-[#2C2A29]">Trashion Show 2025</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed">A grand fusion of eco-friendly wearable art and runway direction, showcasing sustainable style through creative movement.</p>
+                        </div>
                     </div>
-                    
-                    <div class="flex-grow flex flex-col min-h-[80px] md:min-h-[100px]">
-                        <label class="block text-[9px] uppercase tracking-widest font-bold text-[#2C2A29] mb-1">Message</label>
-                        <textarea name="message" required class="w-full p-2 border border-[#2C2A29]/20 bg-white text-xs rounded-md focus:outline-none focus:border-amber-800 transition-colors resize-none flex-grow" rows="3" placeholder="Write your message here..."></textarea>
-                    </div>
-                    
-                    <button type="submit" class="w-full py-2.5 text-[11px] uppercase tracking-widest font-bold text-white bg-[#2C2A29] hover:bg-amber-800 transition-colors duration-300 rounded-md flex-shrink-0 cursor-pointer">
-                        Send Message ►
-                    </button>
-                </form>
+                </div>
             </div>
-
         </div>
-    </div>
-</section>
-                                
+
+        <div class="fixed inset-0 z-50 overflow-y-auto bg-black/85 backdrop-blur-sm flex items-center justify-center p-4" x-show="openFashion" x-transition.opacity style="display: none;">
+            <div class="bg-[#F5F1EA] max-w-2xl w-full p-4 relative shadow-2xl my-auto rounded-2xl" @click.away="openFashion = false">
+                <div class="relative p-2 md:p-4 bg-white border border-[#2C2A29]/10 w-full rounded-xl">
+                    <div class="absolute inset-0 border-2 border-amber-700/30 translate-x-1.5 translate-y-1.5 z-0 m-2 md:m-4 rounded-xl"></div>
+                    <div class="relative border border-[#2C2A29] p-4 bg-[#FBF9F6] z-10 space-y-4 rounded-lg">
+                        <div class="flex justify-between items-center border-b border-gray-200 pb-2">
+                            <div>
+                                <h3 class="text-lg font-serif text-[#2C2A29]">Fashion Showcase</h3>
+                                <p class="text-[10px] uppercase tracking-widest text-amber-800 font-bold">Image <span x-text="fashionIndex + 1"></span> of <span x-text="fashionImages.length"></span></p>
+                            </div>
+                            <button class="text-2xl text-[#2C2A29] hover:text-amber-700 font-light" @click="openFashion = false">&times;</button>
+                        </div>
+                        <div class="relative w-full overflow-hidden bg-black flex items-center justify-center max-h-[60vh] border border-[#2C2A29]/20 rounded-md">
+                            <img :src="fashionImages[fashionIndex]" class="w-full h-full object-contain max-h-[60vh]">
+                        </div>
+                        <div class="flex justify-between items-center pt-2">
+                            <button class="px-4 py-2 border border-[#2C2A29] text-xs uppercase tracking-widest font-bold text-[#2C2A29] bg-white hover:bg-[#2C2A29] hover:text-white transition-colors duration-300 rounded-md" @click="fashionIndex = (fashionIndex === 0) ? fashionImages.length - 1 : fashionIndex - 1">◄ Prev</button>
+                            <button class="px-4 py-2 border border-[#2C2A29] text-xs uppercase tracking-widest font-bold text-[#2C2A29] bg-white hover:bg-[#2C2A29] hover:text-white transition-colors duration-300 rounded-md" @click="fashionIndex = (fashionIndex === fashionImages.length - 1) ? 0 : fashionIndex + 1">Next ►</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="fixed inset-0 z-50 overflow-y-auto bg-black/85 backdrop-blur-sm flex items-center justify-center p-4" x-show="openGraphics" x-transition.opacity style="display: none;">
+            <div class="bg-[#F5F1EA] max-w-2xl w-full p-4 relative shadow-2xl my-auto rounded-2xl" @click.away="openGraphics = false">
+                <div class="relative p-2 md:p-4 bg-white border border-[#2C2A29]/10 w-full rounded-xl">
+                    <div class="absolute inset-0 border-2 border-amber-700/30 translate-x-1.5 translate-y-1.5 z-0 m-2 md:m-4 rounded-xl"></div>
+                    <div class="relative border border-[#2C2A29] p-4 bg-[#FBF9F6] z-10 space-y-4 rounded-lg">
+                        <div class="flex justify-between items-center border-b border-gray-200 pb-2">
+                            <div>
+                                <h3 class="text-lg font-serif text-[#2C2A29]">Graphics Showcase</h3>
+                                <p class="text-[10px] uppercase tracking-widest text-amber-800 font-bold">Image <span x-text="graphicsIndex + 1"></span> of <span x-text="graphicsImages.length"></span></p>
+                            </div>
+                            <button class="text-2xl text-[#2C2A29] hover:text-amber-700 font-light" @click="openGraphics = false">&times;</button>
+                        </div>
+                        <div class="relative w-full overflow-hidden bg-black flex items-center justify-center max-h-[60vh] border border-[#2C2A29]/20 rounded-md">
+                            <img :src="graphicsImages[graphicsIndex]" class="w-full h-full object-contain max-h-[60vh]">
+                        </div>
+                        <div class="flex justify-between items-center pt-2">
+                            <button class="px-4 py-2 border border-[#2C2A29] text-xs uppercase tracking-widest font-bold text-[#2C2A29] bg-white hover:bg-[#2C2A29] hover:text-white transition-colors duration-300 rounded-md" @click="graphicsIndex = (graphicsIndex === 0) ? graphicsImages.length - 1 : graphicsIndex - 1">◄ Prev</button>
+                            <button class="px-4 py-2 border border-[#2C2A29] text-xs uppercase tracking-widest font-bold text-[#2C2A29] bg-white hover:bg-[#2C2A29] hover:text-white transition-colors duration-300 rounded-md" @click="graphicsIndex = (graphicsIndex === graphicsImages.length - 1) ? 0 : graphicsIndex + 1">Next ►</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+                    
+    <section id="contact" class="hidden min-h-screen md:h-screen md:max-h-screen flex items-center bg-[#F5F1EA] px-6 section-fade pt-24 pb-8 md:overflow-y-hidden box-border">
+        <div class="w-full max-w-5xl mx-auto flex flex-col justify-center h-full">
+            <div class="text-center mb-6 md:mb-8 flex-shrink-0">
+                <h2 class="text-3xl md:text-4xl font-serif text-[#2C2A29] mb-2">Get In Touch</h2>
+                <div class="w-16 h-[2px] bg-amber-800 mx-auto"></div>
+                <p class="text-xs uppercase tracking-widest text-amber-800 font-bold mt-3">Let's build or create something beautiful together</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-stretch md:max-h-[65vh]">
+                <div class="flex flex-col justify-between space-y-3 h-full">
+                    <div class="mb-1 flex-shrink-0">
+                        <h3 class="text-lg font-serif text-[#2C2A29]">Official Accounts</h3>
+                    </div>
+                    
+                    <a href="https://www.facebook.com/share/17jVJLPbtt/" target="_blank" class="block bg-white border border-[#2C2A29]/40 p-3 rounded-xl transition-all duration-300 hover:bg-[#2C2A29]/5 hover:-translate-y-0.5">
+                        <div class="flex items-center space-x-3">
+                            <svg class="w-6 h-6 text-[#1877F2] flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                            <div>
+                                <h4 class="font-serif text-[15px] text-[#2C2A29] m-0 font-normal leading-tight">Facebook</h4>
+                                <p class="text-[9px] uppercase tracking-widest text-amber-800/80 font-bold m-0 leading-none mt-0.5">add or follow me</p>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="https://www.instagram.com/markjeino.official?igsh=NHpqYmk2ZnRhdHlz" target="_blank" class="block bg-white border border-[#2C2A29]/40 p-3 rounded-xl transition-all duration-300 hover:bg-[#2C2A29]/5 hover:-translate-y-0.5">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-6 h-6 flex items-center justify-center rounded-md bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] text-white flex-shrink-0">
+                                <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-serif text-[15px] text-[#2C2A29] m-0 font-normal leading-tight">Instagram</h4>
+                                <p class="text-[9px] uppercase tracking-widest text-amber-800/80 font-bold m-0 opacity-80 leading-none mt-0.5">View my feed</p>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="mailto:desoniacerezom@gmail.com" class="block bg-white border border-[#2C2A29]/40 p-3 rounded-xl transition-all duration-300 hover:bg-[#2C2A29]/5 hover:-translate-y-0.5">
+                        <div class="flex items-center space-x-3">
+                            <svg class="w-6 h-6 text-[#EA4335] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
+                            </svg>
+                            <div class="min-w-0">
+                                <h4 class="font-serif text-[15px] text-[#2C2A29] m-0 font-normal leading-tight">Email Address</h4>
+                                <p class="text-[9px] uppercase tracking-widest text-amber-800/80 font-bold m-0 opacity-80 leading-none mt-0.5">send a direct mail</p>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="tel:09361587488" class="block bg-white border border-[#2C2A29]/40 p-3 rounded-xl transition-all duration-300 hover:bg-[#2C2A29]/5 hover:-translate-y-0.5">
+                        <div class="flex items-center space-x-3">
+                            <svg class="w-6 h-6 text-emerald-600 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-2.2 2.2c-2.83-1.44-5.15-3.75-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.56 11.56 0 018.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1z"/>
+                            </svg>
+                            <div>
+                                <h4 class="font-serif text-[15px] text-[#2C2A29] m-0 font-normal leading-tight">Cellphone Number</h4>
+                                <p class="text-[9px] uppercase tracking-widest text-amber-800/80 font-bold m-0 opacity-80 leading-none mt-0.5">Call or text me</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="bg-white border border-[#2C2A29]/40 p-4 rounded-xl flex flex-col justify-between h-full">
+                    <form action="https://api.web3forms.com/submit" method="POST" class="space-y-3 bg-[#FBF9F6]/50 border border-[#2C2A29]/10 p-4 h-full flex flex-col justify-between rounded-lg">
+                        <input type="hidden" name="access_key" value="5fbbb5f4-b014-4a5a-966e-d546687ef990">
+                        <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+                        <div>
+                            <label class="block text-[9px] uppercase tracking-widest font-bold text-[#2C2A29] mb-1">Your Name</label>
+                            <input type="text" name="name" required class="w-full p-2 border border-[#2C2A29]/20 bg-white text-xs rounded-md focus:outline-none focus:border-amber-800 transition-colors" placeholder="Enter your full name">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-[9px] uppercase tracking-widest font-bold text-[#2C2A29] mb-1">Email Address</label>
+                            <input type="email" name="email" required class="w-full p-2 border border-[#2C2A29]/20 bg-white text-xs rounded-md focus:outline-none focus:border-amber-800 transition-colors" placeholder="johndoe@example.com">
+                        </div>
+                        
+                        <div class="flex-grow flex flex-col min-h-[80px] md:min-h-[100px]">
+                            <label class="block text-[9px] uppercase tracking-widest font-bold text-[#2C2A29] mb-1">Message</label>
+                            <textarea name="message" required class="w-full p-2 border border-[#2C2A29]/20 bg-white text-xs rounded-md focus:outline-none focus:border-amber-800 transition-colors resize-none flex-grow" rows="3" placeholder="Write your message here..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full py-2.5 text-[11px] uppercase tracking-widest font-bold text-white bg-[#2C2A29] hover:bg-amber-800 transition-colors duration-300 rounded-md flex-shrink-0 cursor-pointer">
+                            Send Message ►
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+                                    
     <script>
         function showSection(sectionId) {
-            // KUMPLETONG ARRAY NG MGA SECTIONS
-            const sections = ['home', 'about', 'portfolio', 'services', 'testimonials', 'contact'];
+            const sections = ['home', 'about', 'portfolio', 'contact'];
             
             sections.forEach(id => {
                 const el = document.getElementById(id);
@@ -786,6 +655,5 @@
             observer.observe(section);
         });
     </script>
-
 </body>
 </html>
